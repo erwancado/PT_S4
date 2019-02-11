@@ -58,7 +58,6 @@
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Identifiant";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -86,7 +85,6 @@
             this.DateLabel.Size = new System.Drawing.Size(35, 13);
             this.DateLabel.TabIndex = 5;
             this.DateLabel.Text = "label3";
-            this.DateLabel.Click += new System.EventHandler(this.DateLabel_Click);
             // 
             // Authentication
             // 

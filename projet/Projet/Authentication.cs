@@ -12,16 +12,16 @@ namespace Projet
 {
     public partial class Authentication : Form
     {
+
+
+        Timer time = new Timer();
         public Authentication()
         {
             InitializeComponent();
+            time.Tick += (s, e) => { DateLabel.Text = DateTime.Now.ToString(); };
+            time.Interval = 500;
+            time.Start();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DateLabel_Click(object sender, EventArgs e) => DateTime.Now.ToString("dd/mm/yy HH:mm");
     }
 }
