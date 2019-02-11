@@ -1,0 +1,10 @@
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\bin\Debug\Projet.exe.config
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\bin\Debug\Projet.exe
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\bin\Debug\Projet.pdb
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\obj\Debug\Projet.csprojResolveAssemblyReference.cache
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\obj\Debug\Projet.ClientSheet.resources
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\obj\Debug\Projet.Properties.Resources.resources
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\obj\Debug\Projet.csproj.GenerateResource.cache
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\obj\Debug\Projet.csproj.CoreCompileInputs.cache
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\obj\Debug\Projet.exe
+\\iut.bx1\Etudiants\Home\mhevin\Desktop\pt_s4\projet\Projet\obj\Debug\Projet.pdb
