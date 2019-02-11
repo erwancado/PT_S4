@@ -1,0 +1,1753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PT4_S4P2C_E3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Animaux">
+          <Key>
+            <PropertyRef Name="idAnimaux" />
+          </Key>
+          <Property Name="idAnimaux" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" />
+          <Property Name="Sexe" Type="varchar" MaxLength="1" />
+          <Property Name="DateNaissance" Type="date" />
+          <Property Name="Poids" Type="int" />
+          <Property Name="DernièreVisite" Type="date" />
+          <Property Name="ProchaineVisite" Type="date" />
+          <Property Name="Caractéristiques" Type="text" />
+          <Property Name="Clients_idClients" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Animaux_maladies">
+          <Key>
+            <PropertyRef Name="Animaux_idAnimaux" />
+            <PropertyRef Name="Maladies_idMaladies" />
+          </Key>
+          <Property Name="Animaux_idAnimaux" Type="int" Nullable="false" />
+          <Property Name="Maladies_idMaladies" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Animaux_race">
+          <Key>
+            <PropertyRef Name="Animaux_idAnimaux" />
+            <PropertyRef Name="Race_idRace" />
+          </Key>
+          <Property Name="Animaux_idAnimaux" Type="int" Nullable="false" />
+          <Property Name="Race_idRace" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="idClients" />
+          </Key>
+          <Property Name="idClients" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Prénom" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Sexe" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="DateNaissance" Type="date" Nullable="false" />
+          <Property Name="Adresse" Type="text" Nullable="false" />
+          <Property Name="Téléphone" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comestibles">
+          <Key>
+            <PropertyRef Name="Produits_idProduits" />
+          </Key>
+          <Property Name="DatePeremption" Type="date" Nullable="false" />
+          <Property Name="Produits_idProduits" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Congés">
+          <Key>
+            <PropertyRef Name="idCongés" />
+          </Key>
+          <Property Name="idCongés" Type="int" Nullable="false" />
+          <Property Name="DateDébut" Type="date" Nullable="false" />
+          <Property Name="DateFin" Type="date" Nullable="false" />
+          <Property Name="Utilisateurs_idUtilisateurs" Type="int" Nullable="false" />
+          <Property Name="Type_congés_idType_congés" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employés">
+          <Key>
+            <PropertyRef Name="idEmployés" />
+          </Key>
+          <Property Name="idEmployés" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Prénom" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="DateNaissance" Type="date" Nullable="false" />
+          <Property Name="Adresse" Type="text" Nullable="false" />
+          <Property Name="Téléphone" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Salaire" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="DébutContrat" Type="date" Nullable="false" />
+          <Property Name="FinContrat" Type="date" Nullable="false" />
+          <Property Name="Utilisateurs_idUtilisateurs" Type="int" Nullable="false" />
+          <Property Name="Fonctions_idFonctions" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employés_Formations">
+          <Key>
+            <PropertyRef Name="Employés_idEmployés" />
+            <PropertyRef Name="Formations_idFormations" />
+          </Key>
+          <Property Name="Employés_idEmployés" Type="int" Nullable="false" />
+          <Property Name="Formations_idFormations" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Especes">
+          <Key>
+            <PropertyRef Name="idEspeces" />
+          </Key>
+          <Property Name="idEspeces" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factures">
+          <Key>
+            <PropertyRef Name="idFactures" />
+          </Key>
+          <Property Name="idFactures" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Prix" Type="int" Nullable="false" />
+          <Property Name="idRendezVous" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fonctions">
+          <Key>
+            <PropertyRef Name="idFonctions" />
+          </Key>
+          <Property Name="idFonctions" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Role_idRole" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Formations">
+          <Key>
+            <PropertyRef Name="idFormations" />
+          </Key>
+          <Property Name="idFormations" Type="int" Nullable="false" />
+          <Property Name="Ville" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="DateDébut" Type="date" Nullable="false" />
+          <Property Name="DateFin" Type="date" Nullable="false" />
+          <Property Name="Descript" Type="text" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="idLogs" />
+          </Key>
+          <Property Name="idLogs" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Employés_idEmployés" Type="int" Nullable="false" />
+          <Property Name="Action" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Maladies">
+          <Key>
+            <PropertyRef Name="idMaladies" />
+          </Key>
+          <Property Name="idMaladies" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Matériels">
+          <Key>
+            <PropertyRef Name="Produits_idProduits" />
+          </Key>
+          <Property Name="Etat" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Produits_idProduits" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Médicaments">
+          <Key>
+            <PropertyRef Name="idMédicaments" />
+            <PropertyRef Name="Comestibles_idComestibles" />
+            <PropertyRef Name="Comestibles_Produits_idProduits" />
+            <PropertyRef Name="Comestibles_Produits_idProduits1" />
+          </Key>
+          <Property Name="idMédicaments" Type="int" Nullable="false" />
+          <Property Name="Comestibles_idComestibles" Type="int" Nullable="false" />
+          <Property Name="Comestibles_Produits_idProduits" Type="int" Nullable="false" />
+          <Property Name="Comestibles_Produits_idProduits1" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nourriture">
+          <Key>
+            <PropertyRef Name="idNourriture" />
+            <PropertyRef Name="Comestibles_idComestibles" />
+            <PropertyRef Name="Comestibles_Produits_idProduits" />
+            <PropertyRef Name="Comestibles_Produits_idProduits1" />
+          </Key>
+          <Property Name="idNourriture" Type="int" Nullable="false" />
+          <Property Name="Comestibles_idComestibles" Type="int" Nullable="false" />
+          <Property Name="Comestibles_Produits_idProduits" Type="int" Nullable="false" />
+          <Property Name="Comestibles_Produits_idProduits1" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ordonnance">
+          <Key>
+            <PropertyRef Name="idOrdonnance" />
+          </Key>
+          <Property Name="idOrdonnance" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Clients_idClients" Type="int" Nullable="false" />
+          <Property Name="Animaux_idAnimaux" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produit_Ordonnance">
+          <Key>
+            <PropertyRef Name="Ordonnance_idOrdonnance" />
+            <PropertyRef Name="Produits_idProduits" />
+          </Key>
+          <Property Name="Ordonnance_idOrdonnance" Type="int" Nullable="false" />
+          <Property Name="Produits_idProduits" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produits">
+          <Key>
+            <PropertyRef Name="idProduits" />
+          </Key>
+          <Property Name="idProduits" Type="int" Nullable="false" />
+          <Property Name="refProduits" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="DateAcquisition" Type="date" Nullable="false" />
+          <Property Name="PrixAcquisition" Type="int" Nullable="false" />
+          <Property Name="PrixVente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Race">
+          <Key>
+            <PropertyRef Name="idRace" />
+          </Key>
+          <Property Name="idRace" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Especes_idEspeces" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rappel">
+          <Key>
+            <PropertyRef Name="idRappel" />
+          </Key>
+          <Property Name="idRappel" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="Animaux_idAnimaux" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RendezVous">
+          <Key>
+            <PropertyRef Name="idRendezVous" />
+          </Key>
+          <Property Name="idRendezVous" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Clients_idClients" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleUser">
+          <Key>
+            <PropertyRef Name="idRole" />
+          </Key>
+          <Property Name="idRole" Type="int" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Soins">
+          <Key>
+            <PropertyRef Name="idSoins" />
+          </Key>
+          <Property Name="idSoins" Type="int" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Factures_idFactures" Type="int" Nullable="false" />
+          <Property Name="Date_soins" Type="date" Nullable="false" />
+          <Property Name="Soinscol" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Soins_Animaux">
+          <Key>
+            <PropertyRef Name="Soins_idSoins" />
+            <PropertyRef Name="Animaux_idAnimaux" />
+          </Key>
+          <Property Name="Soins_idSoins" Type="int" Nullable="false" />
+          <Property Name="Animaux_idAnimaux" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Type_congés">
+          <Key>
+            <PropertyRef Name="idType_congés" />
+          </Key>
+          <Property Name="idType_congés" Type="int" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utilisateurs">
+          <Key>
+            <PropertyRef Name="idUtilisateurs" />
+          </Key>
+          <Property Name="idUtilisateurs" Type="int" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="MotDePasse" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Animaux_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="idClients" />
+            </Principal>
+            <Dependent Role="Animaux">
+              <PropertyRef Name="Clients_idClients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Animaux_has_Maladies_Animaux1">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="1" />
+          <End Role="Animaux_maladies" Type="Self.Animaux_maladies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animaux">
+              <PropertyRef Name="idAnimaux" />
+            </Principal>
+            <Dependent Role="Animaux_maladies">
+              <PropertyRef Name="Animaux_idAnimaux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Animaux_has_Maladies_Maladies1">
+          <End Role="Maladies" Type="Self.Maladies" Multiplicity="1" />
+          <End Role="Animaux_maladies" Type="Self.Animaux_maladies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maladies">
+              <PropertyRef Name="idMaladies" />
+            </Principal>
+            <Dependent Role="Animaux_maladies">
+              <PropertyRef Name="Maladies_idMaladies" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Animaux_has_Race_Animaux1">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="1" />
+          <End Role="Animaux_race" Type="Self.Animaux_race" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animaux">
+              <PropertyRef Name="idAnimaux" />
+            </Principal>
+            <Dependent Role="Animaux_race">
+              <PropertyRef Name="Animaux_idAnimaux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Animaux_has_Race_Race1">
+          <End Role="Race" Type="Self.Race" Multiplicity="1" />
+          <End Role="Animaux_race" Type="Self.Animaux_race" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Race">
+              <PropertyRef Name="idRace" />
+            </Principal>
+            <Dependent Role="Animaux_race">
+              <PropertyRef Name="Race_idRace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Comestibles_Produits">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Comestibles" Type="Self.Comestibles" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="idProduits" />
+            </Principal>
+            <Dependent Role="Comestibles">
+              <PropertyRef Name="Produits_idProduits" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Congés_Type_congés1">
+          <End Role="Type_congés" Type="Self.Type_congés" Multiplicity="1" />
+          <End Role="Congés" Type="Self.Congés" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_congés">
+              <PropertyRef Name="idType_congés" />
+            </Principal>
+            <Dependent Role="Congés">
+              <PropertyRef Name="Type_congés_idType_congés" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Congés_Utilisateurs1">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="1" />
+          <End Role="Congés" Type="Self.Congés" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="idUtilisateurs" />
+            </Principal>
+            <Dependent Role="Congés">
+              <PropertyRef Name="Utilisateurs_idUtilisateurs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employés_Fonctions1">
+          <End Role="Fonctions" Type="Self.Fonctions" Multiplicity="1" />
+          <End Role="Employés" Type="Self.Employés" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fonctions">
+              <PropertyRef Name="idFonctions" />
+            </Principal>
+            <Dependent Role="Employés">
+              <PropertyRef Name="Fonctions_idFonctions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employés_has_Formations_Employés1">
+          <End Role="Employés" Type="Self.Employés" Multiplicity="1" />
+          <End Role="Employés_Formations" Type="Self.Employés_Formations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employés">
+              <PropertyRef Name="idEmployés" />
+            </Principal>
+            <Dependent Role="Employés_Formations">
+              <PropertyRef Name="Employés_idEmployés" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employés_has_Formations_Formations1">
+          <End Role="Formations" Type="Self.Formations" Multiplicity="1" />
+          <End Role="Employés_Formations" Type="Self.Employés_Formations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formations">
+              <PropertyRef Name="idFormations" />
+            </Principal>
+            <Dependent Role="Employés_Formations">
+              <PropertyRef Name="Formations_idFormations" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employés_Utilisateurs1">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="1" />
+          <End Role="Employés" Type="Self.Employés" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="idUtilisateurs" />
+            </Principal>
+            <Dependent Role="Employés">
+              <PropertyRef Name="Utilisateurs_idUtilisateurs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Factures_Rendez_vous">
+          <End Role="RendezVous" Type="Self.RendezVous" Multiplicity="1" />
+          <End Role="Factures" Type="Self.Factures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RendezVous">
+              <PropertyRef Name="idRendezVous" />
+            </Principal>
+            <Dependent Role="Factures">
+              <PropertyRef Name="idRendezVous" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Fonctions_Role1">
+          <End Role="RoleUser" Type="Self.RoleUser" Multiplicity="1" />
+          <End Role="Fonctions" Type="Self.Fonctions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleUser">
+              <PropertyRef Name="idRole" />
+            </Principal>
+            <Dependent Role="Fonctions">
+              <PropertyRef Name="Role_idRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Logs_Employés1">
+          <End Role="Employés" Type="Self.Employés" Multiplicity="1" />
+          <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employés">
+              <PropertyRef Name="idEmployés" />
+            </Principal>
+            <Dependent Role="Logs">
+              <PropertyRef Name="Employés_idEmployés" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matériels_Produits1">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Matériels" Type="Self.Matériels" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="idProduits" />
+            </Principal>
+            <Dependent Role="Matériels">
+              <PropertyRef Name="Produits_idProduits" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Médicaments_Comestibles1">
+          <End Role="Comestibles" Type="Self.Comestibles" Multiplicity="1" />
+          <End Role="Médicaments" Type="Self.Médicaments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comestibles">
+              <PropertyRef Name="Produits_idProduits" />
+            </Principal>
+            <Dependent Role="Médicaments">
+              <PropertyRef Name="Comestibles_Produits_idProduits1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Nourriture_Comestibles1">
+          <End Role="Comestibles" Type="Self.Comestibles" Multiplicity="1" />
+          <End Role="Nourriture" Type="Self.Nourriture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comestibles">
+              <PropertyRef Name="Produits_idProduits" />
+            </Principal>
+            <Dependent Role="Nourriture">
+              <PropertyRef Name="Comestibles_Produits_idProduits1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ordonnance_Animaux1">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="1" />
+          <End Role="Ordonnance" Type="Self.Ordonnance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animaux">
+              <PropertyRef Name="idAnimaux" />
+            </Principal>
+            <Dependent Role="Ordonnance">
+              <PropertyRef Name="Animaux_idAnimaux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ordonnance_Clients1">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Ordonnance" Type="Self.Ordonnance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="idClients" />
+            </Principal>
+            <Dependent Role="Ordonnance">
+              <PropertyRef Name="Clients_idClients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ordonnance_has_Produits_Ordonnance1">
+          <End Role="Ordonnance" Type="Self.Ordonnance" Multiplicity="1" />
+          <End Role="Produit_Ordonnance" Type="Self.Produit_Ordonnance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ordonnance">
+              <PropertyRef Name="idOrdonnance" />
+            </Principal>
+            <Dependent Role="Produit_Ordonnance">
+              <PropertyRef Name="Ordonnance_idOrdonnance" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ordonnance_has_Produits_Produits1">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Produit_Ordonnance" Type="Self.Produit_Ordonnance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="idProduits" />
+            </Principal>
+            <Dependent Role="Produit_Ordonnance">
+              <PropertyRef Name="Produits_idProduits" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Race_Especes1">
+          <End Role="Especes" Type="Self.Especes" Multiplicity="1" />
+          <End Role="Race" Type="Self.Race" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especes">
+              <PropertyRef Name="idEspeces" />
+            </Principal>
+            <Dependent Role="Race">
+              <PropertyRef Name="Especes_idEspeces" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Rappel_Animaux1">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="1" />
+          <End Role="Rappel" Type="Self.Rappel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animaux">
+              <PropertyRef Name="idAnimaux" />
+            </Principal>
+            <Dependent Role="Rappel">
+              <PropertyRef Name="Animaux_idAnimaux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Rendez_vous_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="RendezVous" Type="Self.RendezVous" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="idClients" />
+            </Principal>
+            <Dependent Role="RendezVous">
+              <PropertyRef Name="Clients_idClients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Soins_Factures1">
+          <End Role="Factures" Type="Self.Factures" Multiplicity="1" />
+          <End Role="Soins" Type="Self.Soins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factures">
+              <PropertyRef Name="idFactures" />
+            </Principal>
+            <Dependent Role="Soins">
+              <PropertyRef Name="Factures_idFactures" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Soins_has_Animaux_Animaux1">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="1" />
+          <End Role="Soins_Animaux" Type="Self.Soins_Animaux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animaux">
+              <PropertyRef Name="idAnimaux" />
+            </Principal>
+            <Dependent Role="Soins_Animaux">
+              <PropertyRef Name="Animaux_idAnimaux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Soins_has_Animaux_Soins1">
+          <End Role="Soins" Type="Self.Soins" Multiplicity="1" />
+          <End Role="Soins_Animaux" Type="Self.Soins_Animaux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Soins">
+              <PropertyRef Name="idSoins" />
+            </Principal>
+            <Dependent Role="Soins_Animaux">
+              <PropertyRef Name="Soins_idSoins" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PT4_S4P2C_E3ModelStoreContainer">
+          <EntitySet Name="Animaux" EntityType="Self.Animaux" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Animaux_maladies" EntityType="Self.Animaux_maladies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Animaux_race" EntityType="Self.Animaux_race" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comestibles" EntityType="Self.Comestibles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Congés" EntityType="Self.Congés" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employés" EntityType="Self.Employés" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employés_Formations" EntityType="Self.Employés_Formations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Especes" EntityType="Self.Especes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factures" EntityType="Self.Factures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fonctions" EntityType="Self.Fonctions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Formations" EntityType="Self.Formations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Maladies" EntityType="Self.Maladies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Matériels" EntityType="Self.Matériels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Médicaments" EntityType="Self.Médicaments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nourriture" EntityType="Self.Nourriture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ordonnance" EntityType="Self.Ordonnance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produit_Ordonnance" EntityType="Self.Produit_Ordonnance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produits" EntityType="Self.Produits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Race" EntityType="Self.Race" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rappel" EntityType="Self.Rappel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RendezVous" EntityType="Self.RendezVous" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleUser" EntityType="Self.RoleUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Soins" EntityType="Self.Soins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Soins_Animaux" EntityType="Self.Soins_Animaux" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Type_congés" EntityType="Self.Type_congés" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateurs" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_Animaux_Clients" Association="Self.fk_Animaux_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Animaux" EntitySet="Animaux" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Animaux_has_Maladies_Animaux1" Association="Self.fk_Animaux_has_Maladies_Animaux1">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Animaux_maladies" EntitySet="Animaux_maladies" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Animaux_has_Maladies_Maladies1" Association="Self.fk_Animaux_has_Maladies_Maladies1">
+            <End Role="Maladies" EntitySet="Maladies" />
+            <End Role="Animaux_maladies" EntitySet="Animaux_maladies" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Animaux_has_Race_Animaux1" Association="Self.fk_Animaux_has_Race_Animaux1">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Animaux_race" EntitySet="Animaux_race" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Animaux_has_Race_Race1" Association="Self.fk_Animaux_has_Race_Race1">
+            <End Role="Race" EntitySet="Race" />
+            <End Role="Animaux_race" EntitySet="Animaux_race" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Comestibles_Produits" Association="Self.fk_Comestibles_Produits">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Comestibles" EntitySet="Comestibles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Congés_Type_congés1" Association="Self.fk_Congés_Type_congés1">
+            <End Role="Type_congés" EntitySet="Type_congés" />
+            <End Role="Congés" EntitySet="Congés" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Congés_Utilisateurs1" Association="Self.fk_Congés_Utilisateurs1">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Congés" EntitySet="Congés" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employés_Fonctions1" Association="Self.fk_Employés_Fonctions1">
+            <End Role="Fonctions" EntitySet="Fonctions" />
+            <End Role="Employés" EntitySet="Employés" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employés_has_Formations_Employés1" Association="Self.fk_Employés_has_Formations_Employés1">
+            <End Role="Employés" EntitySet="Employés" />
+            <End Role="Employés_Formations" EntitySet="Employés_Formations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employés_has_Formations_Formations1" Association="Self.fk_Employés_has_Formations_Formations1">
+            <End Role="Formations" EntitySet="Formations" />
+            <End Role="Employés_Formations" EntitySet="Employés_Formations" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employés_Utilisateurs1" Association="Self.fk_Employés_Utilisateurs1">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Employés" EntitySet="Employés" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Factures_Rendez_vous" Association="Self.fk_Factures_Rendez_vous">
+            <End Role="RendezVous" EntitySet="RendezVous" />
+            <End Role="Factures" EntitySet="Factures" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Fonctions_Role1" Association="Self.fk_Fonctions_Role1">
+            <End Role="RoleUser" EntitySet="RoleUser" />
+            <End Role="Fonctions" EntitySet="Fonctions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Logs_Employés1" Association="Self.fk_Logs_Employés1">
+            <End Role="Employés" EntitySet="Employés" />
+            <End Role="Logs" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matériels_Produits1" Association="Self.fk_Matériels_Produits1">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Matériels" EntitySet="Matériels" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Médicaments_Comestibles1" Association="Self.fk_Médicaments_Comestibles1">
+            <End Role="Comestibles" EntitySet="Comestibles" />
+            <End Role="Médicaments" EntitySet="Médicaments" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Nourriture_Comestibles1" Association="Self.fk_Nourriture_Comestibles1">
+            <End Role="Comestibles" EntitySet="Comestibles" />
+            <End Role="Nourriture" EntitySet="Nourriture" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ordonnance_Animaux1" Association="Self.fk_Ordonnance_Animaux1">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Ordonnance" EntitySet="Ordonnance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ordonnance_Clients1" Association="Self.fk_Ordonnance_Clients1">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Ordonnance" EntitySet="Ordonnance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ordonnance_has_Produits_Ordonnance1" Association="Self.fk_Ordonnance_has_Produits_Ordonnance1">
+            <End Role="Ordonnance" EntitySet="Ordonnance" />
+            <End Role="Produit_Ordonnance" EntitySet="Produit_Ordonnance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ordonnance_has_Produits_Produits1" Association="Self.fk_Ordonnance_has_Produits_Produits1">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Produit_Ordonnance" EntitySet="Produit_Ordonnance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Race_Especes1" Association="Self.fk_Race_Especes1">
+            <End Role="Especes" EntitySet="Especes" />
+            <End Role="Race" EntitySet="Race" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Rappel_Animaux1" Association="Self.fk_Rappel_Animaux1">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Rappel" EntitySet="Rappel" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Rendez_vous_Clients" Association="Self.fk_Rendez_vous_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="RendezVous" EntitySet="RendezVous" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Soins_Factures1" Association="Self.fk_Soins_Factures1">
+            <End Role="Factures" EntitySet="Factures" />
+            <End Role="Soins" EntitySet="Soins" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Soins_has_Animaux_Animaux1" Association="Self.fk_Soins_has_Animaux_Animaux1">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Soins_Animaux" EntitySet="Soins_Animaux" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Soins_has_Animaux_Soins1" Association="Self.fk_Soins_has_Animaux_Soins1">
+            <End Role="Soins" EntitySet="Soins" />
+            <End Role="Soins_Animaux" EntitySet="Soins_Animaux" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PT4_S4P2C_E3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Animaux">
+          <Key>
+            <PropertyRef Name="idAnimaux" />
+          </Key>
+          <Property Name="idAnimaux" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Sexe" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DateNaissance" Type="DateTime" Precision="0" />
+          <Property Name="Poids" Type="Int32" />
+          <Property Name="DernièreVisite" Type="DateTime" Precision="0" />
+          <Property Name="ProchaineVisite" Type="DateTime" Precision="0" />
+          <Property Name="Caractéristiques" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Clients_idClients" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.fk_Animaux_Clients" FromRole="Animaux" ToRole="Clients" />
+          <NavigationProperty Name="Animaux_maladies" Relationship="Self.fk_Animaux_has_Maladies_Animaux1" FromRole="Animaux" ToRole="Animaux_maladies" />
+          <NavigationProperty Name="Ordonnance" Relationship="Self.fk_Ordonnance_Animaux1" FromRole="Animaux" ToRole="Ordonnance" />
+          <NavigationProperty Name="Rappel" Relationship="Self.fk_Rappel_Animaux1" FromRole="Animaux" ToRole="Rappel" />
+          <NavigationProperty Name="Race" Relationship="Self.Animaux_race" FromRole="Animaux" ToRole="Race" />
+          <NavigationProperty Name="Soins" Relationship="Self.Soins_Animaux" FromRole="Animaux" ToRole="Soins" />
+        </EntityType>
+        <EntityType Name="Animaux_maladies">
+          <Key>
+            <PropertyRef Name="Animaux_idAnimaux" />
+            <PropertyRef Name="Maladies_idMaladies" />
+          </Key>
+          <Property Name="Animaux_idAnimaux" Type="Int32" Nullable="false" />
+          <Property Name="Maladies_idMaladies" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Animaux" Relationship="Self.fk_Animaux_has_Maladies_Animaux1" FromRole="Animaux_maladies" ToRole="Animaux" />
+          <NavigationProperty Name="Maladies" Relationship="Self.fk_Animaux_has_Maladies_Maladies1" FromRole="Animaux_maladies" ToRole="Maladies" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="idClients" />
+          </Key>
+          <Property Name="idClients" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prénom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sexe" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Téléphone" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Animaux" Relationship="Self.fk_Animaux_Clients" FromRole="Clients" ToRole="Animaux" />
+          <NavigationProperty Name="Ordonnance" Relationship="Self.fk_Ordonnance_Clients1" FromRole="Clients" ToRole="Ordonnance" />
+          <NavigationProperty Name="RendezVous" Relationship="Self.fk_Rendez_vous_Clients" FromRole="Clients" ToRole="RendezVous" />
+        </EntityType>
+        <EntityType Name="Comestibles">
+          <Key>
+            <PropertyRef Name="Produits_idProduits" />
+          </Key>
+          <Property Name="DatePeremption" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Produits_idProduits" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produits" Relationship="Self.fk_Comestibles_Produits" FromRole="Comestibles" ToRole="Produits" />
+          <NavigationProperty Name="Médicaments" Relationship="Self.fk_Médicaments_Comestibles1" FromRole="Comestibles" ToRole="Médicaments" />
+          <NavigationProperty Name="Nourriture" Relationship="Self.fk_Nourriture_Comestibles1" FromRole="Comestibles" ToRole="Nourriture" />
+        </EntityType>
+        <EntityType Name="Congés">
+          <Key>
+            <PropertyRef Name="idCongés" />
+          </Key>
+          <Property Name="idCongés" Type="Int32" Nullable="false" />
+          <Property Name="DateDébut" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateFin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Utilisateurs_idUtilisateurs" Type="Int32" Nullable="false" />
+          <Property Name="Type_congés_idType_congés" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Type_congés" Relationship="Self.fk_Congés_Type_congés1" FromRole="Congés" ToRole="Type_congés" />
+          <NavigationProperty Name="Utilisateurs" Relationship="Self.fk_Congés_Utilisateurs1" FromRole="Congés" ToRole="Utilisateurs" />
+        </EntityType>
+        <EntityType Name="Employés">
+          <Key>
+            <PropertyRef Name="idEmployés" />
+          </Key>
+          <Property Name="idEmployés" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prénom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Téléphone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salaire" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DébutContrat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FinContrat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Utilisateurs_idUtilisateurs" Type="Int32" Nullable="false" />
+          <Property Name="Fonctions_idFonctions" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Fonctions" Relationship="Self.fk_Employés_Fonctions1" FromRole="Employés" ToRole="Fonctions" />
+          <NavigationProperty Name="Utilisateurs" Relationship="Self.fk_Employés_Utilisateurs1" FromRole="Employés" ToRole="Utilisateurs" />
+          <NavigationProperty Name="Logs" Relationship="Self.fk_Logs_Employés1" FromRole="Employés" ToRole="Logs" />
+          <NavigationProperty Name="Formations" Relationship="Self.Employés_Formations" FromRole="Employés" ToRole="Formations" />
+        </EntityType>
+        <EntityType Name="Especes">
+          <Key>
+            <PropertyRef Name="idEspeces" />
+          </Key>
+          <Property Name="idEspeces" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Race" Relationship="Self.fk_Race_Especes1" FromRole="Especes" ToRole="Race" />
+        </EntityType>
+        <EntityType Name="Factures">
+          <Key>
+            <PropertyRef Name="idFactures" />
+          </Key>
+          <Property Name="idFactures" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Prix" Type="Int32" Nullable="false" />
+          <Property Name="idRendezVous" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RendezVous" Relationship="Self.fk_Factures_Rendez_vous" FromRole="Factures" ToRole="RendezVous" />
+          <NavigationProperty Name="Soins" Relationship="Self.fk_Soins_Factures1" FromRole="Factures" ToRole="Soins" />
+        </EntityType>
+        <EntityType Name="Fonctions">
+          <Key>
+            <PropertyRef Name="idFonctions" />
+          </Key>
+          <Property Name="idFonctions" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role_idRole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employés" Relationship="Self.fk_Employés_Fonctions1" FromRole="Fonctions" ToRole="Employés" />
+          <NavigationProperty Name="RoleUser" Relationship="Self.fk_Fonctions_Role1" FromRole="Fonctions" ToRole="RoleUser" />
+        </EntityType>
+        <EntityType Name="Formations">
+          <Key>
+            <PropertyRef Name="idFormations" />
+          </Key>
+          <Property Name="idFormations" Type="Int32" Nullable="false" />
+          <Property Name="Ville" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateDébut" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateFin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Descript" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employés" Relationship="Self.Employés_Formations" FromRole="Formations" ToRole="Employés" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="idLogs" />
+          </Key>
+          <Property Name="idLogs" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Employés_idEmployés" Type="Int32" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employés" Relationship="Self.fk_Logs_Employés1" FromRole="Logs" ToRole="Employés" />
+        </EntityType>
+        <EntityType Name="Maladies">
+          <Key>
+            <PropertyRef Name="idMaladies" />
+          </Key>
+          <Property Name="idMaladies" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Animaux_maladies" Relationship="Self.fk_Animaux_has_Maladies_Maladies1" FromRole="Maladies" ToRole="Animaux_maladies" />
+        </EntityType>
+        <EntityType Name="Matériels">
+          <Key>
+            <PropertyRef Name="Produits_idProduits" />
+          </Key>
+          <Property Name="Etat" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Produits_idProduits" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Produits" Relationship="Self.fk_Matériels_Produits1" FromRole="Matériels" ToRole="Produits" />
+        </EntityType>
+        <EntityType Name="Médicaments">
+          <Key>
+            <PropertyRef Name="idMédicaments" />
+            <PropertyRef Name="Comestibles_idComestibles" />
+            <PropertyRef Name="Comestibles_Produits_idProduits" />
+            <PropertyRef Name="Comestibles_Produits_idProduits1" />
+          </Key>
+          <Property Name="idMédicaments" Type="Int32" Nullable="false" />
+          <Property Name="Comestibles_idComestibles" Type="Int32" Nullable="false" />
+          <Property Name="Comestibles_Produits_idProduits" Type="Int32" Nullable="false" />
+          <Property Name="Comestibles_Produits_idProduits1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comestibles" Relationship="Self.fk_Médicaments_Comestibles1" FromRole="Médicaments" ToRole="Comestibles" />
+        </EntityType>
+        <EntityType Name="Nourriture">
+          <Key>
+            <PropertyRef Name="idNourriture" />
+            <PropertyRef Name="Comestibles_idComestibles" />
+            <PropertyRef Name="Comestibles_Produits_idProduits" />
+            <PropertyRef Name="Comestibles_Produits_idProduits1" />
+          </Key>
+          <Property Name="idNourriture" Type="Int32" Nullable="false" />
+          <Property Name="Comestibles_idComestibles" Type="Int32" Nullable="false" />
+          <Property Name="Comestibles_Produits_idProduits" Type="Int32" Nullable="false" />
+          <Property Name="Comestibles_Produits_idProduits1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comestibles" Relationship="Self.fk_Nourriture_Comestibles1" FromRole="Nourriture" ToRole="Comestibles" />
+        </EntityType>
+        <EntityType Name="Ordonnance">
+          <Key>
+            <PropertyRef Name="idOrdonnance" />
+          </Key>
+          <Property Name="idOrdonnance" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Clients_idClients" Type="Int32" Nullable="false" />
+          <Property Name="Animaux_idAnimaux" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Animaux" Relationship="Self.fk_Ordonnance_Animaux1" FromRole="Ordonnance" ToRole="Animaux" />
+          <NavigationProperty Name="Clients" Relationship="Self.fk_Ordonnance_Clients1" FromRole="Ordonnance" ToRole="Clients" />
+          <NavigationProperty Name="Produits" Relationship="Self.Produit_Ordonnance" FromRole="Ordonnance" ToRole="Produits" />
+        </EntityType>
+        <EntityType Name="Produits">
+          <Key>
+            <PropertyRef Name="idProduits" />
+          </Key>
+          <Property Name="idProduits" Type="Int32" Nullable="false" />
+          <Property Name="refProduits" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateAcquisition" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PrixAcquisition" Type="Int32" Nullable="false" />
+          <Property Name="PrixVente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comestibles" Relationship="Self.fk_Comestibles_Produits" FromRole="Produits" ToRole="Comestibles" />
+          <NavigationProperty Name="Matériels" Relationship="Self.fk_Matériels_Produits1" FromRole="Produits" ToRole="Matériels" />
+          <NavigationProperty Name="Ordonnance" Relationship="Self.Produit_Ordonnance" FromRole="Produits" ToRole="Ordonnance" />
+        </EntityType>
+        <EntityType Name="Race">
+          <Key>
+            <PropertyRef Name="idRace" />
+          </Key>
+          <Property Name="idRace" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Especes_idEspeces" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Especes" Relationship="Self.fk_Race_Especes1" FromRole="Race" ToRole="Especes" />
+          <NavigationProperty Name="Animaux" Relationship="Self.Animaux_race" FromRole="Race" ToRole="Animaux" />
+        </EntityType>
+        <EntityType Name="Rappel">
+          <Key>
+            <PropertyRef Name="idRappel" />
+          </Key>
+          <Property Name="idRappel" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Animaux_idAnimaux" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Animaux" Relationship="Self.fk_Rappel_Animaux1" FromRole="Rappel" ToRole="Animaux" />
+        </EntityType>
+        <EntityType Name="RendezVous">
+          <Key>
+            <PropertyRef Name="idRendezVous" />
+          </Key>
+          <Property Name="idRendezVous" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Clients_idClients" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.fk_Rendez_vous_Clients" FromRole="RendezVous" ToRole="Clients" />
+          <NavigationProperty Name="Factures" Relationship="Self.fk_Factures_Rendez_vous" FromRole="RendezVous" ToRole="Factures" />
+        </EntityType>
+        <EntityType Name="RoleUser">
+          <Key>
+            <PropertyRef Name="idRole" />
+          </Key>
+          <Property Name="idRole" Type="Int32" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Fonctions" Relationship="Self.fk_Fonctions_Role1" FromRole="RoleUser" ToRole="Fonctions" />
+        </EntityType>
+        <EntityType Name="Soins">
+          <Key>
+            <PropertyRef Name="idSoins" />
+          </Key>
+          <Property Name="idSoins" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Factures_idFactures" Type="Int32" Nullable="false" />
+          <Property Name="Date_soins" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Soinscol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Factures" Relationship="Self.fk_Soins_Factures1" FromRole="Soins" ToRole="Factures" />
+          <NavigationProperty Name="Animaux" Relationship="Self.Soins_Animaux" FromRole="Soins" ToRole="Animaux" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Type_congés">
+          <Key>
+            <PropertyRef Name="idType_congés" />
+          </Key>
+          <Property Name="idType_congés" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Congés" Relationship="Self.fk_Congés_Type_congés1" FromRole="Type_congés" ToRole="Congés" />
+        </EntityType>
+        <EntityType Name="Utilisateurs">
+          <Key>
+            <PropertyRef Name="idUtilisateurs" />
+          </Key>
+          <Property Name="idUtilisateurs" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MotDePasse" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Congés" Relationship="Self.fk_Congés_Utilisateurs1" FromRole="Utilisateurs" ToRole="Congés" />
+          <NavigationProperty Name="Employés" Relationship="Self.fk_Employés_Utilisateurs1" FromRole="Utilisateurs" ToRole="Employés" />
+        </EntityType>
+        <Association Name="fk_Animaux_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="idClients" />
+            </Principal>
+            <Dependent Role="Animaux">
+              <PropertyRef Name="Clients_idClients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Animaux_has_Maladies_Animaux1">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="1" />
+          <End Role="Animaux_maladies" Type="Self.Animaux_maladies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animaux">
+              <PropertyRef Name="idAnimaux" />
+            </Principal>
+            <Dependent Role="Animaux_maladies">
+              <PropertyRef Name="Animaux_idAnimaux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ordonnance_Animaux1">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="1" />
+          <End Role="Ordonnance" Type="Self.Ordonnance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animaux">
+              <PropertyRef Name="idAnimaux" />
+            </Principal>
+            <Dependent Role="Ordonnance">
+              <PropertyRef Name="Animaux_idAnimaux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Rappel_Animaux1">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="1" />
+          <End Role="Rappel" Type="Self.Rappel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animaux">
+              <PropertyRef Name="idAnimaux" />
+            </Principal>
+            <Dependent Role="Rappel">
+              <PropertyRef Name="Animaux_idAnimaux" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Animaux_has_Maladies_Maladies1">
+          <End Role="Maladies" Type="Self.Maladies" Multiplicity="1" />
+          <End Role="Animaux_maladies" Type="Self.Animaux_maladies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maladies">
+              <PropertyRef Name="idMaladies" />
+            </Principal>
+            <Dependent Role="Animaux_maladies">
+              <PropertyRef Name="Maladies_idMaladies" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ordonnance_Clients1">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="Ordonnance" Type="Self.Ordonnance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="idClients" />
+            </Principal>
+            <Dependent Role="Ordonnance">
+              <PropertyRef Name="Clients_idClients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Rendez_vous_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="RendezVous" Type="Self.RendezVous" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="idClients" />
+            </Principal>
+            <Dependent Role="RendezVous">
+              <PropertyRef Name="Clients_idClients" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Comestibles_Produits">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Comestibles" Type="Self.Comestibles" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="idProduits" />
+            </Principal>
+            <Dependent Role="Comestibles">
+              <PropertyRef Name="Produits_idProduits" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Médicaments_Comestibles1">
+          <End Role="Comestibles" Type="Self.Comestibles" Multiplicity="1" />
+          <End Role="Médicaments" Type="Self.Médicaments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comestibles">
+              <PropertyRef Name="Produits_idProduits" />
+            </Principal>
+            <Dependent Role="Médicaments">
+              <PropertyRef Name="Comestibles_Produits_idProduits1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Nourriture_Comestibles1">
+          <End Role="Comestibles" Type="Self.Comestibles" Multiplicity="1" />
+          <End Role="Nourriture" Type="Self.Nourriture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comestibles">
+              <PropertyRef Name="Produits_idProduits" />
+            </Principal>
+            <Dependent Role="Nourriture">
+              <PropertyRef Name="Comestibles_Produits_idProduits1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Congés_Type_congés1">
+          <End Role="Type_congés" Type="Self.Type_congés" Multiplicity="1" />
+          <End Role="Congés" Type="Self.Congés" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type_congés">
+              <PropertyRef Name="idType_congés" />
+            </Principal>
+            <Dependent Role="Congés">
+              <PropertyRef Name="Type_congés_idType_congés" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Congés_Utilisateurs1">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="1" />
+          <End Role="Congés" Type="Self.Congés" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="idUtilisateurs" />
+            </Principal>
+            <Dependent Role="Congés">
+              <PropertyRef Name="Utilisateurs_idUtilisateurs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employés_Fonctions1">
+          <End Role="Fonctions" Type="Self.Fonctions" Multiplicity="1" />
+          <End Role="Employés" Type="Self.Employés" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fonctions">
+              <PropertyRef Name="idFonctions" />
+            </Principal>
+            <Dependent Role="Employés">
+              <PropertyRef Name="Fonctions_idFonctions" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employés_Utilisateurs1">
+          <End Role="Utilisateurs" Type="Self.Utilisateurs" Multiplicity="1" />
+          <End Role="Employés" Type="Self.Employés" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateurs">
+              <PropertyRef Name="idUtilisateurs" />
+            </Principal>
+            <Dependent Role="Employés">
+              <PropertyRef Name="Utilisateurs_idUtilisateurs" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Logs_Employés1">
+          <End Role="Employés" Type="Self.Employés" Multiplicity="1" />
+          <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employés">
+              <PropertyRef Name="idEmployés" />
+            </Principal>
+            <Dependent Role="Logs">
+              <PropertyRef Name="Employés_idEmployés" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Race_Especes1">
+          <End Role="Especes" Type="Self.Especes" Multiplicity="1" />
+          <End Role="Race" Type="Self.Race" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Especes">
+              <PropertyRef Name="idEspeces" />
+            </Principal>
+            <Dependent Role="Race">
+              <PropertyRef Name="Especes_idEspeces" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Factures_Rendez_vous">
+          <End Role="RendezVous" Type="Self.RendezVous" Multiplicity="1" />
+          <End Role="Factures" Type="Self.Factures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RendezVous">
+              <PropertyRef Name="idRendezVous" />
+            </Principal>
+            <Dependent Role="Factures">
+              <PropertyRef Name="idRendezVous" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Soins_Factures1">
+          <End Role="Factures" Type="Self.Factures" Multiplicity="1" />
+          <End Role="Soins" Type="Self.Soins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factures">
+              <PropertyRef Name="idFactures" />
+            </Principal>
+            <Dependent Role="Soins">
+              <PropertyRef Name="Factures_idFactures" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Fonctions_Role1">
+          <End Role="RoleUser" Type="Self.RoleUser" Multiplicity="1" />
+          <End Role="Fonctions" Type="Self.Fonctions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleUser">
+              <PropertyRef Name="idRole" />
+            </Principal>
+            <Dependent Role="Fonctions">
+              <PropertyRef Name="Role_idRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Matériels_Produits1">
+          <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
+          <End Role="Matériels" Type="Self.Matériels" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Produits">
+              <PropertyRef Name="idProduits" />
+            </Principal>
+            <Dependent Role="Matériels">
+              <PropertyRef Name="Produits_idProduits" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Animaux_race">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="*" />
+          <End Role="Race" Type="Self.Race" Multiplicity="*" />
+        </Association>
+        <Association Name="Employés_Formations">
+          <End Role="Employés" Type="Self.Employés" Multiplicity="*" />
+          <End Role="Formations" Type="Self.Formations" Multiplicity="*" />
+        </Association>
+        <Association Name="Produit_Ordonnance">
+          <End Role="Ordonnance" Type="Self.Ordonnance" Multiplicity="*" />
+          <End Role="Produits" Type="Self.Produits" Multiplicity="*" />
+        </Association>
+        <Association Name="Soins_Animaux">
+          <End Role="Animaux" Type="Self.Animaux" Multiplicity="*" />
+          <End Role="Soins" Type="Self.Soins" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PT4_S4P2C_E3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Animaux" EntityType="Self.Animaux" />
+          <EntitySet Name="Animaux_maladies" EntityType="Self.Animaux_maladies" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Comestibles" EntityType="Self.Comestibles" />
+          <EntitySet Name="Congés" EntityType="Self.Congés" />
+          <EntitySet Name="Employés" EntityType="Self.Employés" />
+          <EntitySet Name="Especes" EntityType="Self.Especes" />
+          <EntitySet Name="Factures" EntityType="Self.Factures" />
+          <EntitySet Name="Fonctions" EntityType="Self.Fonctions" />
+          <EntitySet Name="Formations" EntityType="Self.Formations" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" />
+          <EntitySet Name="Maladies" EntityType="Self.Maladies" />
+          <EntitySet Name="Matériels" EntityType="Self.Matériels" />
+          <EntitySet Name="Médicaments" EntityType="Self.Médicaments" />
+          <EntitySet Name="Nourriture" EntityType="Self.Nourriture" />
+          <EntitySet Name="Ordonnance" EntityType="Self.Ordonnance" />
+          <EntitySet Name="Produits" EntityType="Self.Produits" />
+          <EntitySet Name="Race" EntityType="Self.Race" />
+          <EntitySet Name="Rappel" EntityType="Self.Rappel" />
+          <EntitySet Name="RendezVous" EntityType="Self.RendezVous" />
+          <EntitySet Name="RoleUser" EntityType="Self.RoleUser" />
+          <EntitySet Name="Soins" EntityType="Self.Soins" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Type_congés" EntityType="Self.Type_congés" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateurs" />
+          <AssociationSet Name="fk_Animaux_Clients" Association="Self.fk_Animaux_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Animaux" EntitySet="Animaux" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Animaux_has_Maladies_Animaux1" Association="Self.fk_Animaux_has_Maladies_Animaux1">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Animaux_maladies" EntitySet="Animaux_maladies" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ordonnance_Animaux1" Association="Self.fk_Ordonnance_Animaux1">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Ordonnance" EntitySet="Ordonnance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Rappel_Animaux1" Association="Self.fk_Rappel_Animaux1">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Rappel" EntitySet="Rappel" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Animaux_has_Maladies_Maladies1" Association="Self.fk_Animaux_has_Maladies_Maladies1">
+            <End Role="Maladies" EntitySet="Maladies" />
+            <End Role="Animaux_maladies" EntitySet="Animaux_maladies" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ordonnance_Clients1" Association="Self.fk_Ordonnance_Clients1">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Ordonnance" EntitySet="Ordonnance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Rendez_vous_Clients" Association="Self.fk_Rendez_vous_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="RendezVous" EntitySet="RendezVous" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Comestibles_Produits" Association="Self.fk_Comestibles_Produits">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Comestibles" EntitySet="Comestibles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Médicaments_Comestibles1" Association="Self.fk_Médicaments_Comestibles1">
+            <End Role="Comestibles" EntitySet="Comestibles" />
+            <End Role="Médicaments" EntitySet="Médicaments" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Nourriture_Comestibles1" Association="Self.fk_Nourriture_Comestibles1">
+            <End Role="Comestibles" EntitySet="Comestibles" />
+            <End Role="Nourriture" EntitySet="Nourriture" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Congés_Type_congés1" Association="Self.fk_Congés_Type_congés1">
+            <End Role="Type_congés" EntitySet="Type_congés" />
+            <End Role="Congés" EntitySet="Congés" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Congés_Utilisateurs1" Association="Self.fk_Congés_Utilisateurs1">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Congés" EntitySet="Congés" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employés_Fonctions1" Association="Self.fk_Employés_Fonctions1">
+            <End Role="Fonctions" EntitySet="Fonctions" />
+            <End Role="Employés" EntitySet="Employés" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employés_Utilisateurs1" Association="Self.fk_Employés_Utilisateurs1">
+            <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+            <End Role="Employés" EntitySet="Employés" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Logs_Employés1" Association="Self.fk_Logs_Employés1">
+            <End Role="Employés" EntitySet="Employés" />
+            <End Role="Logs" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Race_Especes1" Association="Self.fk_Race_Especes1">
+            <End Role="Especes" EntitySet="Especes" />
+            <End Role="Race" EntitySet="Race" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Factures_Rendez_vous" Association="Self.fk_Factures_Rendez_vous">
+            <End Role="RendezVous" EntitySet="RendezVous" />
+            <End Role="Factures" EntitySet="Factures" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Soins_Factures1" Association="Self.fk_Soins_Factures1">
+            <End Role="Factures" EntitySet="Factures" />
+            <End Role="Soins" EntitySet="Soins" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Fonctions_Role1" Association="Self.fk_Fonctions_Role1">
+            <End Role="RoleUser" EntitySet="RoleUser" />
+            <End Role="Fonctions" EntitySet="Fonctions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Matériels_Produits1" Association="Self.fk_Matériels_Produits1">
+            <End Role="Produits" EntitySet="Produits" />
+            <End Role="Matériels" EntitySet="Matériels" />
+          </AssociationSet>
+          <AssociationSet Name="Animaux_race" Association="Self.Animaux_race">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Race" EntitySet="Race" />
+          </AssociationSet>
+          <AssociationSet Name="Employés_Formations" Association="Self.Employés_Formations">
+            <End Role="Employés" EntitySet="Employés" />
+            <End Role="Formations" EntitySet="Formations" />
+          </AssociationSet>
+          <AssociationSet Name="Produit_Ordonnance" Association="Self.Produit_Ordonnance">
+            <End Role="Ordonnance" EntitySet="Ordonnance" />
+            <End Role="Produits" EntitySet="Produits" />
+          </AssociationSet>
+          <AssociationSet Name="Soins_Animaux" Association="Self.Soins_Animaux">
+            <End Role="Animaux" EntitySet="Animaux" />
+            <End Role="Soins" EntitySet="Soins" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PT4_S4P2C_E3ModelStoreContainer" CdmEntityContainer="PT4_S4P2C_E3Entities">
+          <EntitySetMapping Name="Animaux">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Animaux">
+              <MappingFragment StoreEntitySet="Animaux">
+                <ScalarProperty Name="idAnimaux" ColumnName="idAnimaux" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Poids" ColumnName="Poids" />
+                <ScalarProperty Name="DernièreVisite" ColumnName="DernièreVisite" />
+                <ScalarProperty Name="ProchaineVisite" ColumnName="ProchaineVisite" />
+                <ScalarProperty Name="Caractéristiques" ColumnName="Caractéristiques" />
+                <ScalarProperty Name="Clients_idClients" ColumnName="Clients_idClients" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Animaux_maladies">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Animaux_maladies">
+              <MappingFragment StoreEntitySet="Animaux_maladies">
+                <ScalarProperty Name="Animaux_idAnimaux" ColumnName="Animaux_idAnimaux" />
+                <ScalarProperty Name="Maladies_idMaladies" ColumnName="Maladies_idMaladies" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="idClients" ColumnName="idClients" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prénom" ColumnName="Prénom" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="Téléphone" ColumnName="Téléphone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comestibles">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Comestibles">
+              <MappingFragment StoreEntitySet="Comestibles">
+                <ScalarProperty Name="DatePeremption" ColumnName="DatePeremption" />
+                <ScalarProperty Name="Produits_idProduits" ColumnName="Produits_idProduits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Congés">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Congés">
+              <MappingFragment StoreEntitySet="Congés">
+                <ScalarProperty Name="idCongés" ColumnName="idCongés" />
+                <ScalarProperty Name="DateDébut" ColumnName="DateDébut" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="Utilisateurs_idUtilisateurs" ColumnName="Utilisateurs_idUtilisateurs" />
+                <ScalarProperty Name="Type_congés_idType_congés" ColumnName="Type_congés_idType_congés" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employés">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Employés">
+              <MappingFragment StoreEntitySet="Employés">
+                <ScalarProperty Name="idEmployés" ColumnName="idEmployés" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prénom" ColumnName="Prénom" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="Téléphone" ColumnName="Téléphone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Salaire" ColumnName="Salaire" />
+                <ScalarProperty Name="DébutContrat" ColumnName="DébutContrat" />
+                <ScalarProperty Name="FinContrat" ColumnName="FinContrat" />
+                <ScalarProperty Name="Utilisateurs_idUtilisateurs" ColumnName="Utilisateurs_idUtilisateurs" />
+                <ScalarProperty Name="Fonctions_idFonctions" ColumnName="Fonctions_idFonctions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Especes">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Especes">
+              <MappingFragment StoreEntitySet="Especes">
+                <ScalarProperty Name="idEspeces" ColumnName="idEspeces" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factures">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Factures">
+              <MappingFragment StoreEntitySet="Factures">
+                <ScalarProperty Name="idFactures" ColumnName="idFactures" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="idRendezVous" ColumnName="idRendezVous" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fonctions">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Fonctions">
+              <MappingFragment StoreEntitySet="Fonctions">
+                <ScalarProperty Name="idFonctions" ColumnName="idFonctions" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Role_idRole" ColumnName="Role_idRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Formations">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Formations">
+              <MappingFragment StoreEntitySet="Formations">
+                <ScalarProperty Name="idFormations" ColumnName="idFormations" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="DateDébut" ColumnName="DateDébut" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="Descript" ColumnName="Descript" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="idLogs" ColumnName="idLogs" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Employés_idEmployés" ColumnName="Employés_idEmployés" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maladies">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Maladies">
+              <MappingFragment StoreEntitySet="Maladies">
+                <ScalarProperty Name="idMaladies" ColumnName="idMaladies" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Matériels">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Matériels">
+              <MappingFragment StoreEntitySet="Matériels">
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="Produits_idProduits" ColumnName="Produits_idProduits" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Médicaments">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Médicaments">
+              <MappingFragment StoreEntitySet="Médicaments">
+                <ScalarProperty Name="idMédicaments" ColumnName="idMédicaments" />
+                <ScalarProperty Name="Comestibles_idComestibles" ColumnName="Comestibles_idComestibles" />
+                <ScalarProperty Name="Comestibles_Produits_idProduits" ColumnName="Comestibles_Produits_idProduits" />
+                <ScalarProperty Name="Comestibles_Produits_idProduits1" ColumnName="Comestibles_Produits_idProduits1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nourriture">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Nourriture">
+              <MappingFragment StoreEntitySet="Nourriture">
+                <ScalarProperty Name="idNourriture" ColumnName="idNourriture" />
+                <ScalarProperty Name="Comestibles_idComestibles" ColumnName="Comestibles_idComestibles" />
+                <ScalarProperty Name="Comestibles_Produits_idProduits" ColumnName="Comestibles_Produits_idProduits" />
+                <ScalarProperty Name="Comestibles_Produits_idProduits1" ColumnName="Comestibles_Produits_idProduits1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ordonnance">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Ordonnance">
+              <MappingFragment StoreEntitySet="Ordonnance">
+                <ScalarProperty Name="idOrdonnance" ColumnName="idOrdonnance" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Clients_idClients" ColumnName="Clients_idClients" />
+                <ScalarProperty Name="Animaux_idAnimaux" ColumnName="Animaux_idAnimaux" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produits">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Produits">
+              <MappingFragment StoreEntitySet="Produits">
+                <ScalarProperty Name="idProduits" ColumnName="idProduits" />
+                <ScalarProperty Name="refProduits" ColumnName="refProduits" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateAcquisition" ColumnName="DateAcquisition" />
+                <ScalarProperty Name="PrixAcquisition" ColumnName="PrixAcquisition" />
+                <ScalarProperty Name="PrixVente" ColumnName="PrixVente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Race">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Race">
+              <MappingFragment StoreEntitySet="Race">
+                <ScalarProperty Name="idRace" ColumnName="idRace" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Especes_idEspeces" ColumnName="Especes_idEspeces" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rappel">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Rappel">
+              <MappingFragment StoreEntitySet="Rappel">
+                <ScalarProperty Name="idRappel" ColumnName="idRappel" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Animaux_idAnimaux" ColumnName="Animaux_idAnimaux" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RendezVous">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.RendezVous">
+              <MappingFragment StoreEntitySet="RendezVous">
+                <ScalarProperty Name="idRendezVous" ColumnName="idRendezVous" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Clients_idClients" ColumnName="Clients_idClients" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleUser">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.RoleUser">
+              <MappingFragment StoreEntitySet="RoleUser">
+                <ScalarProperty Name="idRole" ColumnName="idRole" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Soins">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Soins">
+              <MappingFragment StoreEntitySet="Soins">
+                <ScalarProperty Name="idSoins" ColumnName="idSoins" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Factures_idFactures" ColumnName="Factures_idFactures" />
+                <ScalarProperty Name="Date_soins" ColumnName="Date_soins" />
+                <ScalarProperty Name="Soinscol" ColumnName="Soinscol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type_congés">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Type_congés">
+              <MappingFragment StoreEntitySet="Type_congés">
+                <ScalarProperty Name="idType_congés" ColumnName="idType_congés" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Utilisateurs">
+              <MappingFragment StoreEntitySet="Utilisateurs">
+                <ScalarProperty Name="idUtilisateurs" ColumnName="idUtilisateurs" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="MotDePasse" ColumnName="MotDePasse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Animaux_race" TypeName="PT4_S4P2C_E3Model.Animaux_race" StoreEntitySet="Animaux_race">
+            <EndProperty Name="Animaux">
+              <ScalarProperty Name="idAnimaux" ColumnName="Animaux_idAnimaux" />
+            </EndProperty>
+            <EndProperty Name="Race">
+              <ScalarProperty Name="idRace" ColumnName="Race_idRace" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Employés_Formations" TypeName="PT4_S4P2C_E3Model.Employés_Formations" StoreEntitySet="Employés_Formations">
+            <EndProperty Name="Employés">
+              <ScalarProperty Name="idEmployés" ColumnName="Employés_idEmployés" />
+            </EndProperty>
+            <EndProperty Name="Formations">
+              <ScalarProperty Name="idFormations" ColumnName="Formations_idFormations" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Produit_Ordonnance" TypeName="PT4_S4P2C_E3Model.Produit_Ordonnance" StoreEntitySet="Produit_Ordonnance">
+            <EndProperty Name="Ordonnance">
+              <ScalarProperty Name="idOrdonnance" ColumnName="Ordonnance_idOrdonnance" />
+            </EndProperty>
+            <EndProperty Name="Produits">
+              <ScalarProperty Name="idProduits" ColumnName="Produits_idProduits" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Soins_Animaux" TypeName="PT4_S4P2C_E3Model.Soins_Animaux" StoreEntitySet="Soins_Animaux">
+            <EndProperty Name="Animaux">
+              <ScalarProperty Name="idAnimaux" ColumnName="Animaux_idAnimaux" />
+            </EndProperty>
+            <EndProperty Name="Soins">
+              <ScalarProperty Name="idSoins" ColumnName="Soins_idSoins" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
