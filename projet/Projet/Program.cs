@@ -16,7 +16,7 @@ namespace Projet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Globalinterface());
+            Application.Run(new Authentication());
         }
     }
 }
