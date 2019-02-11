@@ -57,6 +57,12 @@
     <Compile Include="ClientSheet.Designer.cs">
       <DependentUpon>ClientSheet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Globalinterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Globalinterface.Designer.cs">
+      <DependentUpon>Globalinterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientSheet.resx">
       <DependentUpon>ClientSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalinterface.resx">
+      <DependentUpon>Globalinterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +101,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CalendarButton.PNG" />
+    <Content Include="HomeButton.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
