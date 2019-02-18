@@ -24,7 +24,7 @@ namespace Projet
         public string Ville { get; set; }
         public System.DateTime DateDébut { get; set; }
         public System.DateTime DateFin { get; set; }
-        public string Descript { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employés> Employés { get; set; }

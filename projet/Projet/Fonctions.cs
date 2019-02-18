@@ -26,6 +26,6 @@ namespace Projet
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employés> Employés { get; set; }
-        public virtual RoleUser RoleUser { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

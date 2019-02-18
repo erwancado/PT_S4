@@ -13,14 +13,14 @@ namespace Projet
     public partial class Authentication : Form
     {
 
-        PT4_S4P2C_E3Entities _db;
+        DB_ENTITIES _db;
         Timer time;
         public Authentication()
         {
             InitializeComponent();
             time = new Timer();
             startTime();
-            _db = new PT4_S4P2C_E3Entities();
+            _db = new DB_ENTITIES();
             Utilisateurs annie = new Utilisateurs();
         }
 
@@ -38,6 +38,7 @@ namespace Projet
             {
                 if (u.Login.Equals(this.login.Text) && u.MotDePasse.Equals(this.pass.Text))
                 {
+                    Console.WriteLine("OK");
                     ClientSheet client = new ClientSheet();
                     client.Show();
                     this.Hide();

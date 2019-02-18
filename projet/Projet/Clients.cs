@@ -24,12 +24,14 @@ namespace Projet
     
         public int idClients { get; set; }
         public string Nom { get; set; }
-        public string Prénom { get; set; }
+        public string Prenom { get; set; }
         public string Sexe { get; set; }
-        public System.DateTime DateNaissance { get; set; }
         public string Adresse { get; set; }
         public int Téléphone { get; set; }
         public string Email { get; set; }
+        public Nullable<System.DateTime> DateNaissance { get; set; }
+        public Nullable<System.DateTime> DernièreVisite { get; set; }
+        public Nullable<System.DateTime> ProchaineVisite { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Animaux> Animaux { get; set; }

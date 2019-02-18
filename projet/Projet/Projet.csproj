@@ -75,12 +75,6 @@
     <Compile Include="ClientSheet.Designer.cs">
       <DependentUpon>ClientSheet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Globalinterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Globalinterface.Designer.cs">
-      <DependentUpon>Globalinterface.cs</DependentUpon>
-	</Compile>
     <Compile Include="Comestibles.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -101,6 +95,12 @@
     </Compile>
     <Compile Include="Formations.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Globalinterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Globalinterface.Designer.cs">
+      <DependentUpon>Globalinterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Logs.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
@@ -155,13 +155,10 @@
     <Compile Include="RendezVous.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="RoleUser.cs">
+    <Compile Include="Role.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Soins.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Type_congés.cs">
@@ -214,8 +211,8 @@
     <Content Include="HomeButton.PNG" />
     <Content Include="ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
       <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModelDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

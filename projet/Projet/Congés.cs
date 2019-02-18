@@ -15,7 +15,7 @@ namespace Projet
     public partial class Congés
     {
         public int idCongés { get; set; }
-        public System.DateTime DateDébut { get; set; }
+        public System.DateTime Datedébut { get; set; }
         public System.DateTime DateFin { get; set; }
         public int Utilisateurs_idUtilisateurs { get; set; }
         public int Type_congés_idType_congés { get; set; }

@@ -12,10 +12,10 @@ namespace Projet
     using System;
     using System.Collections.Generic;
     
-    public partial class RoleUser
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RoleUser()
+        public Role()
         {
             this.Fonctions = new HashSet<Fonctions>();
         }
