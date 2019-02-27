@@ -13,10 +13,10 @@ namespace Projet
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PT4_S4P2C_E3Entities : DbContext
+    public partial class DB_ENTITIES : DbContext
     {
-        public PT4_S4P2C_E3Entities()
-            : base("name=PT4_S4P2C_E3Entities")
+        public DB_ENTITIES()
+            : base("name=DB_ENTITIES")
         {
         }
     
@@ -45,9 +45,8 @@ namespace Projet
         public virtual DbSet<Race> Race { get; set; }
         public virtual DbSet<Rappel> Rappel { get; set; }
         public virtual DbSet<RendezVous> RendezVous { get; set; }
-        public virtual DbSet<RoleUser> RoleUser { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Soins> Soins { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Type_congés> Type_congés { get; set; }
         public virtual DbSet<Utilisateurs> Utilisateurs { get; set; }
     }

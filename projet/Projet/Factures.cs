@@ -23,7 +23,7 @@ namespace Projet
         public int idFactures { get; set; }
         public string Description { get; set; }
         public int Prix { get; set; }
-        public int idRendezVous { get; set; }
+        public int RendezVousId { get; set; }
     
         public virtual RendezVous RendezVous { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="idAnimaux" />
           </Key>
-          <Property Name="idAnimaux" Type="int" Nullable="false" />
+          <Property Name="idAnimaux" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom" Type="varchar" MaxLength="45" />
           <Property Name="Sexe" Type="varchar" MaxLength="1" />
           <Property Name="DateNaissance" Type="date" />
@@ -33,21 +33,23 @@
             <PropertyRef Name="Animaux_idAnimaux" />
             <PropertyRef Name="Race_idRace" />
           </Key>
-          <Property Name="Animaux_idAnimaux" Type="int" Nullable="false" />
+          <Property Name="Animaux_idAnimaux" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Race_idRace" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="idClients" />
           </Key>
-          <Property Name="idClients" Type="int" Nullable="false" />
-          <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="Prénom" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="Sexe" Type="varchar" MaxLength="1" Nullable="false" />
-          <Property Name="DateNaissance" Type="date" Nullable="false" />
+          <Property Name="idClients" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar" MaxLength="45" />
+          <Property Name="Prenom" Type="varchar" MaxLength="45" />
+          <Property Name="Sexe" Type="varchar" MaxLength="1" />
           <Property Name="Adresse" Type="text" Nullable="false" />
           <Property Name="Téléphone" Type="int" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="DateNaissance" Type="date" />
+          <Property Name="DernièreVisite" Type="date" />
+          <Property Name="ProchaineVisite" Type="date" />
         </EntityType>
         <EntityType Name="Comestibles">
           <Key>
@@ -60,8 +62,8 @@
           <Key>
             <PropertyRef Name="idCongés" />
           </Key>
-          <Property Name="idCongés" Type="int" Nullable="false" />
-          <Property Name="DateDébut" Type="date" Nullable="false" />
+          <Property Name="idCongés" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Datedébut" Type="date" Nullable="false" />
           <Property Name="DateFin" Type="date" Nullable="false" />
           <Property Name="Utilisateurs_idUtilisateurs" Type="int" Nullable="false" />
           <Property Name="Type_congés_idType_congés" Type="int" Nullable="false" />
@@ -70,7 +72,7 @@
           <Key>
             <PropertyRef Name="idEmployés" />
           </Key>
-          <Property Name="idEmployés" Type="int" Nullable="false" />
+          <Property Name="idEmployés" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Prénom" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="DateNaissance" Type="date" Nullable="false" />
@@ -95,23 +97,23 @@
           <Key>
             <PropertyRef Name="idEspeces" />
           </Key>
-          <Property Name="idEspeces" Type="int" Nullable="false" />
+          <Property Name="idEspeces" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <EntityType Name="Factures">
           <Key>
             <PropertyRef Name="idFactures" />
           </Key>
-          <Property Name="idFactures" Type="int" Nullable="false" />
+          <Property Name="idFactures" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="Prix" Type="int" Nullable="false" />
-          <Property Name="idRendezVous" Type="int" Nullable="false" />
+          <Property Name="RendezVousId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Fonctions">
           <Key>
             <PropertyRef Name="idFonctions" />
           </Key>
-          <Property Name="idFonctions" Type="int" Nullable="false" />
+          <Property Name="idFonctions" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Role_idRole" Type="int" Nullable="false" />
         </EntityType>
@@ -119,17 +121,17 @@
           <Key>
             <PropertyRef Name="idFormations" />
           </Key>
-          <Property Name="idFormations" Type="int" Nullable="false" />
+          <Property Name="idFormations" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ville" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="DateDébut" Type="date" Nullable="false" />
           <Property Name="DateFin" Type="date" Nullable="false" />
-          <Property Name="Descript" Type="text" />
+          <Property Name="Description" Type="text" />
         </EntityType>
         <EntityType Name="Logs">
           <Key>
             <PropertyRef Name="idLogs" />
           </Key>
-          <Property Name="idLogs" Type="int" Nullable="false" />
+          <Property Name="idLogs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Employés_idEmployés" Type="int" Nullable="false" />
           <Property Name="Action" Type="varchar" MaxLength="255" Nullable="false" />
@@ -138,7 +140,7 @@
           <Key>
             <PropertyRef Name="idMaladies" />
           </Key>
-          <Property Name="idMaladies" Type="int" Nullable="false" />
+          <Property Name="idMaladies" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
@@ -146,7 +148,7 @@
           <Key>
             <PropertyRef Name="Produits_idProduits" />
           </Key>
-          <Property Name="Etat" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Etat" Type="varchar" MaxLength="45" />
           <Property Name="Produits_idProduits" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Médicaments">
@@ -156,7 +158,7 @@
             <PropertyRef Name="Comestibles_Produits_idProduits" />
             <PropertyRef Name="Comestibles_Produits_idProduits1" />
           </Key>
-          <Property Name="idMédicaments" Type="int" Nullable="false" />
+          <Property Name="idMédicaments" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Comestibles_idComestibles" Type="int" Nullable="false" />
           <Property Name="Comestibles_Produits_idProduits" Type="int" Nullable="false" />
           <Property Name="Comestibles_Produits_idProduits1" Type="int" Nullable="false" />
@@ -168,7 +170,7 @@
             <PropertyRef Name="Comestibles_Produits_idProduits" />
             <PropertyRef Name="Comestibles_Produits_idProduits1" />
           </Key>
-          <Property Name="idNourriture" Type="int" Nullable="false" />
+          <Property Name="idNourriture" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Comestibles_idComestibles" Type="int" Nullable="false" />
           <Property Name="Comestibles_Produits_idProduits" Type="int" Nullable="false" />
           <Property Name="Comestibles_Produits_idProduits1" Type="int" Nullable="false" />
@@ -177,7 +179,7 @@
           <Key>
             <PropertyRef Name="idOrdonnance" />
           </Key>
-          <Property Name="idOrdonnance" Type="int" Nullable="false" />
+          <Property Name="idOrdonnance" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="Clients_idClients" Type="int" Nullable="false" />
           <Property Name="Animaux_idAnimaux" Type="int" Nullable="false" />
@@ -194,7 +196,7 @@
           <Key>
             <PropertyRef Name="idProduits" />
           </Key>
-          <Property Name="idProduits" Type="int" Nullable="false" />
+          <Property Name="idProduits" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="refProduits" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="45" Nullable="false" />
@@ -206,7 +208,7 @@
           <Key>
             <PropertyRef Name="idRace" />
           </Key>
-          <Property Name="idRace" Type="int" Nullable="false" />
+          <Property Name="idRace" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Especes_idEspeces" Type="int" Nullable="false" />
         </EntityType>
@@ -214,7 +216,7 @@
           <Key>
             <PropertyRef Name="idRappel" />
           </Key>
-          <Property Name="idRappel" Type="int" Nullable="false" />
+          <Property Name="idRappel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Description" Type="text" Nullable="false" />
           <Property Name="Animaux_idAnimaux" Type="int" Nullable="false" />
@@ -223,23 +225,23 @@
           <Key>
             <PropertyRef Name="idRendezVous" />
           </Key>
-          <Property Name="idRendezVous" Type="int" Nullable="false" />
+          <Property Name="idRendezVous" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Clients_idClients" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="RoleUser">
+        <EntityType Name="Role">
           <Key>
             <PropertyRef Name="idRole" />
           </Key>
-          <Property Name="idRole" Type="int" Nullable="false" />
+          <Property Name="idRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <EntityType Name="Soins">
           <Key>
             <PropertyRef Name="idSoins" />
           </Key>
-          <Property Name="idSoins" Type="int" Nullable="false" />
+          <Property Name="idSoins" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="Factures_idFactures" Type="int" Nullable="false" />
           <Property Name="Date_soins" Type="date" Nullable="false" />
@@ -250,31 +252,21 @@
             <PropertyRef Name="Soins_idSoins" />
             <PropertyRef Name="Animaux_idAnimaux" />
           </Key>
-          <Property Name="Soins_idSoins" Type="int" Nullable="false" />
+          <Property Name="Soins_idSoins" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Animaux_idAnimaux" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Type_congés">
           <Key>
             <PropertyRef Name="idType_congés" />
           </Key>
-          <Property Name="idType_congés" Type="int" Nullable="false" />
+          <Property Name="idType_congés" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="type" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
         <EntityType Name="Utilisateurs">
           <Key>
             <PropertyRef Name="idUtilisateurs" />
           </Key>
-          <Property Name="idUtilisateurs" Type="int" Nullable="false" />
+          <Property Name="idUtilisateurs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="MotDePasse" Type="varchar" MaxLength="45" Nullable="false" />
         </EntityType>
@@ -338,7 +330,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Comestibles_Produits">
+        <Association Name="fk_Comestibles_Produits1">
           <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
           <End Role="Comestibles" Type="Self.Comestibles" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -422,7 +414,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Factures_Rendez_vous">
+        <Association Name="fk_Factures_Rendez_vous1">
           <End Role="RendezVous" Type="Self.RendezVous" Multiplicity="1" />
           <End Role="Factures" Type="Self.Factures" Multiplicity="*" />
           <ReferentialConstraint>
@@ -430,15 +422,15 @@
               <PropertyRef Name="idRendezVous" />
             </Principal>
             <Dependent Role="Factures">
-              <PropertyRef Name="idRendezVous" />
+              <PropertyRef Name="RendezVousId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Fonctions_Role1">
-          <End Role="RoleUser" Type="Self.RoleUser" Multiplicity="1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Fonctions" Type="Self.Fonctions" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RoleUser">
+            <Principal Role="Role">
               <PropertyRef Name="idRole" />
             </Principal>
             <Dependent Role="Fonctions">
@@ -566,7 +558,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Rendez_vous_Clients">
+        <Association Name="fk_RendezVous_Clients1">
           <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
           <End Role="RendezVous" Type="Self.RendezVous" Multiplicity="*" />
           <ReferentialConstraint>
@@ -638,10 +630,9 @@
           <EntitySet Name="Race" EntityType="Self.Race" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rappel" EntityType="Self.Rappel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RendezVous" EntityType="Self.RendezVous" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RoleUser" EntityType="Self.RoleUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Soins" EntityType="Self.Soins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Soins_Animaux" EntityType="Self.Soins_Animaux" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type_congés" EntityType="Self.Type_congés" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateurs" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_Animaux_Clients" Association="Self.fk_Animaux_Clients">
@@ -664,7 +655,7 @@
             <End Role="Race" EntitySet="Race" />
             <End Role="Animaux_race" EntitySet="Animaux_race" />
           </AssociationSet>
-          <AssociationSet Name="fk_Comestibles_Produits" Association="Self.fk_Comestibles_Produits">
+          <AssociationSet Name="fk_Comestibles_Produits1" Association="Self.fk_Comestibles_Produits1">
             <End Role="Produits" EntitySet="Produits" />
             <End Role="Comestibles" EntitySet="Comestibles" />
           </AssociationSet>
@@ -692,12 +683,12 @@
             <End Role="Utilisateurs" EntitySet="Utilisateurs" />
             <End Role="Employés" EntitySet="Employés" />
           </AssociationSet>
-          <AssociationSet Name="fk_Factures_Rendez_vous" Association="Self.fk_Factures_Rendez_vous">
+          <AssociationSet Name="fk_Factures_Rendez_vous1" Association="Self.fk_Factures_Rendez_vous1">
             <End Role="RendezVous" EntitySet="RendezVous" />
             <End Role="Factures" EntitySet="Factures" />
           </AssociationSet>
           <AssociationSet Name="fk_Fonctions_Role1" Association="Self.fk_Fonctions_Role1">
-            <End Role="RoleUser" EntitySet="RoleUser" />
+            <End Role="Role" EntitySet="Role" />
             <End Role="Fonctions" EntitySet="Fonctions" />
           </AssociationSet>
           <AssociationSet Name="fk_Logs_Employés1" Association="Self.fk_Logs_Employés1">
@@ -740,7 +731,7 @@
             <End Role="Animaux" EntitySet="Animaux" />
             <End Role="Rappel" EntitySet="Rappel" />
           </AssociationSet>
-          <AssociationSet Name="fk_Rendez_vous_Clients" Association="Self.fk_Rendez_vous_Clients">
+          <AssociationSet Name="fk_RendezVous_Clients1" Association="Self.fk_RendezVous_Clients1">
             <End Role="Clients" EntitySet="Clients" />
             <End Role="RendezVous" EntitySet="RendezVous" />
           </AssociationSet>
@@ -766,7 +757,7 @@
           <Key>
             <PropertyRef Name="idAnimaux" />
           </Key>
-          <Property Name="idAnimaux" Type="Int32" Nullable="false" />
+          <Property Name="idAnimaux" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Sexe" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="DateNaissance" Type="DateTime" Precision="0" />
@@ -797,17 +788,19 @@
           <Key>
             <PropertyRef Name="idClients" />
           </Key>
-          <Property Name="idClients" Type="Int32" Nullable="false" />
-          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Prénom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Sexe" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idClients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Prenom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Sexe" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="Adresse" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Téléphone" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateNaissance" Type="DateTime" Precision="0" />
+          <Property Name="DernièreVisite" Type="DateTime" Precision="0" />
+          <Property Name="ProchaineVisite" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Animaux" Relationship="Self.fk_Animaux_Clients" FromRole="Clients" ToRole="Animaux" />
           <NavigationProperty Name="Ordonnance" Relationship="Self.fk_Ordonnance_Clients1" FromRole="Clients" ToRole="Ordonnance" />
-          <NavigationProperty Name="RendezVous" Relationship="Self.fk_Rendez_vous_Clients" FromRole="Clients" ToRole="RendezVous" />
+          <NavigationProperty Name="RendezVous" Relationship="Self.fk_RendezVous_Clients1" FromRole="Clients" ToRole="RendezVous" />
         </EntityType>
         <EntityType Name="Comestibles">
           <Key>
@@ -815,7 +808,7 @@
           </Key>
           <Property Name="DatePeremption" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Produits_idProduits" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Produits" Relationship="Self.fk_Comestibles_Produits" FromRole="Comestibles" ToRole="Produits" />
+          <NavigationProperty Name="Produits" Relationship="Self.fk_Comestibles_Produits1" FromRole="Comestibles" ToRole="Produits" />
           <NavigationProperty Name="Médicaments" Relationship="Self.fk_Médicaments_Comestibles1" FromRole="Comestibles" ToRole="Médicaments" />
           <NavigationProperty Name="Nourriture" Relationship="Self.fk_Nourriture_Comestibles1" FromRole="Comestibles" ToRole="Nourriture" />
         </EntityType>
@@ -823,8 +816,8 @@
           <Key>
             <PropertyRef Name="idCongés" />
           </Key>
-          <Property Name="idCongés" Type="Int32" Nullable="false" />
-          <Property Name="DateDébut" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idCongés" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Datedébut" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DateFin" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Utilisateurs_idUtilisateurs" Type="Int32" Nullable="false" />
           <Property Name="Type_congés_idType_congés" Type="Int32" Nullable="false" />
@@ -835,7 +828,7 @@
           <Key>
             <PropertyRef Name="idEmployés" />
           </Key>
-          <Property Name="idEmployés" Type="Int32" Nullable="false" />
+          <Property Name="idEmployés" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Prénom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateNaissance" Type="DateTime" Nullable="false" Precision="0" />
@@ -856,7 +849,7 @@
           <Key>
             <PropertyRef Name="idEspeces" />
           </Key>
-          <Property Name="idEspeces" Type="Int32" Nullable="false" />
+          <Property Name="idEspeces" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Race" Relationship="Self.fk_Race_Especes1" FromRole="Especes" ToRole="Race" />
         </EntityType>
@@ -864,39 +857,39 @@
           <Key>
             <PropertyRef Name="idFactures" />
           </Key>
-          <Property Name="idFactures" Type="Int32" Nullable="false" />
+          <Property Name="idFactures" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Prix" Type="Int32" Nullable="false" />
-          <Property Name="idRendezVous" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="RendezVous" Relationship="Self.fk_Factures_Rendez_vous" FromRole="Factures" ToRole="RendezVous" />
+          <Property Name="RendezVousId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RendezVous" Relationship="Self.fk_Factures_Rendez_vous1" FromRole="Factures" ToRole="RendezVous" />
           <NavigationProperty Name="Soins" Relationship="Self.fk_Soins_Factures1" FromRole="Factures" ToRole="Soins" />
         </EntityType>
         <EntityType Name="Fonctions">
           <Key>
             <PropertyRef Name="idFonctions" />
           </Key>
-          <Property Name="idFonctions" Type="Int32" Nullable="false" />
+          <Property Name="idFonctions" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Role_idRole" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Employés" Relationship="Self.fk_Employés_Fonctions1" FromRole="Fonctions" ToRole="Employés" />
-          <NavigationProperty Name="RoleUser" Relationship="Self.fk_Fonctions_Role1" FromRole="Fonctions" ToRole="RoleUser" />
+          <NavigationProperty Name="Role" Relationship="Self.fk_Fonctions_Role1" FromRole="Fonctions" ToRole="Role" />
         </EntityType>
         <EntityType Name="Formations">
           <Key>
             <PropertyRef Name="idFormations" />
           </Key>
-          <Property Name="idFormations" Type="Int32" Nullable="false" />
+          <Property Name="idFormations" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ville" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateDébut" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DateFin" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Descript" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Employés" Relationship="Self.Employés_Formations" FromRole="Formations" ToRole="Employés" />
         </EntityType>
         <EntityType Name="Logs">
           <Key>
             <PropertyRef Name="idLogs" />
           </Key>
-          <Property Name="idLogs" Type="Int32" Nullable="false" />
+          <Property Name="idLogs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Employés_idEmployés" Type="Int32" Nullable="false" />
           <Property Name="Action" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -906,7 +899,7 @@
           <Key>
             <PropertyRef Name="idMaladies" />
           </Key>
-          <Property Name="idMaladies" Type="Int32" Nullable="false" />
+          <Property Name="idMaladies" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Animaux_maladies" Relationship="Self.fk_Animaux_has_Maladies_Maladies1" FromRole="Maladies" ToRole="Animaux_maladies" />
@@ -915,7 +908,7 @@
           <Key>
             <PropertyRef Name="Produits_idProduits" />
           </Key>
-          <Property Name="Etat" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Etat" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Produits_idProduits" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Produits" Relationship="Self.fk_Matériels_Produits1" FromRole="Matériels" ToRole="Produits" />
         </EntityType>
@@ -926,7 +919,7 @@
             <PropertyRef Name="Comestibles_Produits_idProduits" />
             <PropertyRef Name="Comestibles_Produits_idProduits1" />
           </Key>
-          <Property Name="idMédicaments" Type="Int32" Nullable="false" />
+          <Property Name="idMédicaments" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Comestibles_idComestibles" Type="Int32" Nullable="false" />
           <Property Name="Comestibles_Produits_idProduits" Type="Int32" Nullable="false" />
           <Property Name="Comestibles_Produits_idProduits1" Type="Int32" Nullable="false" />
@@ -939,7 +932,7 @@
             <PropertyRef Name="Comestibles_Produits_idProduits" />
             <PropertyRef Name="Comestibles_Produits_idProduits1" />
           </Key>
-          <Property Name="idNourriture" Type="Int32" Nullable="false" />
+          <Property Name="idNourriture" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Comestibles_idComestibles" Type="Int32" Nullable="false" />
           <Property Name="Comestibles_Produits_idProduits" Type="Int32" Nullable="false" />
           <Property Name="Comestibles_Produits_idProduits1" Type="Int32" Nullable="false" />
@@ -949,7 +942,7 @@
           <Key>
             <PropertyRef Name="idOrdonnance" />
           </Key>
-          <Property Name="idOrdonnance" Type="Int32" Nullable="false" />
+          <Property Name="idOrdonnance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Clients_idClients" Type="Int32" Nullable="false" />
           <Property Name="Animaux_idAnimaux" Type="Int32" Nullable="false" />
@@ -961,14 +954,14 @@
           <Key>
             <PropertyRef Name="idProduits" />
           </Key>
-          <Property Name="idProduits" Type="Int32" Nullable="false" />
+          <Property Name="idProduits" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="refProduits" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateAcquisition" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="PrixAcquisition" Type="Int32" Nullable="false" />
           <Property Name="PrixVente" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Comestibles" Relationship="Self.fk_Comestibles_Produits" FromRole="Produits" ToRole="Comestibles" />
+          <NavigationProperty Name="Comestibles" Relationship="Self.fk_Comestibles_Produits1" FromRole="Produits" ToRole="Comestibles" />
           <NavigationProperty Name="Matériels" Relationship="Self.fk_Matériels_Produits1" FromRole="Produits" ToRole="Matériels" />
           <NavigationProperty Name="Ordonnance" Relationship="Self.Produit_Ordonnance" FromRole="Produits" ToRole="Ordonnance" />
         </EntityType>
@@ -976,7 +969,7 @@
           <Key>
             <PropertyRef Name="idRace" />
           </Key>
-          <Property Name="idRace" Type="Int32" Nullable="false" />
+          <Property Name="idRace" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Especes_idEspeces" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Especes" Relationship="Self.fk_Race_Especes1" FromRole="Race" ToRole="Especes" />
@@ -986,7 +979,7 @@
           <Key>
             <PropertyRef Name="idRappel" />
           </Key>
-          <Property Name="idRappel" Type="Int32" Nullable="false" />
+          <Property Name="idRappel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Animaux_idAnimaux" Type="Int32" Nullable="false" />
@@ -996,26 +989,26 @@
           <Key>
             <PropertyRef Name="idRendezVous" />
           </Key>
-          <Property Name="idRendezVous" Type="Int32" Nullable="false" />
+          <Property Name="idRendezVous" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Clients_idClients" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Clients" Relationship="Self.fk_Rendez_vous_Clients" FromRole="RendezVous" ToRole="Clients" />
-          <NavigationProperty Name="Factures" Relationship="Self.fk_Factures_Rendez_vous" FromRole="RendezVous" ToRole="Factures" />
+          <NavigationProperty Name="Clients" Relationship="Self.fk_RendezVous_Clients1" FromRole="RendezVous" ToRole="Clients" />
+          <NavigationProperty Name="Factures" Relationship="Self.fk_Factures_Rendez_vous1" FromRole="RendezVous" ToRole="Factures" />
         </EntityType>
-        <EntityType Name="RoleUser">
+        <EntityType Name="Role">
           <Key>
             <PropertyRef Name="idRole" />
           </Key>
-          <Property Name="idRole" Type="Int32" Nullable="false" />
+          <Property Name="idRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Fonctions" Relationship="Self.fk_Fonctions_Role1" FromRole="RoleUser" ToRole="Fonctions" />
+          <NavigationProperty Name="Fonctions" Relationship="Self.fk_Fonctions_Role1" FromRole="Role" ToRole="Fonctions" />
         </EntityType>
         <EntityType Name="Soins">
           <Key>
             <PropertyRef Name="idSoins" />
           </Key>
-          <Property Name="idSoins" Type="Int32" Nullable="false" />
+          <Property Name="idSoins" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Factures_idFactures" Type="Int32" Nullable="false" />
           <Property Name="Date_soins" Type="DateTime" Nullable="false" Precision="0" />
@@ -1023,21 +1016,11 @@
           <NavigationProperty Name="Factures" Relationship="Self.fk_Soins_Factures1" FromRole="Soins" ToRole="Factures" />
           <NavigationProperty Name="Animaux" Relationship="Self.Soins_Animaux" FromRole="Soins" ToRole="Animaux" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <EntityType Name="Type_congés">
           <Key>
             <PropertyRef Name="idType_congés" />
           </Key>
-          <Property Name="idType_congés" Type="Int32" Nullable="false" />
+          <Property Name="idType_congés" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Congés" Relationship="Self.fk_Congés_Type_congés1" FromRole="Type_congés" ToRole="Congés" />
         </EntityType>
@@ -1045,7 +1028,7 @@
           <Key>
             <PropertyRef Name="idUtilisateurs" />
           </Key>
-          <Property Name="idUtilisateurs" Type="Int32" Nullable="false" />
+          <Property Name="idUtilisateurs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MotDePasse" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Congés" Relationship="Self.fk_Congés_Utilisateurs1" FromRole="Utilisateurs" ToRole="Congés" />
@@ -1123,7 +1106,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Rendez_vous_Clients">
+        <Association Name="fk_RendezVous_Clients1">
           <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
           <End Role="RendezVous" Type="Self.RendezVous" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1135,7 +1118,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Comestibles_Produits">
+        <Association Name="fk_Comestibles_Produits1">
           <End Role="Produits" Type="Self.Produits" Multiplicity="1" />
           <End Role="Comestibles" Type="Self.Comestibles" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -1243,7 +1226,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Factures_Rendez_vous">
+        <Association Name="fk_Factures_Rendez_vous1">
           <End Role="RendezVous" Type="Self.RendezVous" Multiplicity="1" />
           <End Role="Factures" Type="Self.Factures" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1251,7 +1234,7 @@
               <PropertyRef Name="idRendezVous" />
             </Principal>
             <Dependent Role="Factures">
-              <PropertyRef Name="idRendezVous" />
+              <PropertyRef Name="RendezVousId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1268,10 +1251,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_Fonctions_Role1">
-          <End Role="RoleUser" Type="Self.RoleUser" Multiplicity="1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Fonctions" Type="Self.Fonctions" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="RoleUser">
+            <Principal Role="Role">
               <PropertyRef Name="idRole" />
             </Principal>
             <Dependent Role="Fonctions">
@@ -1307,7 +1290,7 @@
           <End Role="Animaux" Type="Self.Animaux" Multiplicity="*" />
           <End Role="Soins" Type="Self.Soins" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="PT4_S4P2C_E3Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB_ENTITIES" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Animaux" EntityType="Self.Animaux" />
           <EntitySet Name="Animaux_maladies" EntityType="Self.Animaux_maladies" />
           <EntitySet Name="Clients" EntityType="Self.Clients" />
@@ -1328,9 +1311,8 @@
           <EntitySet Name="Race" EntityType="Self.Race" />
           <EntitySet Name="Rappel" EntityType="Self.Rappel" />
           <EntitySet Name="RendezVous" EntityType="Self.RendezVous" />
-          <EntitySet Name="RoleUser" EntityType="Self.RoleUser" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Soins" EntityType="Self.Soins" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Type_congés" EntityType="Self.Type_congés" />
           <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateurs" />
           <AssociationSet Name="fk_Animaux_Clients" Association="Self.fk_Animaux_Clients">
@@ -1357,11 +1339,11 @@
             <End Role="Clients" EntitySet="Clients" />
             <End Role="Ordonnance" EntitySet="Ordonnance" />
           </AssociationSet>
-          <AssociationSet Name="fk_Rendez_vous_Clients" Association="Self.fk_Rendez_vous_Clients">
+          <AssociationSet Name="fk_RendezVous_Clients1" Association="Self.fk_RendezVous_Clients1">
             <End Role="Clients" EntitySet="Clients" />
             <End Role="RendezVous" EntitySet="RendezVous" />
           </AssociationSet>
-          <AssociationSet Name="fk_Comestibles_Produits" Association="Self.fk_Comestibles_Produits">
+          <AssociationSet Name="fk_Comestibles_Produits1" Association="Self.fk_Comestibles_Produits1">
             <End Role="Produits" EntitySet="Produits" />
             <End Role="Comestibles" EntitySet="Comestibles" />
           </AssociationSet>
@@ -1397,7 +1379,7 @@
             <End Role="Especes" EntitySet="Especes" />
             <End Role="Race" EntitySet="Race" />
           </AssociationSet>
-          <AssociationSet Name="fk_Factures_Rendez_vous" Association="Self.fk_Factures_Rendez_vous">
+          <AssociationSet Name="fk_Factures_Rendez_vous1" Association="Self.fk_Factures_Rendez_vous1">
             <End Role="RendezVous" EntitySet="RendezVous" />
             <End Role="Factures" EntitySet="Factures" />
           </AssociationSet>
@@ -1406,7 +1388,7 @@
             <End Role="Soins" EntitySet="Soins" />
           </AssociationSet>
           <AssociationSet Name="fk_Fonctions_Role1" Association="Self.fk_Fonctions_Role1">
-            <End Role="RoleUser" EntitySet="RoleUser" />
+            <End Role="Role" EntitySet="Role" />
             <End Role="Fonctions" EntitySet="Fonctions" />
           </AssociationSet>
           <AssociationSet Name="fk_Matériels_Produits1" Association="Self.fk_Matériels_Produits1">
@@ -1435,7 +1417,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PT4_S4P2C_E3ModelStoreContainer" CdmEntityContainer="PT4_S4P2C_E3Entities">
+        <EntityContainerMapping StorageEntityContainer="PT4_S4P2C_E3ModelStoreContainer" CdmEntityContainer="DB_ENTITIES">
           <EntitySetMapping Name="Animaux">
             <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Animaux">
               <MappingFragment StoreEntitySet="Animaux">
@@ -1465,12 +1447,14 @@
               <MappingFragment StoreEntitySet="Clients">
                 <ScalarProperty Name="idClients" ColumnName="idClients" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
-                <ScalarProperty Name="Prénom" ColumnName="Prénom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
                 <ScalarProperty Name="Sexe" ColumnName="Sexe" />
-                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
                 <ScalarProperty Name="Adresse" ColumnName="Adresse" />
                 <ScalarProperty Name="Téléphone" ColumnName="Téléphone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="DernièreVisite" ColumnName="DernièreVisite" />
+                <ScalarProperty Name="ProchaineVisite" ColumnName="ProchaineVisite" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1486,7 +1470,7 @@
             <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Congés">
               <MappingFragment StoreEntitySet="Congés">
                 <ScalarProperty Name="idCongés" ColumnName="idCongés" />
-                <ScalarProperty Name="DateDébut" ColumnName="DateDébut" />
+                <ScalarProperty Name="Datedébut" ColumnName="Datedébut" />
                 <ScalarProperty Name="DateFin" ColumnName="DateFin" />
                 <ScalarProperty Name="Utilisateurs_idUtilisateurs" ColumnName="Utilisateurs_idUtilisateurs" />
                 <ScalarProperty Name="Type_congés_idType_congés" ColumnName="Type_congés_idType_congés" />
@@ -1525,7 +1509,7 @@
                 <ScalarProperty Name="idFactures" ColumnName="idFactures" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Prix" ColumnName="Prix" />
-                <ScalarProperty Name="idRendezVous" ColumnName="idRendezVous" />
+                <ScalarProperty Name="RendezVousId" ColumnName="RendezVousId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1545,7 +1529,7 @@
                 <ScalarProperty Name="Ville" ColumnName="Ville" />
                 <ScalarProperty Name="DateDébut" ColumnName="DateDébut" />
                 <ScalarProperty Name="DateFin" ColumnName="DateFin" />
-                <ScalarProperty Name="Descript" ColumnName="Descript" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1648,9 +1632,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RoleUser">
-            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.RoleUser">
-              <MappingFragment StoreEntitySet="RoleUser">
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.Role">
+              <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="idRole" ColumnName="idRole" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
               </MappingFragment>
@@ -1664,17 +1648,6 @@
                 <ScalarProperty Name="Factures_idFactures" ColumnName="Factures_idFactures" />
                 <ScalarProperty Name="Date_soins" ColumnName="Date_soins" />
                 <ScalarProperty Name="Soinscol" ColumnName="Soinscol" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PT4_S4P2C_E3Model.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
