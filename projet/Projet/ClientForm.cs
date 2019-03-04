@@ -90,6 +90,9 @@ namespace Projet
                     && client.Email.Equals(myClient.Email) && client.DateNaissance == myClient.DateNaissance)
                 {
                     MessageBox.Show("Client inscrit");
+                    this.Hide();
+                    ClientSheet clientInsert = new ClientSheet(myClient);
+                    clientInsert.Show();
                 }
                 resetAllInput();
             }
@@ -110,6 +113,7 @@ namespace Projet
             if (!womanRadioButton.Checked)
             {
                 isMan = false;
+                MessageBox.Show("femme ?" + isMan);
             }
         }
 
@@ -118,6 +122,7 @@ namespace Projet
             if (!manRadioButton.Checked)
             {
                 isMan = true;
+                MessageBox.Show("femme ?" + isMan);
             }
         }
 
