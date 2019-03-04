@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Label15 = new System.Windows.Forms.Label();
-            this.Label14 = new System.Windows.Forms.Label();
-            this.Label13 = new System.Windows.Forms.Label();
-            this.Label9 = new System.Windows.Forms.Label();
+            this.desc = new System.Windows.Forms.Label();
+            this.acqP = new System.Windows.Forms.Label();
+            this.sellingP = new System.Windows.Forms.Label();
+            this.name = new System.Windows.Forms.Label();
             this.ville = new System.Windows.Forms.Label();
             this.codePostal = new System.Windows.Forms.Label();
             this.adresse = new System.Windows.Forms.Label();
@@ -45,10 +45,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Label15);
-            this.groupBox1.Controls.Add(this.Label14);
-            this.groupBox1.Controls.Add(this.Label13);
-            this.groupBox1.Controls.Add(this.Label9);
+            this.groupBox1.Controls.Add(this.desc);
+            this.groupBox1.Controls.Add(this.acqP);
+            this.groupBox1.Controls.Add(this.sellingP);
+            this.groupBox1.Controls.Add(this.name);
             this.groupBox1.Controls.Add(this.ville);
             this.groupBox1.Controls.Add(this.codePostal);
             this.groupBox1.Controls.Add(this.adresse);
@@ -64,37 +64,37 @@
             this.groupBox1.Text = "Product Intels :";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // Label15
+            // desc
             // 
-            this.Label15.Location = new System.Drawing.Point(7, 123);
-            this.Label15.Name = "Label15";
-            this.Label15.Size = new System.Drawing.Size(77, 20);
-            this.Label15.TabIndex = 14;
-            this.Label15.Text = "Description : ";
+            this.desc.Location = new System.Drawing.Point(7, 123);
+            this.desc.Name = "desc";
+            this.desc.Size = new System.Drawing.Size(77, 20);
+            this.desc.TabIndex = 14;
+            this.desc.Text = "Description : ";
             // 
-            // Label14
+            // acqP
             // 
-            this.Label14.Location = new System.Drawing.Point(7, 93);
-            this.Label14.Name = "Label14";
-            this.Label14.Size = new System.Drawing.Size(95, 20);
-            this.Label14.TabIndex = 13;
-            this.Label14.Text = "Prix d\'acquisition : ";
+            this.acqP.Location = new System.Drawing.Point(7, 93);
+            this.acqP.Name = "acqP";
+            this.acqP.Size = new System.Drawing.Size(95, 20);
+            this.acqP.TabIndex = 13;
+            this.acqP.Text = "Prix d\'acquisition : ";
             // 
-            // Label13
+            // sellingP
             // 
-            this.Label13.Location = new System.Drawing.Point(7, 62);
-            this.Label13.Name = "Label13";
-            this.Label13.Size = new System.Drawing.Size(86, 20);
-            this.Label13.TabIndex = 12;
-            this.Label13.Text = "Prix de vente : ";
+            this.sellingP.Location = new System.Drawing.Point(7, 62);
+            this.sellingP.Name = "sellingP";
+            this.sellingP.Size = new System.Drawing.Size(86, 20);
+            this.sellingP.TabIndex = 12;
+            this.sellingP.Text = "Prix de vente : ";
             // 
-            // Label9
+            // name
             // 
-            this.Label9.Location = new System.Drawing.Point(7, 31);
-            this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(63, 20);
-            this.Label9.TabIndex = 8;
-            this.Label9.Text = "Nom : ";
+            this.name.Location = new System.Drawing.Point(7, 31);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(63, 20);
+            this.name.TabIndex = 8;
+            this.name.Text = "Nom : ";
             // 
             // ville
             // 
@@ -161,10 +161,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label Label15;
-        private System.Windows.Forms.Label Label14;
-        private System.Windows.Forms.Label Label13;
-        private System.Windows.Forms.Label Label9;
+        private System.Windows.Forms.Label desc;
+        private System.Windows.Forms.Label acqP;
+        private System.Windows.Forms.Label sellingP;
+        private System.Windows.Forms.Label name;
         private System.Windows.Forms.Label ville;
         private System.Windows.Forms.Label codePostal;
         private System.Windows.Forms.Label adresse;
