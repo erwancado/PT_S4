@@ -229,6 +229,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CalendarButton.PNG" />
+    <Content Include="croix-veterinaire-.jpg" />
     <Content Include="HomeButton.PNG" />
     <Content Include="ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

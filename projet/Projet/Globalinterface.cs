@@ -16,5 +16,20 @@ namespace Projet
         {
             InitializeComponent();
         }
+
+        private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            if(e.Row == 0)
+                e.Graphics.FillRectangle(Brushes.CornflowerBlue, e.CellBounds);
+
+            for(int i = 0; i < e.Row; i++)
+                if(e.Column == 0)
+                    e.Graphics.FillRectangle(Brushes.White, e.CellBounds);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
