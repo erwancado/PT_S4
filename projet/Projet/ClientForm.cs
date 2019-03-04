@@ -21,7 +21,7 @@ namespace Projet
         private String tel;
         private String email;
 
-        PT4_S4P2C_E3Entities _db;
+        DB_ENTITIES _db;
         OleDbConnection dbConnection;
 
 
@@ -29,10 +29,7 @@ namespace Projet
         {
             InitializeComponent();
 
-            string chaineBd = "Provider=SQLOLEDB;Data Source=INFO-JOYEUX;Initial Catalog=PT4_S4P2C_E3;Integrated Security=SSPI;";
-            dbConnection = new OleDbConnection(chaineBd);
-            dbConnection.Open();
-
+            _db = new DB_ENTITIES();
             isMan = true;
             SelectedDate = DateTime.Now;
         }
@@ -44,10 +41,10 @@ namespace Projet
             adress = adressTextBox.Text;
             tel = telTextBox.Text;
             email = emailTextBox.Text;
-
-            string sql = "INSERT INTO Client(NOM_AB,PRENOM_AB,DATE_ABONNEMENT,NUM_AB) VALUES ('" + "','"  + "',SYSDATETIME(),(select MAX(Abonnes.NUM_AB)From Abonnes)+1)";
-            OleDbCommand cmd = new OleDbCommand(sql, dbConnection);
-            cmd.ExecuteNonQuery();
+            Clients toInsert = new Clients();
+            toInsert.Nom = nameTextBox.Text;
+            _db.Clients.Add(toInsert);
+            _db.SaveChanges();
 
         }
 

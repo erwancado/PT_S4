@@ -38,7 +38,6 @@ namespace Projet
             {
                 if (u.Login.Equals(this.login.Text) && u.MotDePasse.Equals(this.pass.Text))
                 {
-                    Console.WriteLine("OK");
                     ClientSheet client = new ClientSheet();
                     client.Show();
                     this.Hide();
