@@ -195,6 +195,7 @@
             this.logoutButton.Size = new System.Drawing.Size(100, 104);
             this.logoutButton.TabIndex = 14;
             this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // DateLabel
             // 

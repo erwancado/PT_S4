@@ -38,5 +38,13 @@ namespace Projet
                 if(e.Column == 0)
                     e.Graphics.FillRectangle(Brushes.White, e.CellBounds);
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Êtes-vous sûr(e) de vouloir vous déconnecter ?", "Confirmez", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
