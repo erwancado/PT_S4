@@ -16,7 +16,7 @@ namespace Projet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Globalinterface());
+            Application.Run(new Facture(new List<Soins>(), null , null));
         }
     }
 }

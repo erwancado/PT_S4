@@ -74,7 +74,7 @@
             // 
             // Label14
             // 
-            this.Label14.Location = new System.Drawing.Point(7, 97);
+            this.Label14.Location = new System.Drawing.Point(7, 93);
             this.Label14.Name = "Label14";
             this.Label14.Size = new System.Drawing.Size(95, 20);
             this.Label14.TabIndex = 13;
@@ -82,7 +82,7 @@
             // 
             // Label13
             // 
-            this.Label13.Location = new System.Drawing.Point(7, 71);
+            this.Label13.Location = new System.Drawing.Point(7, 62);
             this.Label13.Name = "Label13";
             this.Label13.Size = new System.Drawing.Size(86, 20);
             this.Label13.TabIndex = 12;
@@ -90,7 +90,7 @@
             // 
             // Label9
             // 
-            this.Label9.Location = new System.Drawing.Point(7, 19);
+            this.Label9.Location = new System.Drawing.Point(7, 31);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(63, 20);
             this.Label9.TabIndex = 8;
@@ -126,21 +126,21 @@
             // 
             // tel
             // 
-            this.tel.Location = new System.Drawing.Point(90, 97);
+            this.tel.Location = new System.Drawing.Point(108, 93);
             this.tel.Name = "tel";
             this.tel.Size = new System.Drawing.Size(142, 20);
             this.tel.TabIndex = 3;
             // 
             // naissance
             // 
-            this.naissance.Location = new System.Drawing.Point(126, 71);
+            this.naissance.Location = new System.Drawing.Point(90, 62);
             this.naissance.Name = "naissance";
             this.naissance.Size = new System.Drawing.Size(106, 20);
             this.naissance.TabIndex = 2;
             // 
             // nom
             // 
-            this.nom.Location = new System.Drawing.Point(90, 19);
+            this.nom.Location = new System.Drawing.Point(90, 31);
             this.nom.Name = "nom";
             this.nom.Size = new System.Drawing.Size(142, 20);
             this.nom.TabIndex = 0;

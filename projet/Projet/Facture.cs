@@ -15,22 +15,24 @@ namespace Projet
 {
     public partial class Facture : Form
     {
-        List<Soins> soins;
         public Facture(List<Soins> soins, Animaux animal, Clients client)
         {
             InitializeComponent();
-            this.soins = soins;
-            soins.ForEach(s => this.soins.Add(s));
+            soins.ForEach(s => this.soinsList.Items.Add(s.Description));
             this.animalName.Text = animal.Nom;
             this.nameClient.Text = client.Nom;
         }
 
         private void generate_Click(object sender, EventArgs e)
         {
-            if (!prix.Text.Equals(""))
+            bool isNumeric = int.TryParse(prix.Text, out int n);
+            if (isNumeric && !prix.Text.Equals(""))
             {
                 generateFacture();
-            } 
+            } else
+            {
+                MessageBox.Show("Enter a valide price!");
+            }
         }
 
         private void generateFacture()

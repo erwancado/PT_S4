@@ -12,9 +12,21 @@ namespace Projet
 {
     public partial class Globalinterface : Form
     {
-        public Globalinterface()
+        Timer time;
+        public String id;
+        public Globalinterface(String id)
         {
             InitializeComponent();
+            time = new Timer();
+            this.id = id;
+            startTime();
+        }
+
+        public void startTime()
+        {
+            time.Tick += (s, e) => { DateLabel.Text = DateTime.Now.ToString()+"\n Utilisateur : "+ id; };
+            time.Interval = 500;
+            time.Start();
         }
 
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
@@ -25,11 +37,6 @@ namespace Projet
             for(int i = 0; i < e.Row; i++)
                 if(e.Column == 0)
                     e.Graphics.FillRectangle(Brushes.White, e.CellBounds);
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
