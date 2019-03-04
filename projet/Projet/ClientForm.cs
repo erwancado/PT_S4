@@ -28,7 +28,6 @@ namespace Projet
         public ClientForm()
         {
             InitializeComponent();
-
             _db = new DB_ENTITIES();
             isMan = true;
             SelectedDate = DateTime.Now;
@@ -36,16 +35,74 @@ namespace Projet
 
         private void insertButton_Click(object sender, EventArgs e)
         {
-            name = nameTextBox.Text;
-            firstName = prenomTextBox.Text;
-            adress = adressTextBox.Text;
-            tel = telTextBox.Text;
-            email = emailTextBox.Text;
             Clients toInsert = new Clients();
             toInsert.Nom = nameTextBox.Text;
-            _db.Clients.Add(toInsert);
-            _db.SaveChanges();
+            toInsert.Prenom = prenomTextBox.Text;
+            toInsert.Adresse = adressTextBox.Text;
+            try
+            {
+                var eMailValidator = new System.Net.Mail.MailAddress(emailTextBox.Text);
+                toInsert.Email = emailTextBox.Text;
+                toInsert.DateNaissance = SelectedDate;
+                if (isMan)
+                {
+                    toInsert.Sexe = "M";
+                }
+                else
+                {
+                    toInsert.Sexe = "F";
+                }
+                if (telTextBox.Text == "")
+                {
+                    MessageBox.Show("numéro null");
+                }
+                try
+                {
+                    toInsert.Téléphone = Int32.Parse(telTextBox.Text);
+                    _db.Clients.Add(toInsert);
+                    _db.SaveChanges();
+                    inscriptionGood(toInsert);
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("numéro incorrect (format incorrect)");
+                }
+                catch (OverflowException ex)
+                {
+                    MessageBox.Show("numéro incorrect (trop long) ");
+                }
+            }
+            catch (FormatException ex)
+            {
+                emailTextBox.ResetText();
+                MessageBox.Show("Email incorrect");
+            }
 
+        }
+
+        private void inscriptionGood(Clients myClient)
+        {
+            var clients = _db.Clients;
+            foreach (Clients client in clients)
+            {
+                if (client.Nom.Equals(myClient.Nom) && myClient.Prenom.Equals(myClient.Prenom)
+                    && client.Adresse.Equals(myClient.Adresse) && client.Téléphone == myClient.Téléphone
+                    && client.Email.Equals(myClient.Email) && client.DateNaissance == myClient.DateNaissance)
+                {
+                    MessageBox.Show("Client inscrit");
+                }
+                resetAllInput();
+            }
+        }
+
+        private void resetAllInput()
+        {
+            nameTextBox.ResetText();
+            prenomTextBox.ResetText();
+            emailTextBox.ResetText();
+            adressTextBox.ResetText();
+            telTextBox.ResetText();
+            naissanceDatePicker.ResetText();
         }
 
         private void womanRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -58,7 +115,8 @@ namespace Projet
 
         private void manRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (!manRadioButton.Checked) {
+            if (!manRadioButton.Checked)
+            {
                 isMan = true;
             }
         }
