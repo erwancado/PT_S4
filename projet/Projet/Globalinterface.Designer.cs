@@ -39,6 +39,7 @@
             this.statsButton = new System.Windows.Forms.Button();
             this.vetSign = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
+            this.DateLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +61,7 @@
             this.tableLayoutPanel1.Controls.Add(this.statsButton, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.vetSign, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.logoutButton, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.DateLabel, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
@@ -76,7 +78,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(2619, 1483);
             this.tableLayoutPanel1.TabIndex = 7;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // homeButton
             // 
@@ -195,6 +196,19 @@
             this.logoutButton.TabIndex = 14;
             this.logoutButton.UseVisualStyleBackColor = false;
             // 
+            // DateLabel
+            // 
+            this.DateLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.DateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.DateLabel.Location = new System.Drawing.Point(915, 48);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(73, 17);
+            this.DateLabel.TabIndex = 16;
+            this.DateLabel.Text = "DateLabel";
+            this.DateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Globalinterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +223,7 @@
             this.Text = "Globalinterface";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -224,5 +239,6 @@
         private System.Windows.Forms.Button statsButton;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button vetSign;
+        private System.Windows.Forms.Label DateLabel;
     }
 }

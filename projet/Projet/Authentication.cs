@@ -38,7 +38,7 @@ namespace Projet
             {
                 if (u.Login.Equals(this.login.Text) && u.MotDePasse.Equals(this.pass.Text))
                 {
-                    ClientSheet client = new ClientSheet();
+                    Globalinterface client = new Globalinterface(u.Login);
                     client.Show();
                     this.Hide();
                 }
