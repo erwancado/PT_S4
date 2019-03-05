@@ -91,6 +91,7 @@
             this.homeButton.Size = new System.Drawing.Size(100, 100);
             this.homeButton.TabIndex = 0;
             this.homeButton.UseVisualStyleBackColor = false;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // calendarButton
             // 
@@ -104,6 +105,7 @@
             this.calendarButton.Size = new System.Drawing.Size(100, 99);
             this.calendarButton.TabIndex = 8;
             this.calendarButton.UseVisualStyleBackColor = false;
+            this.calendarButton.Click += new System.EventHandler(this.calendarButton_Click);
             // 
             // customerButton
             // 
@@ -117,6 +119,7 @@
             this.customerButton.Size = new System.Drawing.Size(100, 99);
             this.customerButton.TabIndex = 9;
             this.customerButton.UseVisualStyleBackColor = false;
+            this.customerButton.Click += new System.EventHandler(this.customerButton_Click);
             // 
             // animalsButton
             // 
@@ -130,6 +133,7 @@
             this.animalsButton.Size = new System.Drawing.Size(100, 99);
             this.animalsButton.TabIndex = 10;
             this.animalsButton.UseVisualStyleBackColor = false;
+            this.animalsButton.Click += new System.EventHandler(this.animalsButton_Click);
             // 
             // prescriptionButton
             // 
@@ -143,6 +147,7 @@
             this.prescriptionButton.Size = new System.Drawing.Size(100, 100);
             this.prescriptionButton.TabIndex = 11;
             this.prescriptionButton.UseVisualStyleBackColor = false;
+            this.prescriptionButton.Click += new System.EventHandler(this.prescriptionButton_Click);
             // 
             // stockButton
             // 
@@ -156,6 +161,7 @@
             this.stockButton.Size = new System.Drawing.Size(100, 100);
             this.stockButton.TabIndex = 12;
             this.stockButton.UseVisualStyleBackColor = false;
+            this.stockButton.Click += new System.EventHandler(this.stockButton_Click);
             // 
             // statsButton
             // 
@@ -169,6 +175,7 @@
             this.statsButton.Size = new System.Drawing.Size(100, 100);
             this.statsButton.TabIndex = 13;
             this.statsButton.UseVisualStyleBackColor = false;
+            this.statsButton.Click += new System.EventHandler(this.statsButton_Click);
             // 
             // vetSign
             // 
@@ -223,6 +230,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Globalinterface";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Globalinterface_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

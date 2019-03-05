@@ -46,5 +46,47 @@ namespace Projet
                 Application.Exit();
             }
         }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calendarButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerButton_Click(object sender, EventArgs e)
+        {
+            ClientList c = new ClientList();
+            c.Show();
+        }
+
+        private void animalsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prescriptionButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stockButton_Click(object sender, EventArgs e)
+        {
+            Stock s = new Stock();
+            s.Show();
+        }
+
+        private void statsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Globalinterface_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

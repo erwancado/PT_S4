@@ -69,5 +69,12 @@ namespace Projet
             ProduitsSheet sheet = new ProduitsSheet(toShow);
             sheet.Show();
         }
+
+        private void nouv_Click(object sender, EventArgs e)
+        {
+            NewProduct n = new NewProduct(this);
+            n.Show();
+            this.Hide();
+        }
     }
 }
