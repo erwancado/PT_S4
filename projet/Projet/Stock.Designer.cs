@@ -41,6 +41,7 @@
             this.listView1.Size = new System.Drawing.Size(775, 259);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
             // 
             // label1
             // 
@@ -66,6 +67,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Chercher";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Stock
             // 
