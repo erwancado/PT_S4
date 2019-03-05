@@ -44,13 +44,13 @@ namespace Projet
                 var eMailValidator = new System.Net.Mail.MailAddress(emailTextBox.Text);
                 toInsert.Email = emailTextBox.Text;
                 toInsert.DateNaissance = SelectedDate;
-                if (isMan)
+                if (womanRadioButton.Checked)
                 {
-                    toInsert.Sexe = "M";
+                    toInsert.Sexe = "F";
                 }
                 else
                 {
-                    toInsert.Sexe = "F";
+                    toInsert.Sexe = "M";
                 }
                 if (telTextBox.Text == "")
                 {
@@ -108,25 +108,7 @@ namespace Projet
             naissanceDatePicker.ResetText();
         }
 
-        private void womanRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!womanRadioButton.Checked)
-            {
-                isMan = false;
-                MessageBox.Show("femme ?" + isMan);
-            }
-        }
-
-        private void manRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!manRadioButton.Checked)
-            {
-                isMan = true;
-                MessageBox.Show("femme ?" + isMan);
-            }
-        }
-
-        private void naissanceDatePicker_ValueChanged(object sender, EventArgs e)
+            private void naissanceDatePicker_ValueChanged(object sender, EventArgs e)
         {
             SelectedDate = naissanceDatePicker.Value;
         }

@@ -132,7 +132,6 @@
             this.manRadioButton.TabStop = true;
             this.manRadioButton.Text = "Homme";
             this.manRadioButton.UseVisualStyleBackColor = true;
-            this.manRadioButton.CheckedChanged += new System.EventHandler(this.manRadioButton_CheckedChanged);
             // 
             // womanRadioButton
             // 
@@ -143,7 +142,6 @@
             this.womanRadioButton.TabIndex = 10;
             this.womanRadioButton.Text = "Femme";
             this.womanRadioButton.UseVisualStyleBackColor = true;
-            this.womanRadioButton.CheckedChanged += new System.EventHandler(this.womanRadioButton_CheckedChanged);
             // 
             // label6
             // 
