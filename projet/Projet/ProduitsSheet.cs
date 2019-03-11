@@ -22,10 +22,10 @@ namespace Projet
 
         private void intialiseText()
         {
-            this.desc.Text = p.Description;
-            this.name.Text = p.Nom;
-            this.acqP.Text = p.PrixAcquisition.ToString();
-            this.sellingP.Text = p.PrixVente.ToString();
+            this.d.Text = p.Description;
+            this.nom.Text = p.Nom;
+            this.pa.Text = p.PrixAcquisition.ToString();
+            this.pv.Text = p.PrixVente.ToString();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
