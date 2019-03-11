@@ -17,7 +17,6 @@ namespace Projet
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employés()
         {
-            this.Logs = new HashSet<Logs>();
             this.Formations = new HashSet<Formations>();
         }
     
@@ -36,8 +35,6 @@ namespace Projet
     
         public virtual Fonctions Fonctions { get; set; }
         public virtual Utilisateurs Utilisateurs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Logs> Logs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Formations> Formations { get; set; }
     }
