@@ -12,15 +12,9 @@ namespace Projet
 {
     public partial class FicheAnimalInterface : Form
     {
-        public FicheAnimalInterface()
+        public FicheAnimalInterface(Animaux myAnimal)
         {
             InitializeComponent();
-        }
-
-        private void retourPageAnimal_Click(object sender, EventArgs e)
-        {
-            FicheAnimalInterface fai = new FicheAnimalInterface();
-            fai.Show();
         }
     }
 }

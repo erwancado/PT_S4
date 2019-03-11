@@ -226,7 +226,6 @@
             this.retourPageAnimal.TabIndex = 18;
             this.retourPageAnimal.Text = "retourPageAnimal";
             this.retourPageAnimal.UseVisualStyleBackColor = true;
-            this.retourPageAnimal.Click += new System.EventHandler(this.retourPageAnimal_Click);
             // 
             // FicheAnimalInterface
             // 
