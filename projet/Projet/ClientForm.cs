@@ -78,6 +78,7 @@ namespace Projet
                 MessageBox.Show("Email incorrect");
             }
 
+
         }
 
         private void inscriptionGood(Clients myClient)
