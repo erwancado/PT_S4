@@ -154,6 +154,7 @@
             this.inscription.TabIndex = 15;
             this.inscription.Text = "inscription";
             this.inscription.UseVisualStyleBackColor = true;
+            this.inscription.Click += new System.EventHandler(this.inscription_Click);
             // 
             // dateTimePicker1
             // 
