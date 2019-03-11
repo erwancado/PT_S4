@@ -30,7 +30,7 @@ namespace Projet
         {
             foreach (Logs l in _db.Logs)
             {
-                this.logsListView.Items.Add(l.Action + " " + l.Date.ToShortDateString());
+                this.logsListView.Items.Add(l.Action + " " + l.Date.ToShortDateString() + " "+ l.Date.ToShortTimeString());
             }
         }
 
