@@ -12,9 +12,81 @@ namespace Projet
 {
     public partial class Globalinterface : Form
     {
-        public Globalinterface()
+        Timer time;
+        public String id;
+        public Globalinterface(String id)
         {
             InitializeComponent();
+            time = new Timer();
+            this.id = id;
+            startTime();
+        }
+
+        public void startTime()
+        {
+            time.Tick += (s, e) => { DateLabel.Text = DateTime.Now.ToString()+"\n Utilisateur : "+ id; };
+            time.Interval = 500;
+            time.Start();
+        }
+
+        private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            if(e.Row == 0)
+                e.Graphics.FillRectangle(Brushes.CornflowerBlue, e.CellBounds);
+
+            for(int i = 0; i < e.Row; i++)
+                if(e.Column == 0)
+                    e.Graphics.FillRectangle(Brushes.White, e.CellBounds);
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Êtes-vous sûr(e) de vouloir vous déconnecter ?", "Confirmez", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calendarButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerButton_Click(object sender, EventArgs e)
+        {
+            ClientList c = new ClientList();
+            c.Show();
+        }
+
+        private void animalsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prescriptionButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stockButton_Click(object sender, EventArgs e)
+        {
+            Stock s = new Stock();
+            s.Show();
+        }
+
+        private void statsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Globalinterface_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

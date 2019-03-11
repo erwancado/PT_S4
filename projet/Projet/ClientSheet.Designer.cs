@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Label18 = new System.Windows.Forms.Label();
-            this.Label17 = new System.Windows.Forms.Label();
-            this.Label16 = new System.Windows.Forms.Label();
-            this.Label15 = new System.Windows.Forms.Label();
-            this.Label14 = new System.Windows.Forms.Label();
-            this.Label13 = new System.Windows.Forms.Label();
-            this.Label12 = new System.Windows.Forms.Label();
-            this.Label9 = new System.Windows.Forms.Label();
+            this.sexeLabel = new System.Windows.Forms.Label();
+            this.adressLabel = new System.Windows.Forms.Label();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.telLabel = new System.Windows.Forms.Label();
+            this.NaissanceLabel = new System.Windows.Forms.Label();
+            this.prenomLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
             this.ville = new System.Windows.Forms.Label();
             this.codePostal = new System.Windows.Forms.Label();
             this.adresse = new System.Windows.Forms.Label();
@@ -52,14 +51,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Label18);
-            this.groupBox1.Controls.Add(this.Label17);
-            this.groupBox1.Controls.Add(this.Label16);
-            this.groupBox1.Controls.Add(this.Label15);
-            this.groupBox1.Controls.Add(this.Label14);
-            this.groupBox1.Controls.Add(this.Label13);
-            this.groupBox1.Controls.Add(this.Label12);
-            this.groupBox1.Controls.Add(this.Label9);
+            this.groupBox1.Controls.Add(this.sexeLabel);
+            this.groupBox1.Controls.Add(this.adressLabel);
+            this.groupBox1.Controls.Add(this.emailLabel);
+            this.groupBox1.Controls.Add(this.telLabel);
+            this.groupBox1.Controls.Add(this.NaissanceLabel);
+            this.groupBox1.Controls.Add(this.prenomLabel);
+            this.groupBox1.Controls.Add(this.nameLabel);
             this.groupBox1.Controls.Add(this.ville);
             this.groupBox1.Controls.Add(this.codePostal);
             this.groupBox1.Controls.Add(this.adresse);
@@ -75,69 +73,61 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal Intels :";
             // 
-            // Label18
+            // sexeLabel
             // 
-            this.Label18.Location = new System.Drawing.Point(7, 201);
-            this.Label18.Name = "Label18";
-            this.Label18.Size = new System.Drawing.Size(63, 20);
-            this.Label18.TabIndex = 17;
-            this.Label18.Text = "Ville : ";
+            this.sexeLabel.Location = new System.Drawing.Point(7, 65);
+            this.sexeLabel.Name = "sexeLabel";
+            this.sexeLabel.Size = new System.Drawing.Size(225, 20);
+            this.sexeLabel.TabIndex = 16;
+            this.sexeLabel.Text = "Sexe :";
             // 
-            // Label17
+            // adressLabel
             // 
-            this.Label17.Location = new System.Drawing.Point(7, 175);
-            this.Label17.Name = "Label17";
-            this.Label17.Size = new System.Drawing.Size(77, 20);
-            this.Label17.TabIndex = 16;
-            this.Label17.Text = "Code Postal : ";
+            this.adressLabel.Location = new System.Drawing.Point(7, 169);
+            this.adressLabel.Name = "adressLabel";
+            this.adressLabel.Size = new System.Drawing.Size(225, 52);
+            this.adressLabel.TabIndex = 15;
+            this.adressLabel.Text = "Adresse : ";
             // 
-            // Label16
+            // emailLabel
             // 
-            this.Label16.Location = new System.Drawing.Point(7, 149);
-            this.Label16.Name = "Label16";
-            this.Label16.Size = new System.Drawing.Size(63, 20);
-            this.Label16.TabIndex = 15;
-            this.Label16.Text = "Adresse : ";
+            this.emailLabel.Location = new System.Drawing.Point(7, 143);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(225, 20);
+            this.emailLabel.TabIndex = 14;
+            this.emailLabel.Text = "Email : ";
             // 
-            // Label15
+            // telLabel
             // 
-            this.Label15.Location = new System.Drawing.Point(7, 123);
-            this.Label15.Name = "Label15";
-            this.Label15.Size = new System.Drawing.Size(63, 20);
-            this.Label15.TabIndex = 14;
-            this.Label15.Text = "Email : ";
+            this.telLabel.Location = new System.Drawing.Point(6, 117);
+            this.telLabel.Name = "telLabel";
+            this.telLabel.Size = new System.Drawing.Size(225, 20);
+            this.telLabel.TabIndex = 13;
+            this.telLabel.Text = "Téléphone : ";
             // 
-            // Label14
+            // NaissanceLabel
             // 
-            this.Label14.Location = new System.Drawing.Point(7, 97);
-            this.Label14.Name = "Label14";
-            this.Label14.Size = new System.Drawing.Size(63, 20);
-            this.Label14.TabIndex = 13;
-            this.Label14.Text = "Téléphone : ";
+            this.NaissanceLabel.Location = new System.Drawing.Point(7, 91);
+            this.NaissanceLabel.Name = "NaissanceLabel";
+            this.NaissanceLabel.Size = new System.Drawing.Size(230, 20);
+            this.NaissanceLabel.TabIndex = 12;
+            this.NaissanceLabel.Text = "Date de naissance : ";
             // 
-            // Label13
+            // prenomLabel
             // 
-            this.Label13.Location = new System.Drawing.Point(7, 71);
-            this.Label13.Name = "Label13";
-            this.Label13.Size = new System.Drawing.Size(63, 20);
-            this.Label13.TabIndex = 12;
-            this.Label13.Text = "Naissance : ";
+            this.prenomLabel.Location = new System.Drawing.Point(7, 45);
+            this.prenomLabel.Name = "prenomLabel";
+            this.prenomLabel.Size = new System.Drawing.Size(225, 20);
+            this.prenomLabel.TabIndex = 11;
+            this.prenomLabel.Text = "Prénom : ";
             // 
-            // Label12
+            // nameLabel
             // 
-            this.Label12.Location = new System.Drawing.Point(7, 45);
-            this.Label12.Name = "Label12";
-            this.Label12.Size = new System.Drawing.Size(63, 20);
-            this.Label12.TabIndex = 11;
-            this.Label12.Text = "Prénom : ";
-            // 
-            // Label9
-            // 
-            this.Label9.Location = new System.Drawing.Point(7, 19);
-            this.Label9.Name = "Label9";
-            this.Label9.Size = new System.Drawing.Size(63, 20);
-            this.Label9.TabIndex = 8;
-            this.Label9.Text = "Nom : ";
+            this.nameLabel.Location = new System.Drawing.Point(7, 19);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(230, 20);
+            this.nameLabel.TabIndex = 8;
+            this.nameLabel.Text = "Nom : ";
             // 
             // ville
             // 
@@ -216,7 +206,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(934, 511);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rdv);
             this.Controls.Add(this.groupBox1);
@@ -239,15 +229,14 @@
         private System.Windows.Forms.Label naissance;
         private System.Windows.Forms.Label prenom;
         private System.Windows.Forms.Label nom;
-        private System.Windows.Forms.Label Label18;
-        private System.Windows.Forms.Label Label17;
-        private System.Windows.Forms.Label Label16;
-        private System.Windows.Forms.Label Label15;
-        private System.Windows.Forms.Label Label14;
-        private System.Windows.Forms.Label Label13;
-        private System.Windows.Forms.Label Label12;
-        private System.Windows.Forms.Label Label9;
+        private System.Windows.Forms.Label adressLabel;
+        private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.Label telLabel;
+        private System.Windows.Forms.Label NaissanceLabel;
+        private System.Windows.Forms.Label prenomLabel;
+        private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.ListBox rdv;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label sexeLabel;
     }
 }

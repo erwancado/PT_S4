@@ -38,6 +38,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -66,6 +69,12 @@
     <Compile Include="Authentication.Designer.cs">
       <DependentUpon>Authentication.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clients.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -75,12 +84,6 @@
     <Compile Include="ClientSheet.Designer.cs">
       <DependentUpon>ClientSheet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Globalinterface.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Globalinterface.Designer.cs">
-      <DependentUpon>Globalinterface.cs</DependentUpon>
-	</Compile>
     <Compile Include="Comestibles.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -93,6 +96,12 @@
     <Compile Include="Especes.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Facture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facture.Designer.cs">
+      <DependentUpon>Facture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Factures.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -101,6 +110,12 @@
     </Compile>
     <Compile Include="Formations.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Globalinterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Globalinterface.Designer.cs">
+      <DependentUpon>Globalinterface.cs</DependentUpon>
     </Compile>
     <Compile Include="Logs.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
@@ -144,6 +159,12 @@
     <Compile Include="Produits.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProduitsSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduitsSheet.Designer.cs">
+      <DependentUpon>ProduitsSheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Race.cs">
@@ -155,14 +176,17 @@
     <Compile Include="RendezVous.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="RoleUser.cs">
+    <Compile Include="Role.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Soins.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>ModelDB.tt</DependentUpon>
+    <Compile Include="Stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock.Designer.cs">
+      <DependentUpon>Stock.cs</DependentUpon>
     </Compile>
     <Compile Include="Type_congés.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
@@ -173,11 +197,20 @@
     <EmbeddedResource Include="Authentication.resx">
       <DependentUpon>Authentication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientSheet.resx">
       <DependentUpon>ClientSheet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facture.resx">
+      <DependentUpon>Facture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Globalinterface.resx">
       <DependentUpon>Globalinterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduitsSheet.resx">
+      <DependentUpon>ProduitsSheet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -188,6 +221,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Stock.resx">
+      <DependentUpon>Stock.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="ModelDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelDB.Designer.cs</LastGenOutput>
@@ -211,11 +247,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CalendarButton.PNG" />
+    <Content Include="croix-veterinaire-.jpg" />
     <Content Include="HomeButton.PNG" />
     <Content Include="ModelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
       <DependentUpon>ModelDB.edmx</DependentUpon>
+      <LastGenOutput>ModelDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModelDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
