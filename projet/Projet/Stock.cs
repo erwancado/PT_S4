@@ -74,7 +74,26 @@ namespace Projet
         {
             NewProduct n = new NewProduct(this);
             n.Show();
-            this.Hide();
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Right:
+                    {
+                        this.contextMenuStrip1.Show(this.listView1, e.Location);
+                    }
+                    break;
+            }
+        }
+
+        private void vendreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.listView1.SelectedItems[0].SubItems[0].Text.Split('.')[0]);
+            Produits toShow = _db.Produits.Find(id);
+            ProductSell sheet = new ProductSell(toShow, this);
+            sheet.Show();
         }
     }
 }

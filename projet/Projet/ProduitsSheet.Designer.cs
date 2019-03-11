@@ -36,9 +36,9 @@
             this.ville = new System.Windows.Forms.Label();
             this.codePostal = new System.Windows.Forms.Label();
             this.adresse = new System.Windows.Forms.Label();
-            this.email = new System.Windows.Forms.Label();
-            this.tel = new System.Windows.Forms.Label();
-            this.naissance = new System.Windows.Forms.Label();
+            this.d = new System.Windows.Forms.Label();
+            this.pa = new System.Windows.Forms.Label();
+            this.pv = new System.Windows.Forms.Label();
             this.nom = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -52,9 +52,9 @@
             this.groupBox1.Controls.Add(this.ville);
             this.groupBox1.Controls.Add(this.codePostal);
             this.groupBox1.Controls.Add(this.adresse);
-            this.groupBox1.Controls.Add(this.email);
-            this.groupBox1.Controls.Add(this.tel);
-            this.groupBox1.Controls.Add(this.naissance);
+            this.groupBox1.Controls.Add(this.d);
+            this.groupBox1.Controls.Add(this.pa);
+            this.groupBox1.Controls.Add(this.pv);
             this.groupBox1.Controls.Add(this.nom);
             this.groupBox1.Location = new System.Drawing.Point(285, 83);
             this.groupBox1.Name = "groupBox1";
@@ -117,26 +117,26 @@
             this.adresse.Size = new System.Drawing.Size(142, 20);
             this.adresse.TabIndex = 5;
             // 
-            // email
+            // d
             // 
-            this.email.Location = new System.Drawing.Point(90, 123);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(165, 98);
-            this.email.TabIndex = 4;
+            this.d.Location = new System.Drawing.Point(90, 123);
+            this.d.Name = "d";
+            this.d.Size = new System.Drawing.Size(165, 98);
+            this.d.TabIndex = 4;
             // 
-            // tel
+            // pa
             // 
-            this.tel.Location = new System.Drawing.Point(108, 93);
-            this.tel.Name = "tel";
-            this.tel.Size = new System.Drawing.Size(142, 20);
-            this.tel.TabIndex = 3;
+            this.pa.Location = new System.Drawing.Point(108, 93);
+            this.pa.Name = "pa";
+            this.pa.Size = new System.Drawing.Size(142, 20);
+            this.pa.TabIndex = 3;
             // 
-            // naissance
+            // pv
             // 
-            this.naissance.Location = new System.Drawing.Point(90, 62);
-            this.naissance.Name = "naissance";
-            this.naissance.Size = new System.Drawing.Size(106, 20);
-            this.naissance.TabIndex = 2;
+            this.pv.Location = new System.Drawing.Point(90, 62);
+            this.pv.Name = "pv";
+            this.pv.Size = new System.Drawing.Size(106, 20);
+            this.pv.TabIndex = 2;
             // 
             // nom
             // 
@@ -168,9 +168,9 @@
         private System.Windows.Forms.Label ville;
         private System.Windows.Forms.Label codePostal;
         private System.Windows.Forms.Label adresse;
-        private System.Windows.Forms.Label email;
-        private System.Windows.Forms.Label tel;
-        private System.Windows.Forms.Label naissance;
+        private System.Windows.Forms.Label d;
+        private System.Windows.Forms.Label pa;
+        private System.Windows.Forms.Label pv;
         private System.Windows.Forms.Label nom;
     }
 }

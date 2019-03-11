@@ -47,14 +47,12 @@ namespace Projet
                 _db.Produits.Add(toInsert);
                 _db.SaveChanges();
                 s.initialiseProduits("");
-                s.Show();
                 this.Close();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            s.Show();
             this.Close();
         }
     }
