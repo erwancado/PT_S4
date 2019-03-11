@@ -80,12 +80,14 @@
             // 
             // DateLabel
             // 
+            this.DateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DateLabel.AutoSize = true;
             this.DateLabel.Location = new System.Drawing.Point(385, 26);
             this.DateLabel.Name = "DateLabel";
-            this.DateLabel.Size = new System.Drawing.Size(35, 13);
+            this.DateLabel.Size = new System.Drawing.Size(30, 13);
             this.DateLabel.TabIndex = 5;
-            this.DateLabel.Text = "label3";
+            this.DateLabel.Text = "Date";
             // 
             // Authentication
             // 

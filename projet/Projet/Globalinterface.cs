@@ -14,12 +14,24 @@ namespace Projet
     {
         Timer time;
         public String id;
+        DB_ENTITIES _db;
         public Globalinterface(String id)
         {
             InitializeComponent();
+            _db = new DB_ENTITIES();
             time = new Timer();
             this.id = id;
             startTime();
+            this.logsListView.View = View.List;
+            fillLog();
+        }
+
+        public void fillLog()
+        {
+            foreach (Logs l in _db.Logs)
+            {
+                this.logsListView.Items.Add(l.Action + " " + l.Date.ToShortDateString());
+            }
         }
 
         public void startTime()

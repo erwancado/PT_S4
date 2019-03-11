@@ -47,7 +47,6 @@ namespace Projet
         public virtual DbSet<RendezVous> RendezVous { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Soins> Soins { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Type_congés> Type_congés { get; set; }
         public virtual DbSet<Utilisateurs> Utilisateurs { get; set; }
     }

@@ -40,6 +40,7 @@
             this.vetSign = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.DateLabel = new System.Windows.Forms.Label();
+            this.logsListView = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             this.tableLayoutPanel1.Controls.Add(this.vetSign, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.logoutButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.DateLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.logsListView, 1, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
@@ -217,6 +219,15 @@
             this.DateLabel.Text = "DateLabel";
             this.DateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // logsListView
+            // 
+            this.logsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.logsListView.Location = new System.Drawing.Point(1594, 750);
+            this.logsListView.Name = "logsListView";
+            this.logsListView.Size = new System.Drawing.Size(200, 200);
+            this.logsListView.TabIndex = 17;
+            this.logsListView.UseCompatibleStateImageBehavior = false;
+            // 
             // Globalinterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,5 +260,6 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button vetSign;
         private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.ListView logsListView;
     }
 }
