@@ -37,10 +37,23 @@ namespace Projet
 
         private void inscription_Click(object sender, EventArgs e)
         {
-            Animaux toInsert = new Animaux();
-            toInsert.Nom = textBox1.Text;
-            toInsert.Prenom = prenomTextBox.Text;
-            toInsert.Adresse = adressTextBox.Text;
+            Animaux an = new Animaux();
+            an.Nom = textBox1.Text;
+            an.Poids =(int) numericUpDown1.Value;
+            an.Caractéristiques = richTextBox1.Text;
+            Especes esp = new Especes();
+            esp.Nom = comboBox1.Text;
+            Race race = new Race();
+            race.Nom = comboBox2.Text;
+            //an.Sexe=
+         
+        }
+
+        private void retourFicheClient_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+          //  ClientList cl = new ClientList();
+           // cl.Show();
         }
     }
 }

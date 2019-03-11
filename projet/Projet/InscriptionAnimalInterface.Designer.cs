@@ -196,6 +196,7 @@
             this.retourFicheClient.TabIndex = 20;
             this.retourFicheClient.Text = "retourFicheClient";
             this.retourFicheClient.UseVisualStyleBackColor = true;
+            this.retourFicheClient.Click += new System.EventHandler(this.retourFicheClient_Click);
             // 
             // InscriptionAnimalInterface
             // 
