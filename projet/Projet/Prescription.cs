@@ -51,7 +51,16 @@ namespace Projet
 
         private void removeLineButton_Click(object sender, EventArgs e)
         {
-
+            String[] eachPrescription = essaiLabel.Text.Split('❏');
+            String result = "";
+            for (int i = 0; i < eachPrescription.Length - 1; i++) {
+                if (eachPrescription[i] != " " && eachPrescription[i] != "")
+                {
+                    result += "❏" + eachPrescription[i];
+                }
+            }
+            prescription = result;
+            essaiLabel.Text = prescription;
         }
 
         private void pdfExportButton_Click(object sender, EventArgs e)
