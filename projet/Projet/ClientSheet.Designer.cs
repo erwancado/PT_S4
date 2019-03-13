@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.sexeLabel = new System.Windows.Forms.Label();
             this.adressLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
             this.telLabel = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.nom = new System.Windows.Forms.Label();
             this.rdv = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.sexeLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +72,14 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal Intels :";
+            // 
+            // sexeLabel
+            // 
+            this.sexeLabel.Location = new System.Drawing.Point(7, 65);
+            this.sexeLabel.Name = "sexeLabel";
+            this.sexeLabel.Size = new System.Drawing.Size(225, 20);
+            this.sexeLabel.TabIndex = 16;
+            this.sexeLabel.Text = "Sexe :";
             // 
             // adressLabel
             // 
@@ -194,19 +202,11 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Rendez-vous à venir :";
             // 
-            // sexeLabel
-            // 
-            this.sexeLabel.Location = new System.Drawing.Point(7, 65);
-            this.sexeLabel.Name = "sexeLabel";
-            this.sexeLabel.Size = new System.Drawing.Size(225, 20);
-            this.sexeLabel.TabIndex = 16;
-            this.sexeLabel.Text = "Sexe :";
-            // 
             // ClientSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(934, 511);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rdv);
             this.Controls.Add(this.groupBox1);

@@ -21,7 +21,6 @@ namespace Projet
             time = new Timer();
             startTime();
             _db = new DB_ENTITIES();
-            Utilisateurs annie = new Utilisateurs();
         }
 
         public void startTime()
@@ -33,15 +32,26 @@ namespace Projet
 
         private void LogingIn_Click(object sender, EventArgs e)
         {
+            String login = "";
             var utilisateurs = _db.Utilisateurs;
             foreach(Utilisateurs u in utilisateurs)
             {
                 if (u.Login.Equals(this.login.Text) && u.MotDePasse.Equals(this.pass.Text))
                 {
-                    Globalinterface client = new Globalinterface(u.Login);
-                    client.Show();
-                    this.Hide();
+                    login = u.Login;
+                    Logs l = new Logs();
+                    l.Action = "Connexion de " + u.Login;
+                    l.Date = DateTime.Now;
+                    _db.Logs.Add(l);
                 }
+            }
+            _db.SaveChanges();
+            if (login != "")
+            {
+                Globalinterface g = new Globalinterface(login);
+                g.Show();
+                this.Hide();
+
             }
         }
     }

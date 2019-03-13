@@ -14,12 +14,24 @@ namespace Projet
     {
         Timer time;
         public String id;
+        DB_ENTITIES _db;
         public Globalinterface(String id)
         {
             InitializeComponent();
+            _db = new DB_ENTITIES();
             time = new Timer();
             this.id = id;
             startTime();
+            this.logsListView.View = View.List;
+            fillLog();
+        }
+
+        public void fillLog()
+        {
+            foreach (Logs l in _db.Logs)
+            {
+                this.logsListView.Items.Add(l.Action + " " + l.Date.ToShortDateString() + " "+ l.Date.ToShortTimeString());
+            }
         }
 
         public void startTime()
@@ -45,6 +57,48 @@ namespace Projet
             {
                 Application.Exit();
             }
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calendarButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customerButton_Click(object sender, EventArgs e)
+        {
+            ClientList c = new ClientList();
+            c.Show();
+        }
+
+        private void animalsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prescriptionButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stockButton_Click(object sender, EventArgs e)
+        {
+            Stock s = new Stock();
+            s.Show();
+        }
+
+        private void statsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Globalinterface_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

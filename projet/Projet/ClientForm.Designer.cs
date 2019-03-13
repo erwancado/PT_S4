@@ -43,7 +43,7 @@
             this.telTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.insertButton = new System.Windows.Forms.Button();
+            this.validateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameTextBox
@@ -132,7 +132,6 @@
             this.manRadioButton.TabStop = true;
             this.manRadioButton.Text = "Homme";
             this.manRadioButton.UseVisualStyleBackColor = true;
-            this.manRadioButton.CheckedChanged += new System.EventHandler(this.manRadioButton_CheckedChanged);
             // 
             // womanRadioButton
             // 
@@ -143,7 +142,6 @@
             this.womanRadioButton.TabIndex = 10;
             this.womanRadioButton.Text = "Femme";
             this.womanRadioButton.UseVisualStyleBackColor = true;
-            this.womanRadioButton.CheckedChanged += new System.EventHandler(this.womanRadioButton_CheckedChanged);
             // 
             // label6
             // 
@@ -177,22 +175,22 @@
             this.emailTextBox.Size = new System.Drawing.Size(201, 20);
             this.emailTextBox.TabIndex = 14;
             // 
-            // insertButton
+            // validateButton
             // 
-            this.insertButton.Location = new System.Drawing.Point(588, 169);
-            this.insertButton.Name = "insertButton";
-            this.insertButton.Size = new System.Drawing.Size(75, 23);
-            this.insertButton.TabIndex = 15;
-            this.insertButton.Text = "Inscription";
-            this.insertButton.UseVisualStyleBackColor = true;
-            this.insertButton.Click += new System.EventHandler(this.insertButton_Click);
+            this.validateButton.Location = new System.Drawing.Point(588, 213);
+            this.validateButton.Name = "validateButton";
+            this.validateButton.Size = new System.Drawing.Size(75, 23);
+            this.validateButton.TabIndex = 16;
+            this.validateButton.Text = "Inscription";
+            this.validateButton.UseVisualStyleBackColor = true;
+            this.validateButton.Click += new System.EventHandler(this.validateButton_Click);
             // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.insertButton);
+            this.Controls.Add(this.validateButton);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.telTextBox);
@@ -232,6 +230,6 @@
         private System.Windows.Forms.TextBox telTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.Button insertButton;
+        private System.Windows.Forms.Button validateButton;
     }
 }

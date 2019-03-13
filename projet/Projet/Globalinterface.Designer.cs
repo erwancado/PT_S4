@@ -40,6 +40,7 @@
             this.vetSign = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.DateLabel = new System.Windows.Forms.Label();
+            this.logsListView = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             this.tableLayoutPanel1.Controls.Add(this.vetSign, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.logoutButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.DateLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.logsListView, 1, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
@@ -91,6 +93,7 @@
             this.homeButton.Size = new System.Drawing.Size(100, 100);
             this.homeButton.TabIndex = 0;
             this.homeButton.UseVisualStyleBackColor = false;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // calendarButton
             // 
@@ -104,6 +107,7 @@
             this.calendarButton.Size = new System.Drawing.Size(100, 99);
             this.calendarButton.TabIndex = 8;
             this.calendarButton.UseVisualStyleBackColor = false;
+            this.calendarButton.Click += new System.EventHandler(this.calendarButton_Click);
             // 
             // customerButton
             // 
@@ -117,6 +121,7 @@
             this.customerButton.Size = new System.Drawing.Size(100, 99);
             this.customerButton.TabIndex = 9;
             this.customerButton.UseVisualStyleBackColor = false;
+            this.customerButton.Click += new System.EventHandler(this.customerButton_Click);
             // 
             // animalsButton
             // 
@@ -130,6 +135,7 @@
             this.animalsButton.Size = new System.Drawing.Size(100, 99);
             this.animalsButton.TabIndex = 10;
             this.animalsButton.UseVisualStyleBackColor = false;
+            this.animalsButton.Click += new System.EventHandler(this.animalsButton_Click);
             // 
             // prescriptionButton
             // 
@@ -143,6 +149,7 @@
             this.prescriptionButton.Size = new System.Drawing.Size(100, 100);
             this.prescriptionButton.TabIndex = 11;
             this.prescriptionButton.UseVisualStyleBackColor = false;
+            this.prescriptionButton.Click += new System.EventHandler(this.prescriptionButton_Click);
             // 
             // stockButton
             // 
@@ -156,6 +163,7 @@
             this.stockButton.Size = new System.Drawing.Size(100, 100);
             this.stockButton.TabIndex = 12;
             this.stockButton.UseVisualStyleBackColor = false;
+            this.stockButton.Click += new System.EventHandler(this.stockButton_Click);
             // 
             // statsButton
             // 
@@ -169,6 +177,7 @@
             this.statsButton.Size = new System.Drawing.Size(100, 100);
             this.statsButton.TabIndex = 13;
             this.statsButton.UseVisualStyleBackColor = false;
+            this.statsButton.Click += new System.EventHandler(this.statsButton_Click);
             // 
             // vetSign
             // 
@@ -210,6 +219,15 @@
             this.DateLabel.Text = "DateLabel";
             this.DateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // logsListView
+            // 
+            this.logsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.logsListView.Location = new System.Drawing.Point(1594, 750);
+            this.logsListView.Name = "logsListView";
+            this.logsListView.Size = new System.Drawing.Size(200, 200);
+            this.logsListView.TabIndex = 17;
+            this.logsListView.UseCompatibleStateImageBehavior = false;
+            // 
             // Globalinterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +241,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Globalinterface";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Globalinterface_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -241,5 +260,6 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button vetSign;
         private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.ListView logsListView;
     }
 }
