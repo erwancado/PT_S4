@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.re = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.dAcq = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.insert = new System.Windows.Forms.Button();
@@ -42,14 +44,16 @@
             this.name = new System.Windows.Forms.Label();
             this.ville = new System.Windows.Forms.Label();
             this.codePostal = new System.Windows.Forms.Label();
-            this.re = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.qtt = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.qtt);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.re);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dAcq);
@@ -65,12 +69,27 @@
             this.groupBox1.Controls.Add(this.name);
             this.groupBox1.Controls.Add(this.ville);
             this.groupBox1.Controls.Add(this.codePostal);
-            this.groupBox1.Location = new System.Drawing.Point(264, 108);
+            this.groupBox1.Location = new System.Drawing.Point(264, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(273, 297);
+            this.groupBox1.Size = new System.Drawing.Size(273, 324);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Product Intels :";
+            // 
+            // re
+            // 
+            this.re.Location = new System.Drawing.Point(132, 149);
+            this.re.Name = "re";
+            this.re.Size = new System.Drawing.Size(100, 20);
+            this.re.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(7, 149);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Reference du produit : ";
             // 
             // dAcq
             // 
@@ -90,7 +109,7 @@
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(132, 257);
+            this.insert.Location = new System.Drawing.Point(132, 295);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
             this.insert.TabIndex = 19;
@@ -174,21 +193,6 @@
             this.codePostal.Size = new System.Drawing.Size(142, 20);
             this.codePostal.TabIndex = 6;
             // 
-            // re
-            // 
-            this.re.Location = new System.Drawing.Point(132, 149);
-            this.re.Name = "re";
-            this.re.Size = new System.Drawing.Size(100, 20);
-            this.re.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(7, 149);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 20);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Reference du produit : ";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(273, 34);
@@ -198,6 +202,22 @@
             this.button1.Text = "Retour";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 270);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Quantité :";
+            // 
+            // qtt
+            // 
+            this.qtt.Location = new System.Drawing.Point(132, 262);
+            this.qtt.Name = "qtt";
+            this.qtt.Size = new System.Drawing.Size(100, 20);
+            this.qtt.TabIndex = 25;
             // 
             // NewProduct
             // 
@@ -233,5 +253,7 @@
         private System.Windows.Forms.TextBox re;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox qtt;
+        private System.Windows.Forms.Label label3;
     }
 }
