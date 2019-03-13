@@ -54,7 +54,7 @@ namespace Projet
                 {
                     int n = produits.Where(s => s != null && s.Nom.Equals(p.Nom)).Count();
                     String description = "Produit " + p.Nom + ".            Quantité : " + n;
-                    if (!this.products.Contains(description) && description.Contains(this.textBox1.Text))
+                    if (!this.products.Contains(description) && description.ToLower().Contains(this.textBox1.Text.ToLower()))
                     {
                         this.products.Add(description);
                         this.listView1.Items.Add(p.idProduits + ". " + description);
