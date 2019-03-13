@@ -33,13 +33,11 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.filtrer = new System.Windows.Forms.Button();
             this.first = new System.Windows.Forms.Button();
             this.prev = new System.Windows.Forms.Button();
             this.next = new System.Windows.Forms.Button();
             this.last = new System.Windows.Forms.Button();
-            this.insert = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.refresh = new System.Windows.Forms.Button();
@@ -48,6 +46,7 @@
             this.espece = new System.Windows.Forms.Label();
             this.race = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
+            this.allAnimauxList = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // textBox1
@@ -84,19 +83,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 4;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(412, 55);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 315);
-            this.tableLayoutPanel1.TabIndex = 5;
             // 
             // filtrer
             // 
@@ -143,32 +129,25 @@
             this.last.Text = "last";
             this.last.UseVisualStyleBackColor = true;
             // 
-            // insert
-            // 
-            this.insert.Location = new System.Drawing.Point(412, 415);
-            this.insert.Name = "insert";
-            this.insert.Size = new System.Drawing.Size(75, 23);
-            this.insert.TabIndex = 10;
-            this.insert.Text = "insert";
-            this.insert.UseVisualStyleBackColor = true;
-            // 
             // edit
             // 
-            this.edit.Location = new System.Drawing.Point(510, 415);
+            this.edit.Location = new System.Drawing.Point(461, 415);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(75, 23);
             this.edit.TabIndex = 11;
             this.edit.Text = "edit";
             this.edit.UseVisualStyleBackColor = true;
+            this.edit.Click += new System.EventHandler(this.edit_Click);
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(608, 415);
+            this.delete.Location = new System.Drawing.Point(542, 415);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 12;
             this.delete.Text = "delete";
             this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // refresh
             // 
@@ -178,6 +157,7 @@
             this.refresh.TabIndex = 13;
             this.refresh.Text = "refresh";
             this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // nomProprietaire
             // 
@@ -224,11 +204,20 @@
             this.date.TabIndex = 18;
             this.date.Text = "date";
             // 
+            // allAnimauxList
+            // 
+            this.allAnimauxList.Location = new System.Drawing.Point(414, 58);
+            this.allAnimauxList.Name = "allAnimauxList";
+            this.allAnimauxList.Size = new System.Drawing.Size(374, 296);
+            this.allAnimauxList.TabIndex = 19;
+            this.allAnimauxList.UseCompatibleStateImageBehavior = false;
+            // 
             // AnimauxInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.allAnimauxList);
             this.Controls.Add(this.date);
             this.Controls.Add(this.race);
             this.Controls.Add(this.espece);
@@ -237,13 +226,11 @@
             this.Controls.Add(this.refresh);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.edit);
-            this.Controls.Add(this.insert);
             this.Controls.Add(this.last);
             this.Controls.Add(this.next);
             this.Controls.Add(this.prev);
             this.Controls.Add(this.first);
             this.Controls.Add(this.filtrer);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -263,13 +250,11 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button filtrer;
         private System.Windows.Forms.Button first;
         private System.Windows.Forms.Button prev;
         private System.Windows.Forms.Button next;
         private System.Windows.Forms.Button last;
-        private System.Windows.Forms.Button insert;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button refresh;
@@ -278,5 +263,6 @@
         private System.Windows.Forms.Label espece;
         private System.Windows.Forms.Label race;
         private System.Windows.Forms.Label date;
+        private System.Windows.Forms.ListView allAnimauxList;
     }
 }

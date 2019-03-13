@@ -21,11 +21,11 @@ namespace Projet
         private DateTime dateNais;
         private int poidss;
         private String infos;
-
+        bool isModification;
         DB_ENTITIES _db;
         OleDbConnection dbConnection;
 
-        public InscriptionAnimalInterface()
+        public InscriptionAnimalInterface(Animaux animalSelected, DB_ENTITIES _db, AnimauxInterface animalInterface)
         {
             InitializeComponent();
             _db = new DB_ENTITIES();
@@ -54,7 +54,9 @@ namespace Projet
             esp.Nom = comboBox1.Text;
             Race race = new Race();
             race.Nom = comboBox2.Text;
-         
+            _db.SaveChanges();
+            inscriptionGood(an);
+
         }
 
         private void retourFicheClient_Click(object sender, EventArgs e)
