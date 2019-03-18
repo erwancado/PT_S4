@@ -40,8 +40,11 @@
             this.vetSign = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.DateLabel = new System.Windows.Forms.Label();
+            this.controlViewsPanel = new System.Windows.Forms.Panel();
             this.logsListView = new System.Windows.Forms.ListView();
+            this.rappelListView = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1.SuspendLayout();
+            this.controlViewsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -63,7 +66,7 @@
             this.tableLayoutPanel1.Controls.Add(this.vetSign, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.logoutButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.DateLabel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.logsListView, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.controlViewsPanel, 1, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 10;
@@ -219,14 +222,31 @@
             this.DateLabel.Text = "DateLabel";
             this.DateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // controlViewsPanel
+            // 
+            this.controlViewsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.controlViewsPanel.Controls.Add(this.logsListView);
+            this.controlViewsPanel.Controls.Add(this.rappelListView);
+            this.controlViewsPanel.Location = new System.Drawing.Point(1178, 750);
+            this.controlViewsPanel.Name = "controlViewsPanel";
+            this.controlViewsPanel.Size = new System.Drawing.Size(616, 289);
+            this.controlViewsPanel.TabIndex = 19;
+            // 
             // logsListView
             // 
-            this.logsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.logsListView.Location = new System.Drawing.Point(1594, 750);
+            this.logsListView.Location = new System.Drawing.Point(404, 3);
             this.logsListView.Name = "logsListView";
-            this.logsListView.Size = new System.Drawing.Size(200, 200);
-            this.logsListView.TabIndex = 17;
+            this.logsListView.Size = new System.Drawing.Size(210, 210);
+            this.logsListView.TabIndex = 19;
             this.logsListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // rappelListView
+            // 
+            this.rappelListView.Location = new System.Drawing.Point(3, 3);
+            this.rappelListView.Name = "rappelListView";
+            this.rappelListView.Size = new System.Drawing.Size(320, 210);
+            this.rappelListView.TabIndex = 18;
+            this.rappelListView.UseCompatibleStateImageBehavior = false;
             // 
             // Globalinterface
             // 
@@ -234,7 +254,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Globalinterface";
@@ -244,6 +264,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Globalinterface_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.controlViewsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -260,6 +281,8 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button vetSign;
         private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.Panel controlViewsPanel;
         private System.Windows.Forms.ListView logsListView;
+        private System.Windows.Forms.ListView rappelListView;
     }
 }

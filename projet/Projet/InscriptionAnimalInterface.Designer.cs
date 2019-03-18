@@ -45,6 +45,8 @@
             this.dateDeNaissance = new System.Windows.Forms.Label();
             this.poids = new System.Windows.Forms.Label();
             this.retourFicheClient = new System.Windows.Forms.Button();
+            this.ajoutEspece = new System.Windows.Forms.Button();
+            this.ajoutRace = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,6 +164,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 16;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // numericUpDown1
             // 
@@ -198,11 +201,31 @@
             this.retourFicheClient.UseVisualStyleBackColor = true;
             this.retourFicheClient.Click += new System.EventHandler(this.retourFicheClient_Click);
             // 
+            // ajoutEspece
+            // 
+            this.ajoutEspece.Location = new System.Drawing.Point(255, 122);
+            this.ajoutEspece.Name = "ajoutEspece";
+            this.ajoutEspece.Size = new System.Drawing.Size(74, 23);
+            this.ajoutEspece.TabIndex = 22;
+            this.ajoutEspece.Text = "ajoutEspece";
+            this.ajoutEspece.UseVisualStyleBackColor = true;
+            // 
+            // ajoutRace
+            // 
+            this.ajoutRace.Location = new System.Drawing.Point(255, 163);
+            this.ajoutRace.Name = "ajoutRace";
+            this.ajoutRace.Size = new System.Drawing.Size(74, 23);
+            this.ajoutRace.TabIndex = 23;
+            this.ajoutRace.Text = "ajoutRace";
+            this.ajoutRace.UseVisualStyleBackColor = true;
+            // 
             // InscriptionAnimalInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ajoutRace);
+            this.Controls.Add(this.ajoutEspece);
             this.Controls.Add(this.retourFicheClient);
             this.Controls.Add(this.poids);
             this.Controls.Add(this.dateDeNaissance);
@@ -247,5 +270,7 @@
         private System.Windows.Forms.Label dateDeNaissance;
         private System.Windows.Forms.Label poids;
         private System.Windows.Forms.Button retourFicheClient;
+        private System.Windows.Forms.Button ajoutEspece;
+        private System.Windows.Forms.Button ajoutRace;
     }
 }
