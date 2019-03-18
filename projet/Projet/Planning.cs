@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projet
 {
-    public partial class FicheAnimalInterface : Form
+    public partial class Planning : Form
     {
-        public FicheAnimalInterface(Animaux myAnimal)
+        public Planning()
         {
             InitializeComponent();
         }

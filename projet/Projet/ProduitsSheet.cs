@@ -13,10 +13,12 @@ namespace Projet
     public partial class ProduitsSheet : Form
     {
         Produits p;
+        DB_ENTITIES _db;
         public ProduitsSheet(Produits p)
         {
             InitializeComponent();
             this.p = p;
+            this._db = _db;
             intialiseText();
         }
 
