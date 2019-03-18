@@ -20,7 +20,6 @@ namespace Projet
         String searchName;
         String selectedLine;
 
-
         public AnimauxInterface()
         {
             _db = new DB_ENTITIES();
@@ -81,6 +80,17 @@ namespace Projet
         }
 
 
+/*
+ *A REVOIR
+        private void filtrer_Click(object sender, EventArgs e)
+        {
+            if (!nameInput.Text.Equals(""))
+            {
+                searchName = nameInput.Text;
+            }
+            InitializeAnimauxInterface("typed");
+        }
+*/
 
         private void delete_Click(object sender, EventArgs e)
         {
@@ -92,6 +102,13 @@ namespace Projet
                 _db.Animaux.Remove(selectedAnimal);
                 _db.SaveChanges();
             }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            InscriptionAnimalInterface newAnimal = new InscriptionAnimalInterface(null, _db, this);
+            newAnimal.Show();
+            this.Hide();
         }
 
         private void edit_Click(object sender, EventArgs e)
@@ -125,16 +142,14 @@ namespace Projet
             this.Refresh();
         }
 
-        /*  private void filtrer_Click(object sender, EventArgs e)
-          {
-
-                  if (!nameInput.Text.Equals(""))
-                  {
-                      searchName = nameInput.Text;
-                  }
-                 // InitializeClientList("typed");
-          }
-      }*/
+        private void allAnimauxList_DoubleClick(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.allAnimauxList.SelectedItems[0].SubItems[0].Text.Split('.')[0]);
+            Animaux toShow = _db.Animaux.Find(id);
+            FicheAnimalInterface fai = new FicheAnimalInterface(toShow);
+            fai.Show();
+            this.Hide();
+        }
     }
 }
 

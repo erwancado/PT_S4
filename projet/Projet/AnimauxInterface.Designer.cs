@@ -47,6 +47,7 @@
             this.race = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
             this.allAnimauxList = new System.Windows.Forms.ListView();
+            this.add = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -92,7 +93,7 @@
             this.filtrer.TabIndex = 0;
             this.filtrer.Text = "filtrer";
             this.filtrer.UseVisualStyleBackColor = true;
-       //     this.filtrer.Click += new System.EventHandler(this.filtrer_Click);
+           // this.filtrer.Click += new System.EventHandler(this.filtrer_Click);
             // 
             // first
             // 
@@ -132,7 +133,7 @@
             // 
             // edit
             // 
-            this.edit.Location = new System.Drawing.Point(461, 415);
+            this.edit.Location = new System.Drawing.Point(495, 415);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(75, 23);
             this.edit.TabIndex = 11;
@@ -142,7 +143,7 @@
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(542, 415);
+            this.delete.Location = new System.Drawing.Point(576, 415);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 12;
@@ -212,12 +213,24 @@
             this.allAnimauxList.Size = new System.Drawing.Size(374, 296);
             this.allAnimauxList.TabIndex = 19;
             this.allAnimauxList.UseCompatibleStateImageBehavior = false;
+            this.allAnimauxList.DoubleClick += new System.EventHandler(this.allAnimauxList_DoubleClick);
+            // 
+            // add
+            // 
+            this.add.Location = new System.Drawing.Point(414, 415);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(75, 23);
+            this.add.TabIndex = 20;
+            this.add.Text = "add";
+            this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // AnimauxInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.add);
             this.Controls.Add(this.allAnimauxList);
             this.Controls.Add(this.date);
             this.Controls.Add(this.race);
@@ -265,5 +278,6 @@
         private System.Windows.Forms.Label race;
         private System.Windows.Forms.Label date;
         private System.Windows.Forms.ListView allAnimauxList;
+        private System.Windows.Forms.Button add;
     }
 }
