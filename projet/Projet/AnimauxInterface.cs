@@ -20,10 +20,67 @@ namespace Projet
         String searchName;
         String selectedLine;
 
+
         public AnimauxInterface()
         {
+            _db = new DB_ENTITIES();
             InitializeComponent();
+            searchName = "";
+            selectedLine = "";
+            this.allAnimauxList.View = View.List;
+            animaux = new List<string>();
+            InitializeAnimauxInterface("");
         }
+
+        public void InitializeAnimauxInterface(String request)
+        {
+            this.allAnimauxList.Items.Clear();
+            this.animaux.Clear();
+            if (request.Equals(""))
+            {
+                var animaux = _db.Animaux;
+                foreach (Animaux animal in animaux)
+                {
+                    String description = //animal. nomPropriétaire +
+                                         " "
+                                        + animal.Nom + " " +
+                                        animal.DateNaissance.ToString() + " " +
+                                       // animal.espece + " " +
+                                       animal.Race + " ";
+
+                    if (!this.animaux.Contains(description))
+                    {
+                        this.allAnimauxList.Items.Add(animal.idAnimaux + ". " + description);
+                        this.animaux.Add(description);
+                    }
+                }
+            }
+            else
+            {
+                if (request.Equals("typed"))
+                {
+                    var animaux = _db.Animaux;
+                    foreach (Animaux animal in animaux)
+                    {
+                        if ((animal.Nom.Equals(searchName)) || (animal.DateNaissance.Equals(searchName)) || (animal.Race.Equals(searchName)) || animal.DateNaissance.Equals(searchName))
+                        {
+                            String description = animal.Nom + " "
+
+                                          + animal.DateNaissance.ToString() + " " +
+                                            animal.Race;
+                            // + " " + animal.Espece;
+                            if (!this.animaux.Contains(description))
+                            {
+                                this.allAnimauxList.Items.Add(animal.idAnimaux + ". " + description);
+                                this.animaux.Add(description);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
 
         private void delete_Click(object sender, EventArgs e)
         {
@@ -67,6 +124,17 @@ namespace Projet
         {
             this.Refresh();
         }
+
+        /*  private void filtrer_Click(object sender, EventArgs e)
+          {
+
+                  if (!nameInput.Text.Equals(""))
+                  {
+                      searchName = nameInput.Text;
+                  }
+                 // InitializeClientList("typed");
+          }
+      }*/
     }
 }
 

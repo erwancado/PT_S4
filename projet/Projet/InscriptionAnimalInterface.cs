@@ -24,22 +24,55 @@ namespace Projet
         bool isModification;
         DB_ENTITIES _db;
         OleDbConnection dbConnection;
+        AnimauxInterface animalList;
+        Animaux animal;
 
         public InscriptionAnimalInterface(Animaux animalSelected, DB_ENTITIES _db, AnimauxInterface animalInterface)
         {
+
             InitializeComponent();
-            _db = new DB_ENTITIES();
+          //  _db = new DB_ENTITIES();
+            InitializeComponent();
+            isModification = false;
+            this.animalList = animalList;
+            animal = animalSelected;
+            this._db = _db;
             isMan = true;
             dateNais = DateTime.Now;
+            if (animal != null)
+            {
+                initializeInput();
+                isModification = true;
+            }
         }
 
-      
+        private void initializeInput()
+        {
+            textBox1.Text = animal.Nom;
+           // comboBox1.Text = animal.Espece;
+           // comboBox2.SelectedText = animal.Race;
+            dateNais = (DateTime)animal.DateNaissance;
+            dateTimePicker1.Value = dateNais;
+            richTextBox1.Text = animal.Caractéristiques;
+            if (animal.Sexe.Equals("M"))
+            {
+                male.Checked = true;
+            }
+            else
+            {
+                femelle.Checked = true;
+            }
+            animal.Poids = (int)numericUpDown1.Value;
+            // validateButton.Text = "Modifier";
+        }
+
+
 
         private void inscription_Click(object sender, EventArgs e)
         {
             Animaux an = new Animaux();
             an.Nom = textBox1.Text;
-            an.Poids =(int) numericUpDown1.Value;
+            an.Poids = (int)numericUpDown1.Value;
             an.Caractéristiques = richTextBox1.Text;
             an.DateNaissance = dateTimePicker1.Value;
             if (femelle.Checked)
@@ -54,9 +87,21 @@ namespace Projet
             esp.Nom = comboBox1.Text;
             Race race = new Race();
             race.Nom = comboBox2.Text;
-            _db.SaveChanges();
-            inscriptionGood(an);
+            if (animal == null)
+            {
+                _db.Animaux.Add(an);
+            }
+            else
+            {
+                animal.Nom = an.Nom;
+                animal.DateNaissance = an.DateNaissance;
+                animal.Sexe = an.Sexe;
+                animal.Poids = an.Poids;
+                animal.Caractéristiques = an.Caractéristiques;
+                _db.SaveChanges();
+                inscriptionGood(an);
 
+            }
         }
 
         private void retourFicheClient_Click(object sender, EventArgs e)
@@ -90,9 +135,15 @@ namespace Projet
                     this.Hide();
                     FicheAnimalInterface animalInsert = new FicheAnimalInterface(myAnimal);
                     animalInsert.Show();
+                    animalList.InitializeAnimauxInterface("");
                 }
                 resetAllInput();
             }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dateNais = dateTimePicker1.Value;
         }
     }
 }
