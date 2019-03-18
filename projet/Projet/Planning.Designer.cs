@@ -28,42 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.components = new System.ComponentModel.Container();
+            this.rendezVousBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pT4_S4P2C_E3DataSet = new Projet.PT4_S4P2C_E3DataSet();
+            this.rendezVousTableAdapter = new Projet.PT4_S4P2C_E3DataSetTableAdapters.RendezVousTableAdapter();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)(this.rendezVousBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pT4_S4P2C_E3DataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // rendezVousBindingSource
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(344, 164);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.rendezVousBindingSource.DataMember = "RendezVous";
+            this.rendezVousBindingSource.DataSource = this.pT4_S4P2C_E3DataSet;
             // 
-            // Column1
+            // pT4_S4P2C_E3DataSet
             // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
+            this.pT4_S4P2C_E3DataSet.DataSetName = "PT4_S4P2C_E3DataSet";
+            this.pT4_S4P2C_E3DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rendezVousTableAdapter
+            // 
+            this.rendezVousTableAdapter.ClearBeforeFill = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(295, 12);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 1;
             // 
             // Planning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dateTimePicker1);
             this.Name = "Planning";
             this.Text = "Planning";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Planning_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.rendezVousBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pT4_S4P2C_E3DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private PT4_S4P2C_E3DataSet pT4_S4P2C_E3DataSet;
+        private System.Windows.Forms.BindingSource rendezVousBindingSource;
+        private PT4_S4P2C_E3DataSetTableAdapters.RendezVousTableAdapter rendezVousTableAdapter;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
