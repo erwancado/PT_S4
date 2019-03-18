@@ -23,7 +23,9 @@ namespace Projet
             this.id = id;
             startTime();
             this.logsListView.View = View.List;
+            this.rappelListView.View = View.List;
             fillLog();
+            fillRecall();
         }
 
         public void fillLog()
@@ -31,6 +33,14 @@ namespace Projet
             foreach (Logs l in _db.Logs)
             {
                 this.logsListView.Items.Add(l.Action + " " + l.Date.ToShortDateString() + " "+ l.Date.ToShortTimeString());
+            }
+        }
+
+        public void fillRecall()
+        {
+            foreach(Rappel r in _db.Rappel)
+            {
+                this.rappelListView.Items.Add("Concernant l'animal : " + _db.Animaux.Find(r.Animaux_idAnimaux).Nom + " : " + r.Description + " le " + r.Date.ToShortDateString());
             }
         }
 
