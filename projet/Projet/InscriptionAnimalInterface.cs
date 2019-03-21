@@ -31,8 +31,6 @@ namespace Projet
         {
 
             InitializeComponent();
-          //  _db = new DB_ENTITIES();
-            InitializeComponent();
             isModification = false;
             this.animalList = animalList;
             animal = animalSelected;
@@ -83,10 +81,10 @@ namespace Projet
             {
                 an.Sexe = "M";
             }
-            Especes esp = new Especes();
+          /*  Especes esp = new Especes();
             esp.Nom = comboBox1.Text;
             Race race = new Race();
-            race.Nom = comboBox2.Text;
+            race.Nom = comboBox2.Text;*/
             if (animal == null)
             {
                 _db.Animaux.Add(an);
@@ -98,10 +96,10 @@ namespace Projet
                 animal.Sexe = an.Sexe;
                 animal.Poids = an.Poids;
                 animal.Caractéristiques = an.Caractéristiques;
-                _db.SaveChanges();
-                inscriptionGood(an);
-
+                animal.Clients_idClients = 2; // TODO
             }
+            _db.SaveChanges();
+            inscriptionGood(an);
         }
 
         private void retourFicheClient_Click(object sender, EventArgs e)
