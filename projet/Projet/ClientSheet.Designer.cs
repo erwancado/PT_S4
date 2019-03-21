@@ -46,6 +46,7 @@
             this.nom = new System.Windows.Forms.Label();
             this.rdv = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.listAnimals = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,11 +203,20 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Rendez-vous à venir :";
             // 
+            // listAnimals
+            // 
+            this.listAnimals.FormattingEnabled = true;
+            this.listAnimals.Location = new System.Drawing.Point(342, 227);
+            this.listAnimals.Name = "listAnimals";
+            this.listAnimals.Size = new System.Drawing.Size(580, 212);
+            this.listAnimals.TabIndex = 3;
+            // 
             // ClientSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 511);
+            this.Controls.Add(this.listAnimals);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rdv);
             this.Controls.Add(this.groupBox1);
@@ -238,5 +248,6 @@
         private System.Windows.Forms.ListBox rdv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label sexeLabel;
+        private System.Windows.Forms.ListBox listAnimals;
     }
 }
