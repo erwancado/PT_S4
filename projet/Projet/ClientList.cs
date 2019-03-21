@@ -12,7 +12,6 @@ namespace Projet
 {
     public partial class ClientList : Form
     {
-        List<String> clients;
         DB_ENTITIES _db;
         String searchName;
         String selectedLine;
@@ -22,30 +21,29 @@ namespace Projet
             InitializeComponent();
             searchName = "";
             selectedLine = "";
-            this.allClientList.View = View.List;
-            clients = new List<string>();
+            ColumnHeader header = new ColumnHeader();
+            header.Text = "";
+            header.Name = "col1";
+            allClientList.Columns.Add(header);
             InitializeClientList("");
         }
 
         public void InitializeClientList(String request)
         {
             this.allClientList.Items.Clear();
-            this.clients.Clear();
             if (request.Equals(""))
             {
                 var clients = _db.Clients;
                 foreach (Clients client in clients)
                 {
-                    String description = client.Nom + " "
-                                        + client.Prenom + " " +
-                                        client.DateNaissance.ToString() + " " +
-                                        client.ProchaineVisite + " " +
-                                        client.Téléphone;
-                    if (!this.clients.Contains(description))
-                    {
-                        this.allClientList.Items.Add(client.idClients + ". " + description);
-                        this.clients.Add(description);
-                    }
+                    ListViewItem item = new ListViewItem(client.idClients.ToString());
+                    item.SubItems.Add(client.Nom);
+                    item.SubItems.Add(client.Prenom);
+                    item.SubItems.Add(client.DateNaissance.ToString());
+                    item.SubItems.Add(client.Téléphone.ToString());
+                    item.SubItems.Add(client.Email);
+                    item.SubItems.Add(client.ProchaineVisite.ToString());
+                    allClientList.Items.Add(item);
                 }
             }
             else
@@ -57,32 +55,22 @@ namespace Projet
                     {
                         if (client.Nom.Equals(searchName))
                         {
-                            String description = client.Nom + " "
-                                            + client.Prenom + " " +
-                                            client.DateNaissance.ToString() + " " +
-                                            client.ProchaineVisite + " " +
-                                            client.Téléphone;
-                            if (!this.clients.Contains(description))
-                            {
-                                this.allClientList.Items.Add(client.idClients + ". " + description);
-                                this.clients.Add(description);
-                            }
+                            ListViewItem item = new ListViewItem(client.idClients.ToString());
+                            item.SubItems.Add(client.Nom);
+                            item.SubItems.Add(client.Prenom);
+                            item.SubItems.Add(client.DateNaissance.ToString());
+                            item.SubItems.Add(client.Téléphone.ToString());
+                            item.SubItems.Add(client.Email);
+                            item.SubItems.Add(client.ProchaineVisite.ToString());
+                            allClientList.Items.Add(item);
                         }
                     }
                 }
             }
+            allClientList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            allClientList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
-        
-
-        private void allClientList_DoubleClick(object sender, EventArgs e)
-        {
-            int id = int.Parse(this.allClientList.SelectedItems[0].SubItems[0].Text.Split('.')[0]);
-            Clients toShow = _db.Clients.Find(id);
-            ClientSheet sheet = new ClientSheet(toShow);
-            sheet.Show();
-            this.Hide();
-        }
-
+       
         private void searchButton_Click_1(object sender, EventArgs e)
         {
             if (!nameInput.Text.Equals("")) {
@@ -101,8 +89,8 @@ namespace Projet
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (allClientList.SelectedItems.Count > 0) {
-                selectedLine = allClientList.SelectedItems[0].Text;
-                int id  = int.Parse(selectedLine.Split('.')[0]);
+                selectedLine = this.allClientList.SelectedItems[0].Text;
+                int id  = int.Parse(this.allClientList.SelectedItems[0].Text);
                 Clients selectedClient = getClient(id);
                 ClientForm modifyClient = new ClientForm(selectedClient, _db, this);
                 modifyClient.Show();
@@ -113,8 +101,8 @@ namespace Projet
         {
             if (allClientList.SelectedItems.Count > 0)
             {
-                selectedLine = allClientList.SelectedItems[0].Text;
-                int id = int.Parse(selectedLine.Split('.')[0]);
+                selectedLine = this.allClientList.SelectedItems[0].Text;
+                int id = int.Parse(this.allClientList.SelectedItems[0].Text);
                 Clients selectedClient = getClient(id);
                 _db.Clients.Remove(selectedClient);
                 _db.SaveChanges();
@@ -131,6 +119,14 @@ namespace Projet
                 }
             }
             return null;
+        }
+       
+        private void allClientList_DoubleClick(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.allClientList.SelectedItems[0].Text);
+            Clients toShow = _db.Clients.Find(id);
+            ClientSheet sheet = new ClientSheet(toShow);
+            sheet.Show();
         }
     }
 }

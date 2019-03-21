@@ -29,25 +29,44 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.allClientList = new System.Windows.Forms.ListView();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.nameInput = new System.Windows.Forms.TextBox();
-            this.newClientButton = new System.Windows.Forms.Button();
             this.clientContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.nameInput = new System.Windows.Forms.TextBox();
+            this.newClientButton = new System.Windows.Forms.Button();
+            this.allClientList = new System.Windows.Forms.ListView();
+            this.columnHeaderID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderNom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderPrenom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderDateNaissance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderTel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderRDV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clientContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // allClientList
+            // clientContextMenu
             // 
-            this.allClientList.ContextMenuStrip = this.clientContextMenu;
-            this.allClientList.Location = new System.Drawing.Point(12, 181);
-            this.allClientList.Name = "allClientList";
-            this.allClientList.Size = new System.Drawing.Size(776, 257);
-            this.allClientList.TabIndex = 0;
-            this.allClientList.UseCompatibleStateImageBehavior = false;
-            this.allClientList.DoubleClick += new System.EventHandler(this.allClientList_DoubleClick);
+            this.clientContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifierToolStripMenuItem,
+            this.supprimerToolStripMenuItem});
+            this.clientContextMenu.Name = "clientContextMenu";
+            this.clientContextMenu.Size = new System.Drawing.Size(130, 48);
+            // 
+            // modifierToolStripMenuItem
+            // 
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
+            // 
+            // supprimerToolStripMenuItem
+            // 
+            this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.supprimerToolStripMenuItem.Text = "Supprimer";
+            this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
             // searchButton
             // 
@@ -76,37 +95,66 @@
             this.newClientButton.UseVisualStyleBackColor = true;
             this.newClientButton.Click += new System.EventHandler(this.newClientButton_Click);
             // 
-            // clientContextMenu
+            // allClientList
             // 
-            this.clientContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modifierToolStripMenuItem,
-            this.supprimerToolStripMenuItem});
-            this.clientContextMenu.Name = "clientContextMenu";
-            this.clientContextMenu.Size = new System.Drawing.Size(181, 70);
+            this.allClientList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderID,
+            this.columnHeaderNom,
+            this.columnHeaderPrenom,
+            this.columnHeaderDateNaissance,
+            this.columnHeaderTel,
+            this.columnHeaderEmail,
+            this.columnHeaderRDV});
+            this.allClientList.ContextMenuStrip = this.clientContextMenu;
+            this.allClientList.Location = new System.Drawing.Point(38, 143);
+            this.allClientList.Name = "allClientList";
+            this.allClientList.Size = new System.Drawing.Size(703, 260);
+            this.allClientList.TabIndex = 4;
+            this.allClientList.UseCompatibleStateImageBehavior = false;
+            this.allClientList.View = System.Windows.Forms.View.Details;
+            this.allClientList.DoubleClick += new System.EventHandler(this.allClientList_DoubleClick);
             // 
-            // modifierToolStripMenuItem
+            // columnHeaderID
             // 
-            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modifierToolStripMenuItem.Text = "Modifier";
-            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
+            this.columnHeaderID.DisplayIndex = 1;
+            this.columnHeaderID.Text = "ID";
             // 
-            // supprimerToolStripMenuItem
+            // columnHeaderNom
             // 
-            this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.supprimerToolStripMenuItem.Text = "Supprimer";
-            this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
+            this.columnHeaderNom.DisplayIndex = 0;
+            this.columnHeaderNom.Text = "Nom";
+            // 
+            // columnHeaderPrenom
+            // 
+            this.columnHeaderPrenom.Text = "Prénom";
+            // 
+            // columnHeaderDateNaissance
+            // 
+            this.columnHeaderDateNaissance.Text = "Date de naissance";
+            this.columnHeaderDateNaissance.Width = 103;
+            // 
+            // columnHeaderTel
+            // 
+            this.columnHeaderTel.Text = "Téléphone";
+            // 
+            // columnHeaderEmail
+            // 
+            this.columnHeaderEmail.Text = "Email";
+            // 
+            // columnHeaderRDV
+            // 
+            this.columnHeaderRDV.Text = "Prochain rendez-vous";
+            this.columnHeaderRDV.Width = 67;
             // 
             // ClientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.allClientList);
             this.Controls.Add(this.newClientButton);
             this.Controls.Add(this.nameInput);
             this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.allClientList);
             this.Name = "ClientList";
             this.Text = "ClientList";
             this.clientContextMenu.ResumeLayout(false);
@@ -116,13 +164,19 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView allClientList;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox nameInput;
         private System.Windows.Forms.Button newClientButton;
         private System.Windows.Forms.ContextMenuStrip clientContextMenu;
         private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
+        private System.Windows.Forms.ListView allClientList;
+        private System.Windows.Forms.ColumnHeader columnHeaderNom;
+        private System.Windows.Forms.ColumnHeader columnHeaderPrenom;
+        private System.Windows.Forms.ColumnHeader columnHeaderDateNaissance;
+        private System.Windows.Forms.ColumnHeader columnHeaderID;
+        private System.Windows.Forms.ColumnHeader columnHeaderTel;
+        private System.Windows.Forms.ColumnHeader columnHeaderEmail;
+        private System.Windows.Forms.ColumnHeader columnHeaderRDV;
     }
 }
