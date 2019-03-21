@@ -31,6 +31,7 @@ namespace Projet
 
             InitializeComponent();
             isModification = false;
+            dateTimePicker1.MaxDate = DateTime.Now;
             this.animalList = animalInterface;
             animal = animalSelected;
             this._db = _db;

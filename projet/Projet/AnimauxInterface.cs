@@ -24,6 +24,7 @@ namespace Projet
         {
             _db = new DB_ENTITIES();
             InitializeComponent();
+            dateTimePicker1.MaxDate = DateTime.Now;
             searchName = "";
             selectedLine = "";
             this.allAnimauxList.View = View.List;
@@ -80,17 +81,9 @@ namespace Projet
         }
 
 
-/*
- *A REVOIR
-        private void filtrer_Click(object sender, EventArgs e)
-        {
-            if (!nameInput.Text.Equals(""))
-            {
-                searchName = nameInput.Text;
-            }
-            InitializeAnimauxInterface("typed");
-        }
-*/
+
+
+      
 
         private void delete_Click(object sender, EventArgs e)
         {
@@ -149,6 +142,16 @@ namespace Projet
             FicheAnimalInterface fai = new FicheAnimalInterface(toShow);
             fai.Show();
             this.Hide();
+        }
+
+        private void filtrer_Click(object sender, EventArgs e)
+        {
+            if (!textBox4.Text.Equals(""))
+            {
+                searchName = textBox4.Text;
+            }
+
+            InitializeAnimauxInterface("typed");
         }
     }
 }

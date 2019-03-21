@@ -93,7 +93,7 @@
             this.filtrer.TabIndex = 0;
             this.filtrer.Text = "filtrer";
             this.filtrer.UseVisualStyleBackColor = true;
-           // this.filtrer.Click += new System.EventHandler(this.filtrer_Click);
+            this.filtrer.Click += new System.EventHandler(this.filtrer_Click);
             // 
             // first
             // 
