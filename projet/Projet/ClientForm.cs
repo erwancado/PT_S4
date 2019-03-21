@@ -22,7 +22,6 @@ namespace Projet
         private String email;
 
         DB_ENTITIES _db;
-        OleDbConnection dbConnection;
 
         Clients client;
         bool isModification;
@@ -38,6 +37,7 @@ namespace Projet
             client = clientSelected;
             this._db = _db;
             isMan = true;
+            naissanceDatePicker.MaxDate = DateTime.Now;
             SelectedDate = DateTime.Now;
             if (client != null)
             {
@@ -67,60 +67,63 @@ namespace Projet
         }
         private void validateButton_Click(object sender, EventArgs e)
         {
-            Clients toInsert = new Clients();
-            toInsert.Nom = nameTextBox.Text;
-            toInsert.Prenom = prenomTextBox.Text;
-            toInsert.Adresse = adressTextBox.Text;
-            try
-            {
-                var eMailValidator = new System.Net.Mail.MailAddress(emailTextBox.Text);
-                toInsert.Email = emailTextBox.Text;
-                toInsert.DateNaissance = SelectedDate;
-                if (womanRadioButton.Checked)
-                {
-                    toInsert.Sexe = "F";
-                }
-                else
-                {
-                    toInsert.Sexe = "M";
-                }
-                if (telTextBox.Text == "")
-                {
-                    MessageBox.Show("numéro null");
-                }
+            if (allInformationComplete()) {
+                Clients toInsert = new Clients();
+                toInsert.Nom = nameTextBox.Text;
+                toInsert.Prenom = prenomTextBox.Text;
+                toInsert.Adresse = adressTextBox.Text;
                 try
                 {
-                    toInsert.Téléphone = Int32.Parse(telTextBox.Text);
-                    if (client == null)
+                    var eMailValidator = new System.Net.Mail.MailAddress(emailTextBox.Text);
+                    toInsert.Email = emailTextBox.Text;
+                    toInsert.DateNaissance = SelectedDate;
+                    if (womanRadioButton.Checked)
                     {
-                        _db.Clients.Add(toInsert);
+                        toInsert.Sexe = "F";
                     }
-                    else {
-                        client.Nom = toInsert.Nom;
-                        client.Prenom = toInsert.Prenom;
-                        client.Adresse = toInsert.Adresse;
-                        client.Email = toInsert.Email;
-                        client.DateNaissance = toInsert.DateNaissance;
-                        client.Sexe = toInsert.Sexe;
-                        client.Téléphone = toInsert.Téléphone;
+                    else
+                    {
+                        toInsert.Sexe = "M";
                     }
-                    _db.SaveChanges();
-                    inscriptionGood(toInsert);
+                    if (telTextBox.Text == "")
+                    {
+                        MessageBox.Show("numéro null");
+                    }
+                    try
+                    {
+                        toInsert.Téléphone = Int32.Parse(telTextBox.Text);
+                        if (client == null)
+                        {
+                            _db.Clients.Add(toInsert);
+                        }
+                        else
+                        {
+                            client.Nom = toInsert.Nom;
+                            client.Prenom = toInsert.Prenom;
+                            client.Adresse = toInsert.Adresse;
+                            client.Email = toInsert.Email;
+                            client.DateNaissance = toInsert.DateNaissance;
+                            client.Sexe = toInsert.Sexe;
+                            client.Téléphone = toInsert.Téléphone;
+                        }
+                        _db.SaveChanges();
+                        inscriptionGood(toInsert);
+                    }
+                    catch (FormatException ex)
+                    {
+                        MessageBox.Show("numéro incorrect (format incorrect)");
+                    }
+                    catch (OverflowException ex)
+                    {
+                        MessageBox.Show("numéro incorrect (trop long) ");
+                    }
                 }
                 catch (FormatException ex)
                 {
-                    MessageBox.Show("numéro incorrect (format incorrect)");
+                    emailTextBox.ResetText();
+                    MessageBox.Show("Email incorrect");
                 }
-                catch (OverflowException ex)
-                {
-                    MessageBox.Show("numéro incorrect (trop long) ");
-                }
-            }
-            catch (FormatException ex)
-            {
-                emailTextBox.ResetText();
-                MessageBox.Show("Email incorrect");
-            }
+            }            
         }
 
         private void inscriptionGood(Clients myClient)
@@ -156,6 +159,17 @@ namespace Projet
             adressTextBox.ResetText();
             telTextBox.ResetText();
             naissanceDatePicker.ResetText();
+        }
+
+        private bool allInformationComplete() {
+            if (nameTextBox.Text.Equals("") || prenomTextBox.Text.Equals("")
+                || emailTextBox.Text.Equals("") || adressTextBox.Text.Equals("")
+                || telTextBox.Text.Equals(""))
+            {
+                MessageBox.Show("Veuillez completer toutes les informations avant de valider");
+                return false;
+            }
+            return true;
         }
 
             private void naissanceDatePicker_ValueChanged(object sender, EventArgs e)

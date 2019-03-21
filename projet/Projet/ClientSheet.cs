@@ -32,6 +32,9 @@ namespace Projet
             emailLabel.Text += " " + client.Email;
             telLabel.Text += " " + client.Téléphone;
             adressLabel.Text += " "+ client.Adresse;
+            if (client.Sexe == null) {
+                client.Sexe = "M";
+            }
             if (client.Sexe.Equals("M")) {
                 sexeLabel.Text += " Masculin";
             }

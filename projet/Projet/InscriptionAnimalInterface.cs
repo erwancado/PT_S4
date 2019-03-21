@@ -23,7 +23,6 @@ namespace Projet
         private String infos;
         bool isModification;
         DB_ENTITIES _db;
-        OleDbConnection dbConnection;
         AnimauxInterface animalList;
         Animaux animal;
 
@@ -32,7 +31,7 @@ namespace Projet
 
             InitializeComponent();
             isModification = false;
-            this.animalList = animalList;
+            this.animalList = animalInterface;
             animal = animalSelected;
             this._db = _db;
             isMan = true;
@@ -73,6 +72,7 @@ namespace Projet
             an.Poids = (int)numericUpDown1.Value;
             an.Caractéristiques = richTextBox1.Text;
             an.DateNaissance = dateTimePicker1.Value;
+            an.Clients_idClients = 2; //TODO
             if (femelle.Checked)
             {
                 an.Sexe = "F";
