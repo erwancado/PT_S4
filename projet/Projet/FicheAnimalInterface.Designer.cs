@@ -35,12 +35,7 @@
             this.modifierMaladie = new System.Windows.Forms.Button();
             this.genererOrdonnance = new System.Windows.Forms.Button();
             this.genererFacture = new System.Windows.Forms.Button();
-            this.first = new System.Windows.Forms.Button();
-            this.prev = new System.Windows.Forms.Button();
-            this.next = new System.Windows.Forms.Button();
-            this.last = new System.Windows.Forms.Button();
             this.insert = new System.Windows.Forms.Button();
-            this.refresh = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.retourPageAnimal = new System.Windows.Forms.Button();
@@ -129,63 +124,18 @@
             this.genererFacture.Text = "genererFacture";
             this.genererFacture.UseVisualStyleBackColor = true;
             // 
-            // first
-            // 
-            this.first.Location = new System.Drawing.Point(263, 397);
-            this.first.Name = "first";
-            this.first.Size = new System.Drawing.Size(75, 23);
-            this.first.TabIndex = 7;
-            this.first.Text = "first";
-            this.first.UseVisualStyleBackColor = true;
-            // 
-            // prev
-            // 
-            this.prev.Location = new System.Drawing.Point(344, 397);
-            this.prev.Name = "prev";
-            this.prev.Size = new System.Drawing.Size(75, 23);
-            this.prev.TabIndex = 8;
-            this.prev.Text = "prev";
-            this.prev.UseVisualStyleBackColor = true;
-            // 
-            // next
-            // 
-            this.next.Location = new System.Drawing.Point(425, 397);
-            this.next.Name = "next";
-            this.next.Size = new System.Drawing.Size(75, 23);
-            this.next.TabIndex = 9;
-            this.next.Text = "next";
-            this.next.UseVisualStyleBackColor = true;
-            // 
-            // last
-            // 
-            this.last.Location = new System.Drawing.Point(506, 397);
-            this.last.Name = "last";
-            this.last.Size = new System.Drawing.Size(75, 23);
-            this.last.TabIndex = 10;
-            this.last.Text = "last";
-            this.last.UseVisualStyleBackColor = true;
-            // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(587, 397);
+            this.insert.Location = new System.Drawing.Point(369, 386);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
             this.insert.TabIndex = 11;
             this.insert.Text = "insert";
             this.insert.UseVisualStyleBackColor = true;
             // 
-            // refresh
-            // 
-            this.refresh.Location = new System.Drawing.Point(828, 397);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(75, 23);
-            this.refresh.TabIndex = 12;
-            this.refresh.Text = "refresh";
-            this.refresh.UseVisualStyleBackColor = true;
-            // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(747, 397);
+            this.delete.Location = new System.Drawing.Point(531, 386);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 13;
@@ -194,7 +144,7 @@
             // 
             // edit
             // 
-            this.edit.Location = new System.Drawing.Point(666, 397);
+            this.edit.Location = new System.Drawing.Point(450, 386);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(75, 23);
             this.edit.TabIndex = 14;
@@ -415,12 +365,7 @@
             this.Controls.Add(this.retourPageAnimal);
             this.Controls.Add(this.edit);
             this.Controls.Add(this.delete);
-            this.Controls.Add(this.refresh);
             this.Controls.Add(this.insert);
-            this.Controls.Add(this.last);
-            this.Controls.Add(this.next);
-            this.Controls.Add(this.prev);
-            this.Controls.Add(this.first);
             this.Controls.Add(this.genererFacture);
             this.Controls.Add(this.genererOrdonnance);
             this.Controls.Add(this.modifierMaladie);
@@ -444,12 +389,7 @@
         private System.Windows.Forms.Button modifierMaladie;
         private System.Windows.Forms.Button genererOrdonnance;
         private System.Windows.Forms.Button genererFacture;
-        private System.Windows.Forms.Button first;
-        private System.Windows.Forms.Button prev;
-        private System.Windows.Forms.Button next;
-        private System.Windows.Forms.Button last;
         private System.Windows.Forms.Button insert;
-        private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button retourPageAnimal;

@@ -67,7 +67,8 @@ namespace Projet
                             String description = animal.Nom + " "
 
                                           + animal.DateNaissance.ToString() + " " +
-                                            animal.Race;
+                                           // animal.Race+" "+
+                                            animal.Caractéristiques;
                             // + " " + animal.Espece;
                             if (!this.animaux.Contains(description))
                             {
@@ -94,6 +95,7 @@ namespace Projet
                 Animaux selectedAnimal = getAnimaux(id);
                 _db.Animaux.Remove(selectedAnimal);
                 _db.SaveChanges();
+                InitializeAnimauxInterface("");
             }
         }
 
@@ -128,11 +130,6 @@ namespace Projet
                 }
             }
             return null;
-        }
-
-        private void refresh_Click(object sender, EventArgs e)
-        {
-            this.Refresh();
         }
 
         private void allAnimauxList_DoubleClick(object sender, EventArgs e)
