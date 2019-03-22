@@ -47,6 +47,16 @@ namespace Projet
                 sexeLabel.Text += " Féminin";
             }
             completeAnimalList("");
+            completeRDVList();
+        }
+
+        private void completeRDVList()
+        {
+            this.allRDVList.Items.Clear();
+            var appointments = _db.RendezVous;
+            foreach (RendezVous appointment in appointments) {
+                allRDVList.Items.Add(appointment.Date.ToString());
+            }
         }
 
         private void completeAnimalList(String request)
@@ -88,6 +98,27 @@ namespace Projet
                 }
             }
             return null;
+        }
+
+        private void modifyButton_Click(object sender, EventArgs e)
+        {
+            ClientForm modifyClient = new ClientForm(client, _db, null);
+            modifyClient.Show();
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addAnimalButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addRDVButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
