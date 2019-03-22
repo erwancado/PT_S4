@@ -34,19 +34,15 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.filtrer = new System.Windows.Forms.Button();
-            this.first = new System.Windows.Forms.Button();
-            this.prev = new System.Windows.Forms.Button();
-            this.next = new System.Windows.Forms.Button();
-            this.last = new System.Windows.Forms.Button();
             this.edit = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
-            this.refresh = new System.Windows.Forms.Button();
             this.nomProprietaire = new System.Windows.Forms.Label();
             this.nomAnimal = new System.Windows.Forms.Label();
             this.espece = new System.Windows.Forms.Label();
             this.race = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.Label();
             this.allAnimauxList = new System.Windows.Forms.ListView();
+            this.add = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -92,47 +88,11 @@
             this.filtrer.TabIndex = 0;
             this.filtrer.Text = "filtrer";
             this.filtrer.UseVisualStyleBackColor = true;
-       //     this.filtrer.Click += new System.EventHandler(this.filtrer_Click);
-            // 
-            // first
-            // 
-            this.first.Location = new System.Drawing.Point(12, 415);
-            this.first.Name = "first";
-            this.first.Size = new System.Drawing.Size(75, 23);
-            this.first.TabIndex = 6;
-            this.first.Text = "first";
-            this.first.UseVisualStyleBackColor = true;
-            // 
-            // prev
-            // 
-            this.prev.Location = new System.Drawing.Point(108, 415);
-            this.prev.Name = "prev";
-            this.prev.Size = new System.Drawing.Size(75, 23);
-            this.prev.TabIndex = 7;
-            this.prev.Text = "prev";
-            this.prev.UseVisualStyleBackColor = true;
-            // 
-            // next
-            // 
-            this.next.Location = new System.Drawing.Point(209, 415);
-            this.next.Name = "next";
-            this.next.Size = new System.Drawing.Size(75, 23);
-            this.next.TabIndex = 8;
-            this.next.Text = "next";
-            this.next.UseVisualStyleBackColor = true;
-            // 
-            // last
-            // 
-            this.last.Location = new System.Drawing.Point(311, 415);
-            this.last.Name = "last";
-            this.last.Size = new System.Drawing.Size(75, 23);
-            this.last.TabIndex = 9;
-            this.last.Text = "last";
-            this.last.UseVisualStyleBackColor = true;
+            this.filtrer.Click += new System.EventHandler(this.filtrer_Click);
             // 
             // edit
             // 
-            this.edit.Location = new System.Drawing.Point(461, 415);
+            this.edit.Location = new System.Drawing.Point(495, 415);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(75, 23);
             this.edit.TabIndex = 11;
@@ -142,23 +102,13 @@
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(542, 415);
+            this.delete.Location = new System.Drawing.Point(576, 415);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 12;
             this.delete.Text = "delete";
             this.delete.UseVisualStyleBackColor = true;
             this.delete.Click += new System.EventHandler(this.delete_Click);
-            // 
-            // refresh
-            // 
-            this.refresh.Location = new System.Drawing.Point(704, 415);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(75, 23);
-            this.refresh.TabIndex = 13;
-            this.refresh.Text = "refresh";
-            this.refresh.UseVisualStyleBackColor = true;
-            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // nomProprietaire
             // 
@@ -212,25 +162,32 @@
             this.allAnimauxList.Size = new System.Drawing.Size(374, 296);
             this.allAnimauxList.TabIndex = 19;
             this.allAnimauxList.UseCompatibleStateImageBehavior = false;
+            this.allAnimauxList.DoubleClick += new System.EventHandler(this.allAnimauxList_DoubleClick);
+            // 
+            // add
+            // 
+            this.add.Location = new System.Drawing.Point(414, 415);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(75, 23);
+            this.add.TabIndex = 20;
+            this.add.Text = "add";
+            this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // AnimauxInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.add);
             this.Controls.Add(this.allAnimauxList);
             this.Controls.Add(this.date);
             this.Controls.Add(this.race);
             this.Controls.Add(this.espece);
             this.Controls.Add(this.nomAnimal);
             this.Controls.Add(this.nomProprietaire);
-            this.Controls.Add(this.refresh);
             this.Controls.Add(this.delete);
             this.Controls.Add(this.edit);
-            this.Controls.Add(this.last);
-            this.Controls.Add(this.next);
-            this.Controls.Add(this.prev);
-            this.Controls.Add(this.first);
             this.Controls.Add(this.filtrer);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox4);
@@ -252,18 +209,14 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button filtrer;
-        private System.Windows.Forms.Button first;
-        private System.Windows.Forms.Button prev;
-        private System.Windows.Forms.Button next;
-        private System.Windows.Forms.Button last;
         private System.Windows.Forms.Button edit;
         private System.Windows.Forms.Button delete;
-        private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.Label nomProprietaire;
         private System.Windows.Forms.Label nomAnimal;
         private System.Windows.Forms.Label espece;
         private System.Windows.Forms.Label race;
         private System.Windows.Forms.Label date;
         private System.Windows.Forms.ListView allAnimauxList;
+        private System.Windows.Forms.Button add;
     }
 }

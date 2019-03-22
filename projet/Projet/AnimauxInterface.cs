@@ -20,11 +20,11 @@ namespace Projet
         String searchName;
         String selectedLine;
 
-
         public AnimauxInterface()
         {
             _db = new DB_ENTITIES();
             InitializeComponent();
+            dateTimePicker1.MaxDate = DateTime.Now;
             searchName = "";
             selectedLine = "";
             this.allAnimauxList.View = View.List;
@@ -67,7 +67,8 @@ namespace Projet
                             String description = animal.Nom + " "
 
                                           + animal.DateNaissance.ToString() + " " +
-                                            animal.Race;
+                                           // animal.Race+" "+
+                                            animal.Caractéristiques;
                             // + " " + animal.Espece;
                             if (!this.animaux.Contains(description))
                             {
@@ -82,6 +83,9 @@ namespace Projet
 
 
 
+
+      
+
         private void delete_Click(object sender, EventArgs e)
         {
             if (allAnimauxList.SelectedItems.Count > 0)
@@ -91,7 +95,15 @@ namespace Projet
                 Animaux selectedAnimal = getAnimaux(id);
                 _db.Animaux.Remove(selectedAnimal);
                 _db.SaveChanges();
+                InitializeAnimauxInterface("");
             }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            InscriptionAnimalInterface newAnimal = new InscriptionAnimalInterface(null, _db, this);
+            newAnimal.Show();
+            this.Hide();
         }
 
         private void edit_Click(object sender, EventArgs e)
@@ -120,21 +132,24 @@ namespace Projet
             return null;
         }
 
-        private void refresh_Click(object sender, EventArgs e)
+        private void allAnimauxList_DoubleClick(object sender, EventArgs e)
         {
-            this.Refresh();
+            int id = int.Parse(this.allAnimauxList.SelectedItems[0].SubItems[0].Text.Split('.')[0]);
+            Animaux toShow = _db.Animaux.Find(id);
+            FicheAnimalInterface fai = new FicheAnimalInterface(toShow);
+            fai.Show();
+            this.Hide();
         }
 
-        /*  private void filtrer_Click(object sender, EventArgs e)
-          {
+        private void filtrer_Click(object sender, EventArgs e)
+        {
+            if (!textBox4.Text.Equals(""))
+            {
+                searchName = textBox4.Text;
+            }
 
-                  if (!nameInput.Text.Equals(""))
-                  {
-                      searchName = nameInput.Text;
-                  }
-                 // InitializeClientList("typed");
-          }
-      }*/
+            InitializeAnimauxInterface("typed");
+        }
     }
 }
 
