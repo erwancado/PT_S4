@@ -116,12 +116,10 @@
             // 
             // columnHeaderID
             // 
-            this.columnHeaderID.DisplayIndex = 1;
             this.columnHeaderID.Text = "ID";
             // 
             // columnHeaderNom
             // 
-            this.columnHeaderNom.DisplayIndex = 0;
             this.columnHeaderNom.Text = "Nom";
             // 
             // columnHeaderPrenom

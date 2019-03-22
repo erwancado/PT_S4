@@ -44,9 +44,13 @@
             this.naissance = new System.Windows.Forms.Label();
             this.prenom = new System.Windows.Forms.Label();
             this.nom = new System.Windows.Forms.Label();
-            this.rdv = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listAnimals = new System.Windows.Forms.ListBox();
+            this.modifyButton = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.Button();
+            this.addAnimalButton = new System.Windows.Forms.Button();
+            this.addRDVButton = new System.Windows.Forms.Button();
+            this.allRDVList = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,14 +190,6 @@
             this.nom.Size = new System.Drawing.Size(142, 20);
             this.nom.TabIndex = 0;
             // 
-            // rdv
-            // 
-            this.rdv.FormattingEnabled = true;
-            this.rdv.Location = new System.Drawing.Point(12, 278);
-            this.rdv.Name = "rdv";
-            this.rdv.Size = new System.Drawing.Size(238, 160);
-            this.rdv.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -211,14 +207,66 @@
             this.listAnimals.Size = new System.Drawing.Size(580, 212);
             this.listAnimals.TabIndex = 3;
             // 
+            // modifyButton
+            // 
+            this.modifyButton.Location = new System.Drawing.Point(12, 462);
+            this.modifyButton.Name = "modifyButton";
+            this.modifyButton.Size = new System.Drawing.Size(75, 23);
+            this.modifyButton.TabIndex = 4;
+            this.modifyButton.Text = "Modifier";
+            this.modifyButton.UseVisualStyleBackColor = true;
+            this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
+            // 
+            // removeButton
+            // 
+            this.removeButton.Location = new System.Drawing.Point(169, 462);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(75, 23);
+            this.removeButton.TabIndex = 5;
+            this.removeButton.Text = "Supprimer";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // addAnimalButton
+            // 
+            this.addAnimalButton.Location = new System.Drawing.Point(342, 462);
+            this.addAnimalButton.Name = "addAnimalButton";
+            this.addAnimalButton.Size = new System.Drawing.Size(116, 23);
+            this.addAnimalButton.TabIndex = 6;
+            this.addAnimalButton.Text = "Ajouter un animal";
+            this.addAnimalButton.UseVisualStyleBackColor = true;
+            this.addAnimalButton.Click += new System.EventHandler(this.addAnimalButton_Click);
+            // 
+            // addRDVButton
+            // 
+            this.addRDVButton.Location = new System.Drawing.Point(506, 462);
+            this.addRDVButton.Name = "addRDVButton";
+            this.addRDVButton.Size = new System.Drawing.Size(130, 23);
+            this.addRDVButton.TabIndex = 7;
+            this.addRDVButton.Text = "Ajouter un rendez-vous";
+            this.addRDVButton.UseVisualStyleBackColor = true;
+            this.addRDVButton.Click += new System.EventHandler(this.addRDVButton_Click);
+            // 
+            // allRDVList
+            // 
+            this.allRDVList.FormattingEnabled = true;
+            this.allRDVList.Location = new System.Drawing.Point(13, 290);
+            this.allRDVList.Name = "allRDVList";
+            this.allRDVList.Size = new System.Drawing.Size(238, 134);
+            this.allRDVList.TabIndex = 8;
+            // 
             // ClientSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 511);
+            this.Controls.Add(this.allRDVList);
+            this.Controls.Add(this.addRDVButton);
+            this.Controls.Add(this.addAnimalButton);
+            this.Controls.Add(this.removeButton);
+            this.Controls.Add(this.modifyButton);
             this.Controls.Add(this.listAnimals);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.rdv);
             this.Controls.Add(this.groupBox1);
             this.Name = "ClientSheet";
             this.Text = "ClientSheet";
@@ -245,9 +293,13 @@
         private System.Windows.Forms.Label NaissanceLabel;
         private System.Windows.Forms.Label prenomLabel;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.ListBox rdv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label sexeLabel;
         private System.Windows.Forms.ListBox listAnimals;
+        private System.Windows.Forms.Button modifyButton;
+        private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.Button addAnimalButton;
+        private System.Windows.Forms.Button addRDVButton;
+        private System.Windows.Forms.ListBox allRDVList;
     }
 }

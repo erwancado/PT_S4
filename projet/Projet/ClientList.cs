@@ -22,9 +22,6 @@ namespace Projet
             searchName = "";
             selectedLine = "";
             ColumnHeader header = new ColumnHeader();
-            header.Text = "";
-            header.Name = "col1";
-            allClientList.Columns.Add(header);
             InitializeClientList("");
         }
 
