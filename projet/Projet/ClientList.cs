@@ -88,7 +88,7 @@ namespace Projet
             if (allClientList.SelectedItems.Count > 0) {
                 selectedLine = this.allClientList.SelectedItems[0].Text;
                 int id  = int.Parse(this.allClientList.SelectedItems[0].Text);
-                Clients selectedClient = getClient(id);
+                Clients selectedClient = _db.Clients.Find(id);
                 ClientForm modifyClient = new ClientForm(selectedClient, _db, this);
                 modifyClient.Show();
             }
@@ -100,10 +100,23 @@ namespace Projet
             {
                 selectedLine = this.allClientList.SelectedItems[0].Text;
                 int id = int.Parse(this.allClientList.SelectedItems[0].Text);
-                Clients selectedClient = getClient(id);
+                Clients selectedClient = _db.Clients.Find(id);
+                removeAllRDV(selectedClient);
+                removeAllAnimals(selectedClient);
+                //TODO
                 _db.Clients.Remove(selectedClient);
                 _db.SaveChanges();
             }
+        }
+
+        private void removeAllAnimals(Clients selectedClient)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void removeAllRDV(Clients selectedClient)
+        {
+            throw new NotImplementedException();
         }
 
         private Clients getClient(int idClient) {
