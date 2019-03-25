@@ -21,7 +21,6 @@ namespace Projet
             InitializeComponent();
             searchName = "";
             selectedLine = "";
-            ColumnHeader header = new ColumnHeader();
             InitializeClientList("");
         }
 
@@ -100,35 +99,30 @@ namespace Projet
             {
                 selectedLine = this.allClientList.SelectedItems[0].Text;
                 int id = int.Parse(this.allClientList.SelectedItems[0].Text);
-                Clients selectedClient = _db.Clients.Find(id);
-                removeAllRDV(selectedClient);
-                removeAllAnimals(selectedClient);
-                //TODO
-                _db.Clients.Remove(selectedClient);
-                _db.SaveChanges();
+                ClientList.removeClient(id, _db);
             }
         }
 
-        private void removeAllAnimals(Clients selectedClient)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void removeAllRDV(Clients selectedClient)
-        {
-            throw new NotImplementedException();
-        }
-
-        private Clients getClient(int idClient) {
-            var clients = _db.Clients;
-            foreach (Clients client in clients)
+        public static void removeClient(int id, DB_ENTITIES _db) {
+            Clients selectedClient = _db.Clients.Find(id);
+            var rdv = _db.RendezVous;
+            foreach (RendezVous myRdv in rdv)
             {
-                if (client.idClients== idClient)
+                if (myRdv.Clients_idClients == selectedClient.idClients)
                 {
-                    return client;
+                    _db.RendezVous.Remove(myRdv);
                 }
             }
-            return null;
+            var animals = _db.Animaux;
+            foreach (Animaux animal in animals)
+            {
+                if (animal.Clients_idClients == selectedClient.idClients)
+                {
+                    AnimauxInterface.removeAnimal(animal.idAnimaux, _db);
+                }
+            }
+            _db.Clients.Remove(selectedClient);
+            _db.SaveChanges();
         }
        
         private void allClientList_DoubleClick(object sender, EventArgs e)

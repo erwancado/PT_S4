@@ -14,14 +14,12 @@ namespace Projet
     public partial class ClientSheet : Form
     {
         private Clients client;
-        private List<String> myAnimals;
 
         DB_ENTITIES _db;
 
         public ClientSheet( Clients client)
         {
             _db = new DB_ENTITIES();
-            myAnimals = new List<string>();
             InitializeComponent();
             this.client = client;
             InitializeIntels();
@@ -61,32 +59,27 @@ namespace Projet
 
         private void completeAnimalList(String request)
         {
-            this.listAnimals.Items.Clear();
-            this.myAnimals.Clear();
+            this.allAnimalsClient.Items.Clear();
             if (request.Equals("")) {
                 var animals = _db.Animaux;
                 foreach (Animaux animal in animals)
                 {
                     if (animal.Clients_idClients == client.idClients) {
+                        ListViewItem item = new ListViewItem(animal.idAnimaux.ToString());
+                        item.SubItems.Add(animal.Nom);
+                        item.SubItems.Add(animal.Poids.ToString());
                         String race = "";
                         foreach (Race raceSelected in animal.Race)
                         {
                             race += raceSelected.Nom + "/";
                         }
-                        String description = animal.idAnimaux + ". " + animal.Nom + " "
-                                            + animal.Sexe + " "
-                                            + race + " "
-                                            + animal.DateNaissance.ToString() + " " +
-                                            animal.Poids;
-                        if (description != null)
-                            if (!this.myAnimals.Contains(description))
-                            {
-                                this.listAnimals.Items.Add(description);
-                                this.myAnimals.Add(description);
-                            }
+                        item.SubItems.Add(race);
+                        allAnimalsClient.Items.Add(item);
                     }
                 }
             }
+            allAnimalsClient.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            allAnimalsClient.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private String getRaceNom(Race race) {
@@ -108,7 +101,7 @@ namespace Projet
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-
+              
         }
 
         private void addAnimalButton_Click(object sender, EventArgs e)
@@ -119,6 +112,15 @@ namespace Projet
         private void addRDVButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void allAnimalsClient_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("genugnue");
+            int id = int.Parse(this.allAnimalsClient.SelectedItems[0].Text);
+            Animaux toShow = _db.Animaux.Find(id);
+            FicheAnimalInterface sheet = new FicheAnimalInterface(toShow);
+            sheet.Show();
         }
     }
 }

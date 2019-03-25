@@ -45,12 +45,16 @@
             this.prenom = new System.Windows.Forms.Label();
             this.nom = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.listAnimals = new System.Windows.Forms.ListBox();
             this.modifyButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.addAnimalButton = new System.Windows.Forms.Button();
             this.addRDVButton = new System.Windows.Forms.Button();
             this.allRDVList = new System.Windows.Forms.ListBox();
+            this.allAnimalsClient = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,14 +203,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Rendez-vous à venir :";
             // 
-            // listAnimals
-            // 
-            this.listAnimals.FormattingEnabled = true;
-            this.listAnimals.Location = new System.Drawing.Point(342, 227);
-            this.listAnimals.Name = "listAnimals";
-            this.listAnimals.Size = new System.Drawing.Size(580, 212);
-            this.listAnimals.TabIndex = 3;
-            // 
             // modifyButton
             // 
             this.modifyButton.Location = new System.Drawing.Point(12, 462);
@@ -255,17 +251,48 @@
             this.allRDVList.Size = new System.Drawing.Size(238, 134);
             this.allRDVList.TabIndex = 8;
             // 
+            // allAnimalsClient
+            // 
+            this.allAnimalsClient.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.allAnimalsClient.Location = new System.Drawing.Point(319, 223);
+            this.allAnimalsClient.Name = "allAnimalsClient";
+            this.allAnimalsClient.Size = new System.Drawing.Size(594, 201);
+            this.allAnimalsClient.TabIndex = 9;
+            this.allAnimalsClient.UseCompatibleStateImageBehavior = false;
+            this.allAnimalsClient.View = System.Windows.Forms.View.Details;
+            this.allAnimalsClient.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.allAnimalsClient_MouseDoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Code";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nom";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Poids";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Race";
+            // 
             // ClientSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 511);
+            this.Controls.Add(this.allAnimalsClient);
             this.Controls.Add(this.allRDVList);
             this.Controls.Add(this.addRDVButton);
             this.Controls.Add(this.addAnimalButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.modifyButton);
-            this.Controls.Add(this.listAnimals);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "ClientSheet";
@@ -295,11 +322,15 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label sexeLabel;
-        private System.Windows.Forms.ListBox listAnimals;
         private System.Windows.Forms.Button modifyButton;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button addAnimalButton;
         private System.Windows.Forms.Button addRDVButton;
         private System.Windows.Forms.ListBox allRDVList;
+        private System.Windows.Forms.ListView allAnimalsClient;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

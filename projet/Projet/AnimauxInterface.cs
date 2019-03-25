@@ -150,6 +150,25 @@ namespace Projet
 
             InitializeAnimauxInterface("typed");
         }
+
+        public static void removeAnimal(int id, DB_ENTITIES _db) {
+            Animaux myAnimal = _db.Animaux.Find(id);
+            var rappels = _db.Rappel;
+            foreach (Rappel rappel in rappels) {
+                if (rappel.Animaux_idAnimaux == myAnimal.idAnimaux) {
+                    _db.Rappel.Remove(rappel);
+                }
+            }
+            var ordonnances = _db.Ordonnance;
+            foreach (Ordonnance ordonnance in ordonnances)
+            {
+                if (ordonnance.Animaux_idAnimaux == myAnimal.idAnimaux)
+                {
+                    _db.Ordonnance.Remove(ordonnance);
+                }
+            }
+            _db.SaveChanges();
+        }
     }
 }
 
