@@ -227,14 +227,14 @@
             this.controlViewsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.controlViewsPanel.Controls.Add(this.logsListView);
             this.controlViewsPanel.Controls.Add(this.rappelListView);
-            this.controlViewsPanel.Location = new System.Drawing.Point(1178, 750);
+            this.controlViewsPanel.Location = new System.Drawing.Point(964, 750);
             this.controlViewsPanel.Name = "controlViewsPanel";
-            this.controlViewsPanel.Size = new System.Drawing.Size(616, 289);
+            this.controlViewsPanel.Size = new System.Drawing.Size(830, 289);
             this.controlViewsPanel.TabIndex = 19;
             // 
             // logsListView
             // 
-            this.logsListView.Location = new System.Drawing.Point(404, 3);
+            this.logsListView.Location = new System.Drawing.Point(617, 3);
             this.logsListView.Name = "logsListView";
             this.logsListView.Size = new System.Drawing.Size(210, 210);
             this.logsListView.TabIndex = 19;
@@ -244,7 +244,7 @@
             // 
             this.rappelListView.Location = new System.Drawing.Point(3, 3);
             this.rappelListView.Name = "rappelListView";
-            this.rappelListView.Size = new System.Drawing.Size(320, 210);
+            this.rappelListView.Size = new System.Drawing.Size(461, 210);
             this.rappelListView.TabIndex = 18;
             this.rappelListView.UseCompatibleStateImageBehavior = false;
             // 

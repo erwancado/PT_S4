@@ -38,10 +38,23 @@ namespace Projet
 
         public void fillRecall()
         {
-            foreach(Rappel r in _db.Rappel)
+            Rappel[] dates = _db.Rappel.Where(r => r.Date > DateTime.Now).ToArray();
+            int h, j;
+            int N = dates.Length;
+            for (j = N - 1; j > 0; j--)
             {
-                this.rappelListView.Items.Add("Concernant l'animal : " + _db.Animaux.Find(r.Animaux_idAnimaux).Nom + " : " + r.Description + " le " + r.Date.ToShortDateString());
+                for (h = 0; h < j; h++)
+                {
+                    if (dates[h].Date > dates[h + 1].Date)
+                        exchange(dates, h, h + 1);
+                }
             }
+            for (int y = 0; y < dates.Length; y++)
+            {
+                Rappel r = dates[y];
+                this.rappelListView.Items.Add("Concernant l'animal : " + _db.Animaux.Find(r.Animaux_idAnimaux).Nom + " : " + r.Description + " le " + r.Date.ToShortDateString());       
+            }
+
         }
 
         public void startTime()
@@ -110,5 +123,14 @@ namespace Projet
         {
             Application.Exit();
         }
+
+        public static void exchange(Rappel[] data, int m, int n)
+        {
+            Rappel temporary;
+            temporary = data[m];
+            data[m] = data[n];
+            data[n] = temporary;
+        }
+        
     }
 }
