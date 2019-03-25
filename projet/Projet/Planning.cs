@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace Projet
         private void SetupDataGrid()
         {
             this.Controls.Add(planningGridView);
-            planningGridView.ColumnCount = 7;
+            planningGridView.ColumnCount = 8;
 
             planningGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
             planningGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -37,10 +38,11 @@ namespace Projet
                 new Font(planningGridView.Font, FontStyle.Bold);
 
             planningGridView.Name = "planningGridView";
-            planningGridView.Location = new Point(8, 8);
-            planningGridView.Size = new Size(500, 250);
+            planningGridView.AutoSizeColumnsMode =
+            DataGridViewAutoSizeColumnsMode.Fill;
             planningGridView.AutoSizeRowsMode =
-                DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+                DataGridViewAutoSizeRowsMode.AllCells;
+            
             planningGridView.ColumnHeadersBorderStyle =
                 DataGridViewHeaderBorderStyle.Single;
             planningGridView.CellBorderStyle = DataGridViewCellBorderStyle.Single;
@@ -57,16 +59,20 @@ namespace Projet
             planningGridView.Columns[7].Name = "Dimanche";
             planningGridView.SelectionMode =
             DataGridViewSelectionMode.FullRowSelect;
+            planningGridView.DefaultCellStyle.WrapMode =
+            DataGridViewTriState.True;
+
             planningGridView.MultiSelect = false;
-            planningGridView.Dock = DockStyle.Fill;
 
         }
 
         private void PopulateDataGrid(DateTime date)
         {
             DayOfWeek day = date.DayOfWeek;
-            int dayOffset = dayOfWeekNumber(date.DayOfWeek);
-            var rdv = _db.RendezVous.Where(r => r.Date.DayOfYear >= date.DayOfYear - dayOffset && r.Date.DayOfYear < date.DayOfYear - dayOffset + 7);
+            int dayOffset = dayOfWeekNumber(date.DayOfWeek)+1;
+            DateTime dateMin = date.AddDays(-dayOffset);
+            DateTime dateMax = date.AddDays(NBDAYS - dayOffset);
+            var rdv = _db.RendezVous.Where(r => ((DateTime)r.Date).CompareTo(dateMin) >= 0 && ((DateTime)r.Date).CompareTo(dateMax) <= 0);
             List<RendezVous>[,] hours = new List<RendezVous>[7, 10];
             for (int i = 0; i < NBDAYS; i++)
                 for (int j = 0; j < NBHOURS; j++)
@@ -75,7 +81,8 @@ namespace Projet
             {
                 int dayNumber = dayOfWeekNumber(r.Date.DayOfWeek);
                 int hour = r.Date.Hour-hourOffset;
-                hours[dayNumber, hour].Add(r);
+                if(hour<=9 && hour>=0)
+                    hours[dayNumber, hour].Add(r);
             }
             for (int i = 0; i < NBHOURS; i++)
             {
@@ -83,24 +90,37 @@ namespace Projet
                 row.CreateCells(planningGridView);
                 for(int j=0; j < planningGridView.ColumnCount; j++)
                 {
-                    if (i == 0)
-                        row.Cells[j].Value = j + hourOffset;
+                    if (j == 0)
+                        row.Cells[j].Value = (i + hourOffset).ToString()+"h -- "+ (i+1 + hourOffset).ToString()+"h";
                     else
                     {
                         String rdvList = "";
-                        foreach(RendezVous r in hours[i, j])
+                        String descriptions = "";
+                        foreach(RendezVous r in hours[j-1,i])
                         {
-                            rdvList += r.Date.Hour.ToString() + ":" + r.Date.Minute.ToString() + "\n"
-                                +r.Clients.Prenom+" "+r.Clients.Nom+"\n";
+                            rdvList += ((DateTime) r.Date).ToShortTimeString() + "\r\n "
+                                +r.Clients.Prenom+" "+r.Clients.Nom+ "\n";
+                            descriptions += r.Description + "\n" + ((DateTime)r.Date).ToShortDateString()+"  "+ ((DateTime)r.Date).ToShortTimeString() + "\n";
                             
                         }
                         row.Cells[j].Value = rdvList;
+                        row.Cells[j].ToolTipText = descriptions;
+
+
                     }
                         
                 }
                 planningGridView.Rows.Add(row);
             }
+            planningGridView.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            planningGridView.AutoResizeRows();
+            var height = 40;
+            foreach (DataGridViewRow dr in planningGridView.Rows)
+            {
+                height += dr.Height;
+            }
 
+            planningGridView.Height = height;
         }
 
         private int dayOfWeekNumber(DayOfWeek day)
@@ -145,7 +165,7 @@ namespace Projet
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(314, 34);
+            this.datePicker.Location = new System.Drawing.Point(667, 40);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(200, 20);
             this.datePicker.TabIndex = 0;
@@ -154,14 +174,16 @@ namespace Projet
             // planningGridView
             // 
             this.planningGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.planningGridView.Location = new System.Drawing.Point(12, 103);
+            this.planningGridView.Location = new System.Drawing.Point(49, 58);
+            this.planningGridView.Margin = new System.Windows.Forms.Padding(10);
             this.planningGridView.Name = "planningGridView";
             this.planningGridView.Size = new System.Drawing.Size(818, 390);
             this.planningGridView.TabIndex = 1;
+            this.planningGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.planningGridView_CellPainting);
             // 
             // Planning
             // 
-            this.ClientSize = new System.Drawing.Size(842, 505);
+            this.ClientSize = new System.Drawing.Size(935, 579);
             this.Controls.Add(this.planningGridView);
             this.Controls.Add(this.datePicker);
             this.Name = "Planning";
@@ -174,6 +196,11 @@ namespace Projet
         {
             planningGridView.Rows.Clear();
             PopulateDataGrid(datePicker.Value);
+        }
+
+        private void planningGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+           
         }
     }
 }
