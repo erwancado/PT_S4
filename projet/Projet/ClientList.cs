@@ -99,31 +99,11 @@ namespace Projet
             {
                 selectedLine = this.allClientList.SelectedItems[0].Text;
                 int id = int.Parse(this.allClientList.SelectedItems[0].Text);
-                ClientList.removeClient(id, _db);
+                Utils.removeClient(id, _db);
             }
         }
 
-        public static void removeClient(int id, DB_ENTITIES _db) {
-            Clients selectedClient = _db.Clients.Find(id);
-            var rdv = _db.RendezVous;
-            foreach (RendezVous myRdv in rdv)
-            {
-                if (myRdv.Clients_idClients == selectedClient.idClients)
-                {
-                    _db.RendezVous.Remove(myRdv);
-                }
-            }
-            var animals = _db.Animaux;
-            foreach (Animaux animal in animals)
-            {
-                if (animal.Clients_idClients == selectedClient.idClients)
-                {
-                    AnimauxInterface.removeAnimal(animal.idAnimaux, _db);
-                }
-            }
-            _db.Clients.Remove(selectedClient);
-            _db.SaveChanges();
-        }
+       
        
         private void allClientList_DoubleClick(object sender, EventArgs e)
         {
