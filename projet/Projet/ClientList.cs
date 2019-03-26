@@ -19,6 +19,7 @@ namespace Projet
         {
             _db = new DB_ENTITIES();
             InitializeComponent();
+            allClientList.FullRowSelect = true;
             searchName = "";
             selectedLine = "";
             InitializeClientList("");

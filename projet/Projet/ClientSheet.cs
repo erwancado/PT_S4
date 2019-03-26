@@ -22,6 +22,7 @@ namespace Projet
             _db = new DB_ENTITIES();
             InitializeComponent();
             this.client = client;
+            allAnimalsClient.FullRowSelect = true;
             InitializeIntels();
         }
 
@@ -53,7 +54,9 @@ namespace Projet
             this.allRDVList.Items.Clear();
             var appointments = _db.RendezVous;
             foreach (RendezVous appointment in appointments) {
-                allRDVList.Items.Add(appointment.Date.ToString());
+                if (appointment.Clients_idClients == client.idClients) {
+                    allRDVList.Items.Add(appointment.Date.ToString());
+                }
             }
         }
 
@@ -106,7 +109,8 @@ namespace Projet
 
         private void addAnimalButton_Click(object sender, EventArgs e)
         {
-
+            InscriptionAnimalInterface toShow = new InscriptionAnimalInterface(null,_db,null);
+            toShow.Show();
         }
 
         private void addRDVButton_Click(object sender, EventArgs e)
@@ -116,11 +120,34 @@ namespace Projet
 
         private void allAnimalsClient_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show("genugnue");
             int id = int.Parse(this.allAnimalsClient.SelectedItems[0].Text);
             Animaux toShow = _db.Animaux.Find(id);
             FicheAnimalInterface sheet = new FicheAnimalInterface(toShow);
             sheet.Show();
+        }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String id = this.allRDVList.SelectedItems[0].ToString();
+            MessageBox.Show("Vous modifier un RDV" + id);
+        }
+
+        private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String id = this.allRDVList.SelectedItems[0].ToString();
+            MessageBox.Show("Vous supprimer un RDV" + id);
+        }
+
+        private void modifierToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.allAnimalsClient.SelectedItems[0].Text);
+            MessageBox.Show("Vous modifier un animal" + id);
+        }
+
+        private void supprimerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(this.allAnimalsClient.SelectedItems[0].Text);
+            MessageBox.Show("Vous supprimer un animal" + id);
         }
     }
 }

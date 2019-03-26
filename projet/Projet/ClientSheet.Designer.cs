@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.sexeLabel = new System.Windows.Forms.Label();
             this.adressLabel = new System.Windows.Forms.Label();
@@ -55,7 +56,15 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.RDVcontextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.animalContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modifierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.RDVcontextMenuStrip.SuspendLayout();
+            this.animalContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -207,19 +216,19 @@
             // 
             this.modifyButton.Location = new System.Drawing.Point(12, 462);
             this.modifyButton.Name = "modifyButton";
-            this.modifyButton.Size = new System.Drawing.Size(75, 23);
+            this.modifyButton.Size = new System.Drawing.Size(112, 23);
             this.modifyButton.TabIndex = 4;
-            this.modifyButton.Text = "Modifier";
+            this.modifyButton.Text = "Modifier le client";
             this.modifyButton.UseVisualStyleBackColor = true;
             this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
             // 
             // removeButton
             // 
-            this.removeButton.Location = new System.Drawing.Point(169, 462);
+            this.removeButton.Location = new System.Drawing.Point(140, 462);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(75, 23);
+            this.removeButton.Size = new System.Drawing.Size(110, 23);
             this.removeButton.TabIndex = 5;
-            this.removeButton.Text = "Supprimer";
+            this.removeButton.Text = "Supprimer le client";
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
@@ -245,6 +254,7 @@
             // 
             // allRDVList
             // 
+            this.allRDVList.ContextMenuStrip = this.RDVcontextMenuStrip;
             this.allRDVList.FormattingEnabled = true;
             this.allRDVList.Location = new System.Drawing.Point(13, 290);
             this.allRDVList.Name = "allRDVList";
@@ -258,6 +268,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.allAnimalsClient.ContextMenuStrip = this.animalContextMenuStrip;
             this.allAnimalsClient.Location = new System.Drawing.Point(319, 223);
             this.allAnimalsClient.Name = "allAnimalsClient";
             this.allAnimalsClient.Size = new System.Drawing.Size(594, 201);
@@ -282,6 +293,50 @@
             // 
             this.columnHeader4.Text = "Race";
             // 
+            // RDVcontextMenuStrip
+            // 
+            this.RDVcontextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifierToolStripMenuItem,
+            this.supprimerToolStripMenuItem});
+            this.RDVcontextMenuStrip.Name = "RDVcontextMenuStrip";
+            this.RDVcontextMenuStrip.Size = new System.Drawing.Size(130, 48);
+            // 
+            // modifierToolStripMenuItem
+            // 
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
+            // 
+            // supprimerToolStripMenuItem
+            // 
+            this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supprimerToolStripMenuItem.Text = "Supprimer";
+            this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
+            // 
+            // animalContextMenuStrip
+            // 
+            this.animalContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifierToolStripMenuItem1,
+            this.supprimerToolStripMenuItem1});
+            this.animalContextMenuStrip.Name = "animalContextMenuStrip";
+            this.animalContextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            // 
+            // modifierToolStripMenuItem1
+            // 
+            this.modifierToolStripMenuItem1.Name = "modifierToolStripMenuItem1";
+            this.modifierToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItem1.Text = "Modifier";
+            this.modifierToolStripMenuItem1.Click += new System.EventHandler(this.modifierToolStripMenuItem1_Click);
+            // 
+            // supprimerToolStripMenuItem1
+            // 
+            this.supprimerToolStripMenuItem1.Name = "supprimerToolStripMenuItem1";
+            this.supprimerToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.supprimerToolStripMenuItem1.Text = "Supprimer";
+            this.supprimerToolStripMenuItem1.Click += new System.EventHandler(this.supprimerToolStripMenuItem1_Click);
+            // 
             // ClientSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +353,8 @@
             this.Name = "ClientSheet";
             this.Text = "ClientSheet";
             this.groupBox1.ResumeLayout(false);
+            this.RDVcontextMenuStrip.ResumeLayout(false);
+            this.animalContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,5 +389,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ContextMenuStrip RDVcontextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip animalContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem1;
     }
 }
