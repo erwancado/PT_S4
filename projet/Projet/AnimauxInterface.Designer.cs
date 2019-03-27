@@ -43,6 +43,8 @@
             this.date = new System.Windows.Forms.Label();
             this.allAnimauxList = new System.Windows.Forms.ListView();
             this.add = new System.Windows.Forms.Button();
+            this.sexe = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -54,14 +56,14 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(237, 195);
+            this.textBox2.Location = new System.Drawing.Point(237, 182);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(149, 20);
             this.textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(237, 151);
+            this.textBox3.Location = new System.Drawing.Point(237, 142);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(149, 20);
             this.textBox3.TabIndex = 2;
@@ -122,7 +124,7 @@
             // nomAnimal
             // 
             this.nomAnimal.AutoSize = true;
-            this.nomAnimal.Location = new System.Drawing.Point(136, 107);
+            this.nomAnimal.Location = new System.Drawing.Point(136, 103);
             this.nomAnimal.Name = "nomAnimal";
             this.nomAnimal.Size = new System.Drawing.Size(58, 13);
             this.nomAnimal.TabIndex = 15;
@@ -131,7 +133,7 @@
             // espece
             // 
             this.espece.AutoSize = true;
-            this.espece.Location = new System.Drawing.Point(136, 158);
+            this.espece.Location = new System.Drawing.Point(143, 142);
             this.espece.Name = "espece";
             this.espece.Size = new System.Drawing.Size(42, 13);
             this.espece.TabIndex = 16;
@@ -140,7 +142,7 @@
             // race
             // 
             this.race.AutoSize = true;
-            this.race.Location = new System.Drawing.Point(136, 202);
+            this.race.Location = new System.Drawing.Point(150, 182);
             this.race.Name = "race";
             this.race.Size = new System.Drawing.Size(28, 13);
             this.race.TabIndex = 17;
@@ -174,11 +176,29 @@
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
             // 
+            // sexe
+            // 
+            this.sexe.AutoSize = true;
+            this.sexe.Location = new System.Drawing.Point(150, 218);
+            this.sexe.Name = "sexe";
+            this.sexe.Size = new System.Drawing.Size(29, 13);
+            this.sexe.TabIndex = 21;
+            this.sexe.Text = "sexe";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(237, 215);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(149, 20);
+            this.textBox5.TabIndex = 22;
+            // 
             // AnimauxInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.sexe);
             this.Controls.Add(this.add);
             this.Controls.Add(this.allAnimauxList);
             this.Controls.Add(this.date);
@@ -218,5 +238,7 @@
         private System.Windows.Forms.Label date;
         private System.Windows.Forms.ListView allAnimauxList;
         private System.Windows.Forms.Button add;
+        private System.Windows.Forms.Label sexe;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

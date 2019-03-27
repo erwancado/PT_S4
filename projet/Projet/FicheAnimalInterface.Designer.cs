@@ -46,19 +46,19 @@
             this.dateNais = new System.Windows.Forms.Label();
             this.poids = new System.Windows.Forms.Label();
             this.listeMaladies = new System.Windows.Forms.Label();
-            this.dateMaladies = new System.Windows.Forms.Label();
-            this.code = new System.Windows.Forms.Label();
             this.description = new System.Windows.Forms.Label();
-            this.listMaladie = new System.Windows.Forms.ListBox();
-            this.datesMaladies = new System.Windows.Forms.ListBox();
-            this.listCodes = new System.Windows.Forms.ListBox();
-            this.listDescriptions = new System.Windows.Forms.ListBox();
             this.nom = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.listMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.Desc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // ajouterRappel
             // 
-            this.ajouterRappel.Location = new System.Drawing.Point(87, 476);
+            this.ajouterRappel.Location = new System.Drawing.Point(32, 473);
             this.ajouterRappel.Name = "ajouterRappel";
             this.ajouterRappel.Size = new System.Drawing.Size(92, 23);
             this.ajouterRappel.TabIndex = 0;
@@ -123,7 +123,7 @@
             // 
             // insert
             // 
-            this.insert.Location = new System.Drawing.Point(369, 386);
+            this.insert.Location = new System.Drawing.Point(397, 304);
             this.insert.Name = "insert";
             this.insert.Size = new System.Drawing.Size(75, 23);
             this.insert.TabIndex = 11;
@@ -132,7 +132,7 @@
             // 
             // delete
             // 
-            this.delete.Location = new System.Drawing.Point(531, 386);
+            this.delete.Location = new System.Drawing.Point(559, 304);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(75, 23);
             this.delete.TabIndex = 13;
@@ -141,7 +141,7 @@
             // 
             // edit
             // 
-            this.edit.Location = new System.Drawing.Point(450, 386);
+            this.edit.Location = new System.Drawing.Point(478, 304);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(75, 23);
             this.edit.TabIndex = 14;
@@ -156,6 +156,7 @@
             this.retourPageAnimal.TabIndex = 18;
             this.retourPageAnimal.Text = "retourPageAnimal";
             this.retourPageAnimal.UseVisualStyleBackColor = true;
+            this.retourPageAnimal.Click += new System.EventHandler(this.retourPageAnimal_Click);
             // 
             // nomProprietaire
             // 
@@ -221,24 +222,6 @@
             this.listeMaladies.TabIndex = 25;
             this.listeMaladies.Text = "listeMaladies";
             // 
-            // dateMaladies
-            // 
-            this.dateMaladies.AutoSize = true;
-            this.dateMaladies.Location = new System.Drawing.Point(130, 316);
-            this.dateMaladies.Name = "dateMaladies";
-            this.dateMaladies.Size = new System.Drawing.Size(70, 13);
-            this.dateMaladies.TabIndex = 26;
-            this.dateMaladies.Text = "dateMaladies";
-            // 
-            // code
-            // 
-            this.code.AutoSize = true;
-            this.code.Location = new System.Drawing.Point(358, 75);
-            this.code.Name = "code";
-            this.code.Size = new System.Drawing.Size(31, 13);
-            this.code.TabIndex = 27;
-            this.code.Text = "code";
-            // 
             // description
             // 
             this.description.AutoSize = true;
@@ -247,38 +230,6 @@
             this.description.Size = new System.Drawing.Size(58, 13);
             this.description.TabIndex = 28;
             this.description.Text = "description";
-            // 
-            // listMaladie
-            // 
-            this.listMaladie.FormattingEnabled = true;
-            this.listMaladie.Location = new System.Drawing.Point(6, 341);
-            this.listMaladie.Name = "listMaladie";
-            this.listMaladie.Size = new System.Drawing.Size(120, 43);
-            this.listMaladie.TabIndex = 35;
-            // 
-            // datesMaladies
-            // 
-            this.datesMaladies.FormattingEnabled = true;
-            this.datesMaladies.Location = new System.Drawing.Point(133, 341);
-            this.datesMaladies.Name = "datesMaladies";
-            this.datesMaladies.Size = new System.Drawing.Size(120, 43);
-            this.datesMaladies.TabIndex = 36;
-            // 
-            // listCodes
-            // 
-            this.listCodes.FormattingEnabled = true;
-            this.listCodes.Location = new System.Drawing.Point(324, 93);
-            this.listCodes.Name = "listCodes";
-            this.listCodes.Size = new System.Drawing.Size(120, 225);
-            this.listCodes.TabIndex = 37;
-            // 
-            // listDescriptions
-            // 
-            this.listDescriptions.FormattingEnabled = true;
-            this.listDescriptions.Location = new System.Drawing.Point(511, 93);
-            this.listDescriptions.Name = "listDescriptions";
-            this.listDescriptions.Size = new System.Drawing.Size(120, 225);
-            this.listDescriptions.TabIndex = 38;
             // 
             // nom
             // 
@@ -289,19 +240,57 @@
             this.nom.TabIndex = 39;
             this.nom.Text = "nom";
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listMaladies,
+            this.dateMaladies});
+            this.listView1.Location = new System.Drawing.Point(22, 354);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(121, 97);
+            this.listView1.TabIndex = 40;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // listMaladies
+            // 
+            this.listMaladies.Text = "listMaladies";
+            // 
+            // dateMaladies
+            // 
+            this.dateMaladies.Text = "dateMaladies";
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Desc,
+            this.columnHeader4});
+            this.listView2.Location = new System.Drawing.Point(397, 121);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(234, 131);
+            this.listView2.TabIndex = 41;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // Desc
+            // 
+            this.Desc.DisplayIndex = 1;
+            this.Desc.Text = "Description";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.DisplayIndex = 0;
+            this.columnHeader4.Text = "code";
+            // 
             // FicheAnimalInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 613);
+            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.nom);
-            this.Controls.Add(this.listDescriptions);
-            this.Controls.Add(this.listCodes);
-            this.Controls.Add(this.datesMaladies);
-            this.Controls.Add(this.listMaladie);
             this.Controls.Add(this.description);
-            this.Controls.Add(this.code);
-            this.Controls.Add(this.dateMaladies);
             this.Controls.Add(this.listeMaladies);
             this.Controls.Add(this.poids);
             this.Controls.Add(this.dateNais);
@@ -347,13 +336,13 @@
         private System.Windows.Forms.Label dateNais;
         private System.Windows.Forms.Label poids;
         private System.Windows.Forms.Label listeMaladies;
-        private System.Windows.Forms.Label dateMaladies;
-        private System.Windows.Forms.Label code;
         private System.Windows.Forms.Label description;
-        private System.Windows.Forms.ListBox listMaladie;
-        private System.Windows.Forms.ListBox datesMaladies;
-        private System.Windows.Forms.ListBox listCodes;
-        private System.Windows.Forms.ListBox listDescriptions;
         private System.Windows.Forms.Label nom;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader listMaladies;
+        private System.Windows.Forms.ColumnHeader dateMaladies;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader Desc;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

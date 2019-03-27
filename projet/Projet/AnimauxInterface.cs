@@ -18,6 +18,7 @@ namespace Projet
         List<String> animaux;
         DB_ENTITIES _db;
         String searchName;
+        String searchNameProprietaire;
         String selectedLine;
 
         public AnimauxInterface()
@@ -26,6 +27,7 @@ namespace Projet
             InitializeComponent();
             dateTimePicker1.MaxDate = DateTime.Now;
             searchName = "";
+            searchNameProprietaire = "";
             selectedLine = "";
             this.allAnimauxList.View = View.List;
             animaux = new List<string>();
@@ -36,17 +38,24 @@ namespace Projet
         {
             this.allAnimauxList.Items.Clear();
             this.animaux.Clear();
+           
             if (request.Equals(""))
             {
                 var animaux = _db.Animaux;
                 foreach (Animaux animal in animaux)
                 {
+                    String race = "";
+                    foreach (Race raceSelected in animal.Race)
+                    {
+                        race += raceSelected.Nom + "/";
+                    }
+                   // DateTime dateNais = (DateTime)animal.DateNaissance; 
                     String description = //animal. nomPropriétaire +
                                          " "
                                         + animal.Nom + " " +
-                                        animal.DateNaissance.ToString() + " " +
+                                        animal.DateNaissance.ToString() + " " + race + " " +animal.Poids + " " + animal.Caractéristiques +" "+ animal.Sexe;
                                        // animal.espece + " " +
-                                       animal.Race + " ";
+                                     //  animal.Race + " ";
 
                     if (!this.animaux.Contains(description))
                     {
@@ -64,11 +73,15 @@ namespace Projet
                     {
                         if ((animal.Nom.Equals(searchName)) || (animal.DateNaissance.Equals(searchName)) || (animal.Race.Equals(searchName)) || animal.DateNaissance.Equals(searchName))
                         {
+                            String race = "";
+                            foreach (Race raceSelected in animal.Race)
+                            {
+                                race += raceSelected.Nom + "/";
+                            }
                             String description = animal.Nom + " "
-
-                                          + animal.DateNaissance.ToString() + " " +
+                                          + (DateTime)animal.DateNaissance + " " + animal.Poids + " " +race + " " +animal.Caractéristiques +" "+ animal.Sexe;
                                            // animal.Race+" "+
-                                            animal.Caractéristiques;
+                                          //  animal.Caractéristiques;
                             // + " " + animal.Espece;
                             if (!this.animaux.Contains(description))
                             {
@@ -83,18 +96,16 @@ namespace Projet
 
 
 
-
-      
-
         private void delete_Click(object sender, EventArgs e)
         {
             if (allAnimauxList.SelectedItems.Count > 0)
             {
                 selectedLine = allAnimauxList.SelectedItems[0].Text;
                 int id = int.Parse(selectedLine.Split('.')[0]);
-                Animaux selectedAnimal = getAnimaux(id);
-                _db.Animaux.Remove(selectedAnimal);
-                _db.SaveChanges();
+                /* Animaux selectedAnimal = getAnimaux(id);
+                 _db.Animaux.Remove(selectedAnimal);
+                 _db.SaveChanges();*/
+                Utils.removeAnimal(id, _db);
                 InitializeAnimauxInterface("");
             }
         }
@@ -103,7 +114,7 @@ namespace Projet
         {
             InscriptionAnimalInterface newAnimal = new InscriptionAnimalInterface(null, _db, this);
             newAnimal.Show();
-            this.Hide();
+
         }
 
         private void edit_Click(object sender, EventArgs e)
@@ -138,7 +149,7 @@ namespace Projet
             Animaux toShow = _db.Animaux.Find(id);
             FicheAnimalInterface fai = new FicheAnimalInterface(toShow);
             fai.Show();
-            this.Hide();
+ 
         }
 
         private void filtrer_Click(object sender, EventArgs e)

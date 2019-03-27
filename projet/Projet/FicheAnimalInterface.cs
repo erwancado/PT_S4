@@ -58,7 +58,12 @@ namespace Projet
 
         private void supprimerAnimal_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void retourPageAnimal_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
