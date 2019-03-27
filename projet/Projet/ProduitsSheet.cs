@@ -18,7 +18,7 @@ namespace Projet
         {
             InitializeComponent();
             this.p = p;
-            this._db = _db;
+            this._db = new DB_ENTITIES();
             intialiseText();
         }
 

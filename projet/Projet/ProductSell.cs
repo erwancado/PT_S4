@@ -19,17 +19,21 @@ namespace Projet
         int stock;
         DB_ENTITIES _db;
         Stock s;
+        int prix;
+        int quantité;
         public ProductSell(Produits produit, Stock stock)
         {
             InitializeComponent();
             this.produit = produit;
             this.label1.Text = "0";
+            this.quantité = int.Parse(this.label1.Text);
             _db = new DB_ENTITIES();
             findStock();
             fillList();
             this.pro.Text = produit.Nom;
             this.client.Text = "";
             this.s = stock;
+            this.textBox1.Enabled = false;
         }
 
         private void findStock()
@@ -43,7 +47,7 @@ namespace Projet
             var clients = _db.Clients;
             foreach (Clients c in clients)
             {
-                this.listBox1.Items.Add(c.Nom + " " + c.Prenom);
+                this.listBox1.Items.Add(c.idClients + ". " + c.Nom + " " + c.Prenom);
             }
         }
 
@@ -52,6 +56,7 @@ namespace Projet
             if (Convert.ToInt32(this.label1.Text) < stock)
             {
                 this.label1.Text = Convert.ToString(Convert.ToInt32(this.label1.Text) + 1);
+                this.quantité++;
             }
         }
 
@@ -60,6 +65,7 @@ namespace Projet
             if (Convert.ToInt32(this.label1.Text) > 0)
             {
                 this.label1.Text = Convert.ToString(Convert.ToInt32(this.label1.Text) - 1);
+                this.quantité--;
             }
         }
 
@@ -71,6 +77,11 @@ namespace Projet
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
             this.client.Text = this.listBox1.SelectedItem.ToString();
+            int nbRDV = _db.RendezVous.AsEnumerable().Where(rdv => rdv.Clients_idClients == int.Parse(this.listBox1.SelectedItem.ToString().Split('.')[0])).Count();
+            if (nbRDV >= 10)
+            {
+                this.textBox1.Enabled = true;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -96,7 +107,7 @@ namespace Projet
 
         private void generateFacture()
         {
-            int prix = Convert.ToInt32(this.label1.Text) * produit.PrixVente;
+            int price = (Convert.ToInt32(this.label1.Text) * produit.PrixVente) - this.prix;
             DateTime today = DateTime.Today;
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF file|*.pdf", ValidateNames = true })
             {
@@ -109,8 +120,8 @@ namespace Projet
                         doc.Open();
                         doc.Add(new Paragraph("Facture du " + today.ToString("dd/MM/yyyy")));
                         doc.Add(new Paragraph("Concernant le client : " + this.listBox1.SelectedItem.ToString() + "."));
-                        doc.Add(new Paragraph("Concernant le produit : " + produit.Nom + " vendu au prix de " + produit.PrixVente + "."));
-                        doc.Add(new Paragraph(" Prix : " + prix));
+                        doc.Add(new Paragraph("Concernant le produit : " + produit.Nom + " vendu au prix de " + produit.PrixVente + ", en quantité " + this.quantité));
+                        doc.Add(new Paragraph(" Prix : " + price));
                     }
                     catch (Exception ex)
                     {
@@ -122,6 +133,23 @@ namespace Projet
                         doc.Close();
                     }
                 }
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
+            {
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
+            if (!textBox1.Text.Equals(""))
+            {
+                this.prix = int.Parse(textBox1.Text);
+                Console.WriteLine(this.prix);
             }
         }
     }
