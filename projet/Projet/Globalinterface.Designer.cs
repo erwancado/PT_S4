@@ -43,6 +43,10 @@
             this.controlViewsPanel = new System.Windows.Forms.Panel();
             this.logsListView = new System.Windows.Forms.ListView();
             this.rappelListView = new System.Windows.Forms.ListView();
+            this.todaysAppointmentListView = new System.Windows.Forms.ListView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.controlViewsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -225,28 +229,68 @@
             // controlViewsPanel
             // 
             this.controlViewsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.controlViewsPanel.Controls.Add(this.label3);
+            this.controlViewsPanel.Controls.Add(this.label2);
+            this.controlViewsPanel.Controls.Add(this.label1);
+            this.controlViewsPanel.Controls.Add(this.todaysAppointmentListView);
             this.controlViewsPanel.Controls.Add(this.logsListView);
             this.controlViewsPanel.Controls.Add(this.rappelListView);
-            this.controlViewsPanel.Location = new System.Drawing.Point(964, 750);
+            this.controlViewsPanel.Location = new System.Drawing.Point(110, 750);
             this.controlViewsPanel.Name = "controlViewsPanel";
-            this.controlViewsPanel.Size = new System.Drawing.Size(830, 289);
+            this.controlViewsPanel.Size = new System.Drawing.Size(1684, 289);
             this.controlViewsPanel.TabIndex = 19;
             // 
             // logsListView
             // 
-            this.logsListView.Location = new System.Drawing.Point(617, 3);
+            this.logsListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.logsListView.Location = new System.Drawing.Point(1405, 36);
             this.logsListView.Name = "logsListView";
-            this.logsListView.Size = new System.Drawing.Size(210, 210);
+            this.logsListView.Size = new System.Drawing.Size(221, 210);
             this.logsListView.TabIndex = 19;
             this.logsListView.UseCompatibleStateImageBehavior = false;
             // 
             // rappelListView
             // 
-            this.rappelListView.Location = new System.Drawing.Point(3, 3);
+            this.rappelListView.Location = new System.Drawing.Point(611, 36);
             this.rappelListView.Name = "rappelListView";
-            this.rappelListView.Size = new System.Drawing.Size(461, 210);
+            this.rappelListView.Size = new System.Drawing.Size(462, 210);
             this.rappelListView.TabIndex = 18;
             this.rappelListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // todaysAppointmentListView
+            // 
+            this.todaysAppointmentListView.Location = new System.Drawing.Point(39, 36);
+            this.todaysAppointmentListView.Name = "todaysAppointmentListView";
+            this.todaysAppointmentListView.Size = new System.Drawing.Size(248, 210);
+            this.todaysAppointmentListView.TabIndex = 20;
+            this.todaysAppointmentListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(94, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Rendez-vous de la journée";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(797, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Rappels à venir";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1482, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Connexions";
             // 
             // Globalinterface
             // 
@@ -265,6 +309,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.controlViewsPanel.ResumeLayout(false);
+            this.controlViewsPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -284,5 +329,9 @@
         private System.Windows.Forms.Panel controlViewsPanel;
         private System.Windows.Forms.ListView logsListView;
         private System.Windows.Forms.ListView rappelListView;
+        private System.Windows.Forms.ListView todaysAppointmentListView;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

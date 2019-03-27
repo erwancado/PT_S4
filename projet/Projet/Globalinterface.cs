@@ -24,8 +24,10 @@ namespace Projet
             startTime();
             this.logsListView.View = View.List;
             this.rappelListView.View = View.List;
+            this.todaysAppointmentListView.View = View.List;
             fillLog();
             fillRecall();
+            fillTodaysApp();
         }
 
         public void fillLog()
@@ -33,6 +35,18 @@ namespace Projet
             foreach (Logs l in _db.Logs)
             {
                 this.logsListView.Items.Add(l.Action + " " + l.Date.ToShortDateString() + " "+ l.Date.ToShortTimeString());
+            }
+        }
+
+        public void fillTodaysApp()
+        {
+            foreach(RendezVous rdv in _db.RendezVous)
+            {
+                if (rdv.Date == DateTime.Today)
+                {
+                    if (rdv.Description != null)
+                        this.todaysAppointmentListView.Items.Add(rdv.Description + ", animal de " + _db.Clients.Find(rdv.Clients_idClients).Nom);
+                }
             }
         }
 
