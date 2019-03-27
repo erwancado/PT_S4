@@ -121,27 +121,33 @@
             // columnHeaderNom
             // 
             this.columnHeaderNom.Text = "Nom";
+            this.columnHeaderNom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeaderPrenom
             // 
             this.columnHeaderPrenom.Text = "Prénom";
+            this.columnHeaderPrenom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeaderDateNaissance
             // 
             this.columnHeaderDateNaissance.Text = "Date de naissance";
+            this.columnHeaderDateNaissance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeaderDateNaissance.Width = 103;
             // 
             // columnHeaderTel
             // 
             this.columnHeaderTel.Text = "Téléphone";
+            this.columnHeaderTel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeaderEmail
             // 
             this.columnHeaderEmail.Text = "Email";
+            this.columnHeaderEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // columnHeaderRDV
             // 
             this.columnHeaderRDV.Text = "Prochain rendez-vous";
+            this.columnHeaderRDV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeaderRDV.Width = 67;
             // 
             // ClientList

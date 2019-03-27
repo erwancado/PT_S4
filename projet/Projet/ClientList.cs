@@ -36,7 +36,8 @@ namespace Projet
                     ListViewItem item = new ListViewItem(client.idClients.ToString());
                     item.SubItems.Add(client.Nom);
                     item.SubItems.Add(client.Prenom);
-                    item.SubItems.Add(client.DateNaissance.ToString());
+                    DateTime naissance = (DateTime)client.DateNaissance;
+                    item.SubItems.Add(naissance.ToShortDateString());
                     item.SubItems.Add(client.Téléphone.ToString());
                     item.SubItems.Add(client.Email);
                     item.SubItems.Add(client.ProchaineVisite.ToString());
@@ -50,7 +51,7 @@ namespace Projet
                     var clients = _db.Clients;
                     foreach (Clients client in clients)
                     {
-                        if (client.Nom.Equals(searchName))
+                        if (client.Nom.StartsWith(searchName))
                         {
                             ListViewItem item = new ListViewItem(client.idClients.ToString());
                             item.SubItems.Add(client.Nom);
@@ -72,8 +73,13 @@ namespace Projet
         {
             if (!nameInput.Text.Equals("")) {
                 searchName = nameInput.Text;
+                InitializeClientList("typed");
             }
-            InitializeClientList("typed");
+            else
+            {
+                InitializeClientList("");
+            }
+            
         }
 
         private void newClientButton_Click(object sender, EventArgs e)

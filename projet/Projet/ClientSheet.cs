@@ -104,7 +104,7 @@ namespace Projet
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-              
+            MessageBox.Show("Vous voulez supprimer un client");
         }
 
         private void addAnimalButton_Click(object sender, EventArgs e)
@@ -115,7 +115,7 @@ namespace Projet
 
         private void addRDVButton_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Vous voulez ajouter un rendez-vous");
         }
 
         private void allAnimalsClient_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -142,6 +142,7 @@ namespace Projet
         {
             int id = int.Parse(this.allAnimalsClient.SelectedItems[0].Text);
             MessageBox.Show("Vous modifier un animal" + id);
+            Animaux myAnimal = _db.Animaux.Find(id);
         }
 
         private void supprimerToolStripMenuItem1_Click(object sender, EventArgs e)
