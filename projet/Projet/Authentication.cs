@@ -54,5 +54,11 @@ namespace Projet
 
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MdpOublié mdp = new MdpOublié();
+            mdp.Show();
+        }
     }
 }

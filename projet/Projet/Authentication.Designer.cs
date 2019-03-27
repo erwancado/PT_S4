@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.LogingIn = new System.Windows.Forms.Button();
             this.DateLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // login
@@ -90,11 +91,22 @@
             this.DateLabel.TabIndex = 5;
             this.DateLabel.Text = "Date";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(212, 185);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Oublié ?";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Authentication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.DateLabel);
             this.Controls.Add(this.LogingIn);
             this.Controls.Add(this.label2);
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button LogingIn;
         private System.Windows.Forms.Label DateLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
