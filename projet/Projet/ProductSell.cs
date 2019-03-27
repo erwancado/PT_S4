@@ -82,6 +82,9 @@ namespace Projet
             {
                 MessageBox.Show("Ce client est éligible à une remise");
                 this.textBox1.Enabled = true;
+            } else
+            {
+                this.textBox1.Enabled = false;
             }
         }
 
