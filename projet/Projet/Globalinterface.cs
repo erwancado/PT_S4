@@ -89,7 +89,8 @@ namespace Projet
 
         private void calendarButton_Click(object sender, EventArgs e)
         {
-
+            Planning p = new Planning();
+            p.Show();
         }
 
         private void customerButton_Click(object sender, EventArgs e)
