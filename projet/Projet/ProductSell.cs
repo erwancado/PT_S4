@@ -108,6 +108,10 @@ namespace Projet
         private void generateFacture()
         {
             int price = (Convert.ToInt32(this.label1.Text) * produit.PrixVente) - this.prix;
+            if (price < 0)
+            {
+                price = 0;
+            }
             DateTime today = DateTime.Today;
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF file|*.pdf", ValidateNames = true })
             {
