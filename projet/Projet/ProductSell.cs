@@ -80,6 +80,7 @@ namespace Projet
             int nbRDV = _db.RendezVous.AsEnumerable().Where(rdv => rdv.Clients_idClients == int.Parse(this.listBox1.SelectedItem.ToString().Split('.')[0])).Count();
             if (nbRDV >= 10)
             {
+                MessageBox.Show("Ce client est éligible à une remise");
                 this.textBox1.Enabled = true;
             }
         }
