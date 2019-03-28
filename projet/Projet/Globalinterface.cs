@@ -42,7 +42,7 @@ namespace Projet
         {
             foreach(RendezVous rdv in _db.RendezVous)
             {
-                if (rdv.Date == DateTime.Today)
+                if (rdv.Date.ToShortDateString().Equals(DateTime.Today.ToShortDateString()))
                 {
                     if (rdv.Description != null)
                         this.todaysAppointmentListView.Items.Add(rdv.Description + ", animal de " + _db.Clients.Find(rdv.Clients_idClients).Nom);

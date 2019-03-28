@@ -23,5 +23,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.DataGridView planningGridView;
+        private System.Windows.Forms.Button addRdvButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem suprimerToolStripMenuItem;
     }
 }
