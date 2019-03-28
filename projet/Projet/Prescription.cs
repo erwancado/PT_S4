@@ -1,8 +1,11 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +32,9 @@ namespace Projet
         {
             idClientSelected = idClient;
             idAnimalSelected = idAnimal;
+            if (idAnimal != 0 && idClient != 0) {
+                secondPagePanel.Visible = true;
+            }
             _db = new DB_ENTITIES();
             InitializeComponent();
             InitializeClientList("");
@@ -126,7 +132,36 @@ namespace Projet
 
         private void pdfExportButton_Click(object sender, EventArgs e)
         {
+            
+            DateTime today = DateTime.Today;
+            Clients client = _db.Clients.Find(idClientSelected);
+            Animaux animal = _db.Animaux.Find(idAnimalSelected);
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF file|*.pdf", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    Document doc = new Document(PageSize.A4.Rotate());
+                    try
+                    {
+                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                        doc.Open();
+                        doc.Add(new Paragraph("Ordonnance du " + today.ToString("dd/MM/yyyy")));
+                        doc.Add(new Paragraph("Concernant l'animal " + animal.Nom + " appartenant à " + client.Nom + "."));
+                        doc.Add(new Paragraph(prescription));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                    }
+                    finally
+                    {
+                        doc.Close();
+                    }
+                }
+            }
+            MessageBox.Show("Ordonnance a bien été généré");
+            this.Hide();
         }
 
         private void listClient_SelectedIndexChanged(object sender, EventArgs e)
