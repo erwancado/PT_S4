@@ -23,8 +23,9 @@ namespace Projet
            // allAnimalsClient.FullRowSelect = true;
             InitializeIntels();
             listOfDiseases.FullRowSelect = true;
-            listOfSoins.FullRowSelect = true;
+            listReminders.FullRowSelect = true;
             completeMaladieList();
+            completeRemindersList();
         }
 
         private void InitializeIntels()
@@ -143,19 +144,19 @@ namespace Projet
             listOfDiseases.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        private void completeSoinList()
+        private void completeRemindersList()
         {
-            this.listOfSoins.Items.Clear();
+            this.listReminders.Items.Clear();
+            var rappels = _db.Rappel.Where(r => r.Animaux_idAnimaux == animal.idAnimaux);
             
-            foreach (Soins soin in animal.Soins)
+            foreach (Rappel rappel in rappels)
             {
-                ListViewItem item = new ListViewItem(soin.idSoins.ToString());
-                item.SubItems.Add(soin.Description);
-                listOfDiseases.Items.Add(item);
+                ListViewItem item = new ListViewItem(rappel.Description);
+                item.SubItems.Add(rappel.Date.ToShortDateString());
+                listReminders.Items.Add(item);
             }
-            listOfSoins.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-
-            listOfSoins.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listReminders.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listReminders.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
     }

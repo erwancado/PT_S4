@@ -46,18 +46,18 @@
             this.listOfDiseases = new System.Windows.Forms.ListView();
             this.empty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nomMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuMaladie = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ajouterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.listOfSoins = new System.Windows.Forms.ListView();
+            this.listReminders = new System.Windows.Forms.ListView();
             this.Desc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuSoins = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuMaladie.SuspendLayout();
             this.contextMenuSoins.SuspendLayout();
             this.SuspendLayout();
@@ -178,9 +178,9 @@
             this.description.AutoSize = true;
             this.description.Location = new System.Drawing.Point(406, 93);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(82, 13);
+            this.description.Size = new System.Drawing.Size(92, 13);
             this.description.TabIndex = 28;
-            this.description.Text = "Liste des soins :";
+            this.description.Text = "Liste des rappels :";
             // 
             // nom
             // 
@@ -215,6 +215,10 @@
             this.nomMaladies.Text = "Nom";
             this.nomMaladies.Width = 62;
             // 
+            // dateMaladies
+            // 
+            this.dateMaladies.Text = "Date";
+            // 
             // contextMenuMaladie
             // 
             this.contextMenuMaladie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -245,28 +249,30 @@
             this.supprimerToolStripMenuItem1.Text = "Supprimer";
             this.supprimerToolStripMenuItem1.Click += new System.EventHandler(this.supprimerToolStripMenuItem1_Click);
             // 
-            // listOfSoins
+            // listReminders
             // 
-            this.listOfSoins.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Desc,
             this.columnHeader4});
-            this.listOfSoins.ContextMenuStrip = this.contextMenuSoins;
-            this.listOfSoins.Location = new System.Drawing.Point(409, 131);
-            this.listOfSoins.Name = "listOfSoins";
-            this.listOfSoins.Size = new System.Drawing.Size(502, 256);
-            this.listOfSoins.TabIndex = 41;
-            this.listOfSoins.UseCompatibleStateImageBehavior = false;
-            this.listOfSoins.View = System.Windows.Forms.View.Details;
+            this.listReminders.ContextMenuStrip = this.contextMenuSoins;
+            this.listReminders.Location = new System.Drawing.Point(409, 131);
+            this.listReminders.Name = "listReminders";
+            this.listReminders.Size = new System.Drawing.Size(502, 256);
+            this.listReminders.TabIndex = 41;
+            this.listReminders.UseCompatibleStateImageBehavior = false;
+            this.listReminders.View = System.Windows.Forms.View.Details;
             // 
             // Desc
             // 
             this.Desc.DisplayIndex = 1;
             this.Desc.Text = "Description";
+            this.Desc.Width = 300;
             // 
             // columnHeader4
             // 
             this.columnHeader4.DisplayIndex = 0;
-            this.columnHeader4.Text = "code";
+            this.columnHeader4.Text = "Date";
+            this.columnHeader4.Width = 150;
             // 
             // contextMenuSoins
             // 
@@ -298,16 +304,12 @@
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
-            // dateMaladies
-            // 
-            this.dateMaladies.Text = "Date";
-            // 
             // FicheAnimalInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 613);
-            this.Controls.Add(this.listOfSoins);
+            this.Controls.Add(this.listReminders);
             this.Controls.Add(this.listOfDiseases);
             this.Controls.Add(this.nom);
             this.Controls.Add(this.description);
@@ -351,7 +353,7 @@
         private System.Windows.Forms.ListView listOfDiseases;
         private System.Windows.Forms.ColumnHeader empty;
         private System.Windows.Forms.ColumnHeader nomMaladies;
-        private System.Windows.Forms.ListView listOfSoins;
+        private System.Windows.Forms.ListView listReminders;
         private System.Windows.Forms.ColumnHeader Desc;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ContextMenuStrip contextMenuSoins;

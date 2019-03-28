@@ -32,7 +32,8 @@ namespace Projet
                 Rappel rappel = new Rappel();
                 rappel.Description = description.Text;
                 rappel.Date = datePicker.Value;
-                rappel.Animaux = animal;
+                rappel.Animaux_idAnimaux=animal.idAnimaux;
+                animal.Rappel.Add(rappel);
                 _db.Rappel.Add(rappel);
                 _db.SaveChanges();
                 string message = "Le rappel a été ajouté avec succès. Voulez-vous ajouté un nouveau rappel ?";

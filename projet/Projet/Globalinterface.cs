@@ -30,6 +30,8 @@ namespace Projet
             fillTodaysApp();
         }
 
+        
+
         public void fillLog()
         {
             foreach (Logs l in _db.Logs)
@@ -98,7 +100,12 @@ namespace Projet
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            logsListView.Clear();
+            rappelListView.Clear();
+            todaysAppointmentListView.Clear();
+            fillLog();
+            fillRecall();
+            fillTodaysApp();
 
         }
 
@@ -123,7 +130,8 @@ namespace Projet
 
         private void prescriptionButton_Click(object sender, EventArgs e)
         {
-            
+            Prescription prescription = new Prescription(0, 0);
+            prescription.Show();
 
         }
 
