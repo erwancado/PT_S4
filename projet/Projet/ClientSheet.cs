@@ -74,7 +74,7 @@ namespace Projet
                         String race = "";
                         foreach (Race raceSelected in animal.Race)
                         {
-                            race += raceSelected.Nom + "/";
+                            race += raceSelected.Nom;
                         }
                         item.SubItems.Add(race);
                         allAnimalsClient.Items.Add(item);
@@ -85,16 +85,7 @@ namespace Projet
             allAnimalsClient.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        private String getRaceNom(Race race) {
-            var races = _db.Race;
-            foreach (Race raceSelected in races)
-            {
-                if (race.Nom.Equals(raceSelected.Nom)) {
-                    return raceSelected.Nom;
-                }
-            }
-            return null;
-        }
+     
 
         private void modifyButton_Click(object sender, EventArgs e)
         {
@@ -109,7 +100,7 @@ namespace Projet
 
         private void addAnimalButton_Click(object sender, EventArgs e)
         {
-            InscriptionAnimalInterface toShow = new InscriptionAnimalInterface(null,_db,null);
+            InscriptionAnimalInterface toShow = new InscriptionAnimalInterface(null,null, client);
             toShow.Show();
         }
 
