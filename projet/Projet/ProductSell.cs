@@ -84,7 +84,9 @@ namespace Projet
                 this.textBox1.Enabled = true;
             } else
             {
+		this.textBox1.Text = "";
                 this.textBox1.Enabled = false;
+		this.prix = 0;
             }
         }
 
@@ -157,7 +159,6 @@ namespace Projet
             if (!textBox1.Text.Equals(""))
             {
                 this.prix = int.Parse(textBox1.Text);
-                Console.WriteLine(this.prix);
             }
         }
     }
