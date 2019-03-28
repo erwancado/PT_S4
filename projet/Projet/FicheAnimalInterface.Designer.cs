@@ -259,6 +259,7 @@
             // dateMaladies
             // 
             this.dateMaladies.Text = "dateMaladies";
+            this.dateMaladies.Width = 62;
             // 
             // listView2
             // 

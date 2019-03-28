@@ -117,6 +117,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 7;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -203,6 +204,7 @@
             // 
             // ajoutEspece
             // 
+            this.ajoutEspece.Enabled = false;
             this.ajoutEspece.Location = new System.Drawing.Point(255, 122);
             this.ajoutEspece.Name = "ajoutEspece";
             this.ajoutEspece.Size = new System.Drawing.Size(74, 23);
@@ -212,6 +214,7 @@
             // 
             // ajoutRace
             // 
+            this.ajoutRace.Enabled = false;
             this.ajoutRace.Location = new System.Drawing.Point(255, 163);
             this.ajoutRace.Name = "ajoutRace";
             this.ajoutRace.Size = new System.Drawing.Size(74, 23);

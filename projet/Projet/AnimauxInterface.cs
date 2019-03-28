@@ -71,7 +71,7 @@ namespace Projet
                     var animaux = _db.Animaux;
                     foreach (Animaux animal in animaux)
                     {
-                        if ((animal.Nom.Equals(searchName)) || (animal.DateNaissance.Equals(searchName)) || (animal.Race.Equals(searchName)) || animal.DateNaissance.Equals(searchName))
+                        if ((animal.Nom.start(searchName)) || (animal.DateNaissance.Equals(searchName)) || (animal.Race.Equals(searchName)) || animal.DateNaissance.Equals(searchName))
                         {
                             String race = "";
                             foreach (Race raceSelected in animal.Race)

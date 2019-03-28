@@ -42,6 +42,20 @@ namespace Projet
                 initializeInput();
                 isModification = true;
             }
+            init();
+        }
+
+        private void init()
+        {
+            var especes = _db.Especes;
+
+            foreach(Especes espece in especes)
+            {
+               
+                comboBox1.Items.Add(espece.Nom);
+                
+            }
+         
         }
 
         private void initializeInput()
@@ -144,5 +158,23 @@ namespace Projet
         {
             dateNais = dateTimePicker1.Value;
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string esp = comboBox1.SelectedItem.ToString();
+            MessageBox.Show(esp);
+            Especes especeSelected=null;
+            var races = _db.Race;
+            foreach(Race race in races)
+            {
+                especeSelected = _db.Especes.Find(race.Especes_idEspeces);
+                if (especeSelected.Nom.Equals(esp))
+                {
+                    comboBox2.Items.Add(race.Nom);
+                }
+            }
+        }
+
+       
     }
 }
