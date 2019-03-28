@@ -22,6 +22,9 @@ namespace Projet
             this.animal = animal;
            // allAnimalsClient.FullRowSelect = true;
             InitializeIntels();
+            listOfDiseases.FullRowSelect = true;
+            listOfSoins.FullRowSelect = true;
+            completeMaladieList();
         }
 
         private void InitializeIntels()
@@ -30,8 +33,18 @@ namespace Projet
             String naissance = animal.DateNaissance.ToString();
             dateNais.Text += " " + naissance;
             poids.Text += " " + animal.Poids.ToString();
-         //   emailLabel.Text += " " + client.Email;
-           // telLabel.Text += " " + client.Téléphone;
+            Clients monClient = _db.Clients.Find(animal.Clients_idClients);
+            nomProprietaire.Text += " " + monClient.Nom;
+            Race maRace = new Race();
+            foreach (Race race in animal.Race)
+            {
+                maRace = race;
+            }
+            Especes monEspece = _db.Especes.Find(maRace.Especes_idEspeces);
+            nomRace.Text += " " + maRace.Nom;
+            nomEspece.Text += " " + monEspece.Nom;
+            //   emailLabel.Text += " " + client.Email;
+            // telLabel.Text += " " + client.Téléphone;
             //adressLabel.Text += " " + client.Adresse;
             if (animal.Sexe == null)
             {
@@ -56,10 +69,6 @@ namespace Projet
             this.Hide();
         }
 
-        private void supprimerAnimal_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void retourPageAnimal_Click(object sender, EventArgs e)
         {
@@ -108,5 +117,45 @@ namespace Projet
         {
 
         }
+
+
+        private void completeMaladieList()
+        {
+            this.listOfDiseases.Items.Clear();
+                ListViewItem item = new ListViewItem();
+                var maladies = _db.Animaux_maladies;
+                foreach (Animaux_maladies maladie in maladies)
+                {
+                    if (maladie.Animaux_idAnimaux== animal.idAnimaux) {
+                        var mesMaladies = _db.Maladies;
+                    foreach (Maladies mal in mesMaladies) {
+                        if (mal.idMaladies == maladie.Maladies_idMaladies) {
+                            item.SubItems.Add(mal.Nom);
+                            item.SubItems.Add(maladie.Date.ToShortDateString());
+                        }
+                    }
+                        listOfDiseases.Items.Add(item);
+                    }
+                }
+            listOfDiseases.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+            listOfDiseases.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        private void completeSoinList()
+        {
+            this.listOfSoins.Items.Clear();
+            
+            foreach (Soins soin in animal.Soins)
+            {
+                ListViewItem item = new ListViewItem(soin.idSoins.ToString());
+                item.SubItems.Add(soin.Description);
+                listOfDiseases.Items.Add(item);
+            }
+            listOfSoins.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+            listOfSoins.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
     }
 }

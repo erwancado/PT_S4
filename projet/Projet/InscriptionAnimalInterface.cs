@@ -97,7 +97,10 @@ namespace Projet
             an.Poids = (int)numericUpDown1.Value;
             an.Caractéristiques = richTextBox1.Text;
             an.DateNaissance = dateTimePicker1.Value;
-            an.Clients_idClients = client.idClients;
+            if (client != null) {
+
+                an.Clients_idClients = client.idClients;
+            }
             if (femelle.Checked)
             {
                 an.Sexe = "F";
@@ -144,7 +147,7 @@ namespace Projet
             foreach (Animaux animal in animaux)
             {
                 if (animal.Nom.Equals(myAnimal.Nom) && animal.Poids.Equals(myAnimal.Poids)
-                    && animal.DateNaissance.Equals(myAnimal.DateNaissance) && animal.Caractéristiques == myAnimal.Caractéristiques) //Checker l'espece et la race aussi
+                    && animal.DateNaissance.Equals(myAnimal.DateNaissance) && animal.Caractéristiques == myAnimal.Caractéristiques) 
                 {
                     MessageBox.Show("Animal inscrit");
                     this.animal = animal;

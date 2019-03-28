@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="TestProduits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestsPlanning.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

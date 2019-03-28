@@ -18,6 +18,7 @@ namespace Projet
         int GRIDSIZE = 8;
         int NBDAYS = 7;
         int hourOffset = 8;
+        List<RendezVous>[,] hours;
         public Planning()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace Projet
             DataGridViewAutoSizeColumnsMode.Fill;
             planningGridView.AutoSizeRowsMode =
                 DataGridViewAutoSizeRowsMode.AllCells;
-            
+            planningGridView.ReadOnly = true;
             planningGridView.ColumnHeadersBorderStyle =
                 DataGridViewHeaderBorderStyle.Single;
             planningGridView.CellBorderStyle = DataGridViewCellBorderStyle.Single;
@@ -68,12 +69,12 @@ namespace Projet
 
         private void PopulateDataGrid(DateTime date)
         {
+            hours = new List<RendezVous>[7, 10];
             DayOfWeek day = date.DayOfWeek;
             int dayOffset = dayOfWeekNumber(date.DayOfWeek)+1;
             DateTime dateMin = date.AddDays(-dayOffset);
             DateTime dateMax = date.AddDays(NBDAYS - dayOffset);
             var rdv = _db.RendezVous.Where(r => ((DateTime)r.Date).CompareTo(dateMin) >= 0 && ((DateTime)r.Date).CompareTo(dateMax) <= 0);
-            List<RendezVous>[,] hours = new List<RendezVous>[7, 10];
             for (int i = 0; i < NBDAYS; i++)
                 for (int j = 0; j < NBHOURS; j++)
                     hours[i, j] = new List<RendezVous>();
@@ -98,7 +99,7 @@ namespace Projet
                         String descriptions = "";
                         foreach(RendezVous r in hours[j-1,i])
                         {
-                            rdvList += ((DateTime) r.Date).ToShortTimeString() + "\r\n "
+                            rdvList += ((DateTime) r.Date).ToShortTimeString() + "\r\n"
                                 +r.Clients.Prenom+" "+r.Clients.Nom+ "\n";
                             descriptions += r.Description + "\n" + ((DateTime)r.Date).ToShortDateString()+"  "+ ((DateTime)r.Date).ToShortTimeString() + "\n";
                             
@@ -158,14 +159,20 @@ namespace Projet
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.planningGridView = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.suprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addRdvButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.planningGridView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(667, 40);
+            this.datePicker.Location = new System.Drawing.Point(667, 112);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(200, 20);
             this.datePicker.TabIndex = 0;
@@ -174,20 +181,52 @@ namespace Projet
             // planningGridView
             // 
             this.planningGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.planningGridView.Location = new System.Drawing.Point(49, 58);
+            this.planningGridView.Location = new System.Drawing.Point(49, 131);
             this.planningGridView.Margin = new System.Windows.Forms.Padding(10);
             this.planningGridView.Name = "planningGridView";
-            this.planningGridView.Size = new System.Drawing.Size(818, 390);
+            this.planningGridView.Size = new System.Drawing.Size(818, 429);
             this.planningGridView.TabIndex = 1;
-            this.planningGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.planningGridView_CellPainting);
+            this.planningGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.planningGridView_CellDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modifierToolStripMenuItem,
+            this.suprimerToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 48);
+            // 
+            // modifierToolStripMenuItem
+            // 
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            // 
+            // suprimerToolStripMenuItem
+            // 
+            this.suprimerToolStripMenuItem.Name = "suprimerToolStripMenuItem";
+            this.suprimerToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.suprimerToolStripMenuItem.Text = "Suprimer";
+            // 
+            // addRdvButton
+            // 
+            this.addRdvButton.Location = new System.Drawing.Point(354, 22);
+            this.addRdvButton.Name = "addRdvButton";
+            this.addRdvButton.Size = new System.Drawing.Size(179, 61);
+            this.addRdvButton.TabIndex = 2;
+            this.addRdvButton.Text = "Ajouter un rendez-vous";
+            this.addRdvButton.UseVisualStyleBackColor = true;
+            this.addRdvButton.Click += new System.EventHandler(this.addRdvButton_Click);
             // 
             // Planning
             // 
-            this.ClientSize = new System.Drawing.Size(935, 579);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.addRdvButton);
             this.Controls.Add(this.planningGridView);
             this.Controls.Add(this.datePicker);
             this.Name = "Planning";
             ((System.ComponentModel.ISupportInitialize)(this.planningGridView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -197,10 +236,31 @@ namespace Projet
             planningGridView.Rows.Clear();
             PopulateDataGrid(datePicker.Value);
         }
+        
 
-        private void planningGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void addRdvButton_Click(object sender, EventArgs e)
         {
-           
+            RendezVousForm rendezVousForm = new RendezVousForm(null);
+            rendezVousForm.Show();
+        }
+
+        private void planningGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex != -1 && e.RowIndex != -1)
+            {
+                DataGridViewCell c = (sender as DataGridView)[e.ColumnIndex, e.RowIndex];
+                if (!c.Selected)
+                {
+                    c.DataGridView.ClearSelection();
+                    c.DataGridView.CurrentCell = c;
+                    c.Selected = true;
+                }
+                String hour = ((String)c.Value).Substring(0, 2);
+                int hourSelected = int.Parse(hour)-hourOffset;
+                int daySelected = c.ColumnIndex-1;
+                RendezVousSelector selector = new RendezVousSelector(hours[daySelected, hourSelected]);
+                selector.Show();
+            }
         }
     }
 }

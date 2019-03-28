@@ -34,7 +34,6 @@
             this.supprimerAnimal = new System.Windows.Forms.Button();
             this.genererOrdonnance = new System.Windows.Forms.Button();
             this.genererFacture = new System.Windows.Forms.Button();
-            this.retourPageAnimal = new System.Windows.Forms.Button();
             this.nomProprietaire = new System.Windows.Forms.Label();
             this.nomEspece = new System.Windows.Forms.Label();
             this.nomRace = new System.Windows.Forms.Label();
@@ -45,8 +44,12 @@
             this.description = new System.Windows.Forms.Label();
             this.nom = new System.Windows.Forms.Label();
             this.listOfDiseases = new System.Windows.Forms.ListView();
-            this.listMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dateMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.empty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nomMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuMaladie = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ajouterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listOfSoins = new System.Windows.Forms.ListView();
             this.Desc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -54,12 +57,9 @@
             this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuMaladie = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ajouterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.supprimerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuSoins.SuspendLayout();
+            this.dateMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuMaladie.SuspendLayout();
+            this.contextMenuSoins.SuspendLayout();
             this.SuspendLayout();
             // 
             // ajouterRappel
@@ -90,7 +90,6 @@
             this.supprimerAnimal.TabIndex = 2;
             this.supprimerAnimal.Text = "supprimerAnimal";
             this.supprimerAnimal.UseVisualStyleBackColor = true;
-            this.supprimerAnimal.Click += new System.EventHandler(this.supprimerAnimal_Click);
             // 
             // genererOrdonnance
             // 
@@ -110,75 +109,65 @@
             this.genererFacture.Text = "genererFacture";
             this.genererFacture.UseVisualStyleBackColor = true;
             // 
-            // retourPageAnimal
-            // 
-            this.retourPageAnimal.Location = new System.Drawing.Point(22, 32);
-            this.retourPageAnimal.Name = "retourPageAnimal";
-            this.retourPageAnimal.Size = new System.Drawing.Size(104, 23);
-            this.retourPageAnimal.TabIndex = 18;
-            this.retourPageAnimal.Text = "retourPageAnimal";
-            this.retourPageAnimal.UseVisualStyleBackColor = true;
-            this.retourPageAnimal.Click += new System.EventHandler(this.retourPageAnimal_Click);
-            // 
             // nomProprietaire
             // 
             this.nomProprietaire.AutoSize = true;
-            this.nomProprietaire.Location = new System.Drawing.Point(19, 93);
+            this.nomProprietaire.Location = new System.Drawing.Point(19, 75);
             this.nomProprietaire.Name = "nomProprietaire";
-            this.nomProprietaire.Size = new System.Drawing.Size(80, 13);
+            this.nomProprietaire.Size = new System.Drawing.Size(90, 13);
             this.nomProprietaire.TabIndex = 19;
-            this.nomProprietaire.Text = "nomProprietaire";
+            this.nomProprietaire.Text = "Nom propriétaire :";
             // 
             // nomEspece
             // 
             this.nomEspece.AutoSize = true;
-            this.nomEspece.Location = new System.Drawing.Point(36, 121);
+            this.nomEspece.Location = new System.Drawing.Point(60, 103);
             this.nomEspece.Name = "nomEspece";
-            this.nomEspece.Size = new System.Drawing.Size(63, 13);
+            this.nomEspece.Size = new System.Drawing.Size(49, 13);
             this.nomEspece.TabIndex = 20;
-            this.nomEspece.Text = "nomEspece";
+            this.nomEspece.Text = "Espece :";
             // 
             // nomRace
             // 
             this.nomRace.AutoSize = true;
-            this.nomRace.Location = new System.Drawing.Point(43, 155);
+            this.nomRace.Location = new System.Drawing.Point(70, 131);
             this.nomRace.Name = "nomRace";
-            this.nomRace.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.nomRace.Size = new System.Drawing.Size(53, 13);
+            this.nomRace.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.nomRace.Size = new System.Drawing.Size(39, 13);
             this.nomRace.TabIndex = 21;
-            this.nomRace.Text = "nomRace";
+            this.nomRace.Text = "Race :";
             // 
             // sexe
             // 
             this.sexe.AutoSize = true;
-            this.sexe.Location = new System.Drawing.Point(49, 190);
+            this.sexe.Location = new System.Drawing.Point(70, 159);
             this.sexe.Name = "sexe";
-            this.sexe.Size = new System.Drawing.Size(29, 13);
+            this.sexe.Size = new System.Drawing.Size(37, 13);
             this.sexe.TabIndex = 22;
-            this.sexe.Text = "sexe";
+            this.sexe.Text = "Sexe :";
             // 
             // dateNais
             // 
             this.dateNais.AutoSize = true;
-            this.dateNais.Location = new System.Drawing.Point(29, 220);
+            this.dateNais.Location = new System.Drawing.Point(5, 181);
             this.dateNais.Name = "dateNais";
-            this.dateNais.Size = new System.Drawing.Size(49, 13);
+            this.dateNais.Size = new System.Drawing.Size(102, 13);
             this.dateNais.TabIndex = 23;
-            this.dateNais.Text = "dateNais";
+            this.dateNais.Text = "Date de naissance :";
             // 
             // poids
             // 
             this.poids.AutoSize = true;
-            this.poids.Location = new System.Drawing.Point(36, 254);
+            this.poids.Location = new System.Drawing.Point(68, 204);
             this.poids.Name = "poids";
-            this.poids.Size = new System.Drawing.Size(32, 13);
+            this.poids.Size = new System.Drawing.Size(39, 13);
             this.poids.TabIndex = 24;
-            this.poids.Text = "poids";
+            this.poids.Text = "Poids :";
             // 
             // listeMaladies
             // 
             this.listeMaladies.AutoSize = true;
-            this.listeMaladies.Location = new System.Drawing.Point(19, 329);
+            this.listeMaladies.Location = new System.Drawing.Point(19, 293);
             this.listeMaladies.Name = "listeMaladies";
             this.listeMaladies.Size = new System.Drawing.Size(99, 13);
             this.listeMaladies.TabIndex = 25;
@@ -187,7 +176,7 @@
             // description
             // 
             this.description.AutoSize = true;
-            this.description.Location = new System.Drawing.Point(394, 93);
+            this.description.Location = new System.Drawing.Point(406, 93);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(82, 13);
             this.description.TabIndex = 28;
@@ -196,33 +185,65 @@
             // nom
             // 
             this.nom.AutoSize = true;
-            this.nom.Location = new System.Drawing.Point(58, 75);
+            this.nom.Location = new System.Drawing.Point(74, 40);
             this.nom.Name = "nom";
-            this.nom.Size = new System.Drawing.Size(27, 13);
+            this.nom.Size = new System.Drawing.Size(35, 13);
             this.nom.TabIndex = 39;
-            this.nom.Text = "nom";
+            this.nom.Text = "Nom :";
             // 
             // listOfDiseases
             // 
             this.listOfDiseases.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.listMaladies,
+            this.empty,
+            this.nomMaladies,
             this.dateMaladies});
             this.listOfDiseases.ContextMenuStrip = this.contextMenuMaladie;
-            this.listOfDiseases.Location = new System.Drawing.Point(22, 354);
+            this.listOfDiseases.Location = new System.Drawing.Point(22, 325);
             this.listOfDiseases.Name = "listOfDiseases";
-            this.listOfDiseases.Size = new System.Drawing.Size(356, 173);
+            this.listOfDiseases.Size = new System.Drawing.Size(346, 173);
             this.listOfDiseases.TabIndex = 40;
             this.listOfDiseases.UseCompatibleStateImageBehavior = false;
             this.listOfDiseases.View = System.Windows.Forms.View.Details;
             // 
-            // listMaladies
+            // empty
             // 
-            this.listMaladies.Text = "listMaladies";
+            this.empty.Text = "";
+            this.empty.Width = 0;
             // 
-            // dateMaladies
+            // nomMaladies
             // 
-            this.dateMaladies.Text = "dateMaladies";
-            this.dateMaladies.Width = 62;
+            this.nomMaladies.Text = "Nom";
+            this.nomMaladies.Width = 62;
+            // 
+            // contextMenuMaladie
+            // 
+            this.contextMenuMaladie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajouterToolStripMenuItem1,
+            this.modifierToolStripMenuItem1,
+            this.supprimerToolStripMenuItem1});
+            this.contextMenuMaladie.Name = "contextMenuMaladie";
+            this.contextMenuMaladie.Size = new System.Drawing.Size(130, 70);
+            // 
+            // ajouterToolStripMenuItem1
+            // 
+            this.ajouterToolStripMenuItem1.Name = "ajouterToolStripMenuItem1";
+            this.ajouterToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.ajouterToolStripMenuItem1.Text = "Ajouter";
+            this.ajouterToolStripMenuItem1.Click += new System.EventHandler(this.ajouterToolStripMenuItem1_Click);
+            // 
+            // modifierToolStripMenuItem1
+            // 
+            this.modifierToolStripMenuItem1.Name = "modifierToolStripMenuItem1";
+            this.modifierToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.modifierToolStripMenuItem1.Text = "Modifier";
+            this.modifierToolStripMenuItem1.Click += new System.EventHandler(this.modifierToolStripMenuItem1_Click);
+            // 
+            // supprimerToolStripMenuItem1
+            // 
+            this.supprimerToolStripMenuItem1.Name = "supprimerToolStripMenuItem1";
+            this.supprimerToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.supprimerToolStripMenuItem1.Text = "Supprimer";
+            this.supprimerToolStripMenuItem1.Click += new System.EventHandler(this.supprimerToolStripMenuItem1_Click);
             // 
             // listOfSoins
             // 
@@ -230,7 +251,7 @@
             this.Desc,
             this.columnHeader4});
             this.listOfSoins.ContextMenuStrip = this.contextMenuSoins;
-            this.listOfSoins.Location = new System.Drawing.Point(397, 121);
+            this.listOfSoins.Location = new System.Drawing.Point(409, 131);
             this.listOfSoins.Name = "listOfSoins";
             this.listOfSoins.Size = new System.Drawing.Size(502, 256);
             this.listOfSoins.TabIndex = 41;
@@ -259,53 +280,27 @@
             // ajouterToolStripMenuItem
             // 
             this.ajouterToolStripMenuItem.Name = "ajouterToolStripMenuItem";
-            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.ajouterToolStripMenuItem.Text = "Ajouter";
             this.ajouterToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
             // 
             // modifierToolStripMenuItem
             // 
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.modifierToolStripMenuItem.Text = "Modifier";
             this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
-            // contextMenuMaladie
+            // dateMaladies
             // 
-            this.contextMenuMaladie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ajouterToolStripMenuItem1,
-            this.modifierToolStripMenuItem1,
-            this.supprimerToolStripMenuItem1});
-            this.contextMenuMaladie.Name = "contextMenuMaladie";
-            this.contextMenuMaladie.Size = new System.Drawing.Size(130, 70);
-            // 
-            // ajouterToolStripMenuItem1
-            // 
-            this.ajouterToolStripMenuItem1.Name = "ajouterToolStripMenuItem1";
-            this.ajouterToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.ajouterToolStripMenuItem1.Text = "Ajouter";
-            this.ajouterToolStripMenuItem1.Click += new System.EventHandler(this.ajouterToolStripMenuItem1_Click);
-            // 
-            // modifierToolStripMenuItem1
-            // 
-            this.modifierToolStripMenuItem1.Name = "modifierToolStripMenuItem1";
-            this.modifierToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.modifierToolStripMenuItem1.Text = "Modifier";
-            this.modifierToolStripMenuItem1.Click += new System.EventHandler(this.modifierToolStripMenuItem1_Click);
-            // 
-            // supprimerToolStripMenuItem1
-            // 
-            this.supprimerToolStripMenuItem1.Name = "supprimerToolStripMenuItem1";
-            this.supprimerToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.supprimerToolStripMenuItem1.Text = "Supprimer";
-            this.supprimerToolStripMenuItem1.Click += new System.EventHandler(this.supprimerToolStripMenuItem1_Click);
+            this.dateMaladies.Text = "Date";
             // 
             // FicheAnimalInterface
             // 
@@ -323,7 +318,6 @@
             this.Controls.Add(this.nomRace);
             this.Controls.Add(this.nomEspece);
             this.Controls.Add(this.nomProprietaire);
-            this.Controls.Add(this.retourPageAnimal);
             this.Controls.Add(this.genererFacture);
             this.Controls.Add(this.genererOrdonnance);
             this.Controls.Add(this.supprimerAnimal);
@@ -331,8 +325,8 @@
             this.Controls.Add(this.ajouterRappel);
             this.Name = "FicheAnimalInterface";
             this.Text = "FicheAnimalInterface";
-            this.contextMenuSoins.ResumeLayout(false);
             this.contextMenuMaladie.ResumeLayout(false);
+            this.contextMenuSoins.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,7 +339,6 @@
         private System.Windows.Forms.Button supprimerAnimal;
         private System.Windows.Forms.Button genererOrdonnance;
         private System.Windows.Forms.Button genererFacture;
-        private System.Windows.Forms.Button retourPageAnimal;
         private System.Windows.Forms.Label nomProprietaire;
         private System.Windows.Forms.Label nomEspece;
         private System.Windows.Forms.Label nomRace;
@@ -356,8 +349,8 @@
         private System.Windows.Forms.Label description;
         private System.Windows.Forms.Label nom;
         private System.Windows.Forms.ListView listOfDiseases;
-        private System.Windows.Forms.ColumnHeader listMaladies;
-        private System.Windows.Forms.ColumnHeader dateMaladies;
+        private System.Windows.Forms.ColumnHeader empty;
+        private System.Windows.Forms.ColumnHeader nomMaladies;
         private System.Windows.Forms.ListView listOfSoins;
         private System.Windows.Forms.ColumnHeader Desc;
         private System.Windows.Forms.ColumnHeader columnHeader4;
@@ -369,5 +362,6 @@
         private System.Windows.Forms.ToolStripMenuItem ajouterToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem1;
+        private System.Windows.Forms.ColumnHeader dateMaladies;
     }
 }

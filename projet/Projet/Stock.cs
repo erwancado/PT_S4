@@ -43,7 +43,7 @@ namespace Projet
                     String description = "Produit " + p.Nom + ".            Quantité : " + n;
                     if (!this.products.Contains(description))
                     {
-                        this.listView1.Items.Add(p.idProduits + ". " + description);
+                        this.listView1.Items.Add(p.idProduits + ". " + description + ". Prix :" + p.PrixVente);
                         this.products.Add(description);
                     }
                 }
@@ -57,7 +57,7 @@ namespace Projet
                     if (!this.products.Contains(description) && description.ToLower().Contains(this.textBox1.Text.ToLower()))
                     {
                         this.products.Add(description);
-                        this.listView1.Items.Add(p.idProduits + ". " + description);
+                        this.listView1.Items.Add(p.idProduits + ". " + description + ". Prix :" + p.PrixVente);
                     }
                 }
             }
