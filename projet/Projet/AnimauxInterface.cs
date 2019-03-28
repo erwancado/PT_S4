@@ -56,7 +56,7 @@ namespace Projet
         {
             this.allAnimauxList.Items.Clear();
             this.animaux.Clear();
-           
+
             if (request.Equals(""))
             {
                 var animaux = _db.Animaux;
@@ -64,13 +64,14 @@ namespace Projet
                 {
                     Clients monClient = _db.Clients.Find(animal.Clients_idClients);
                     Race maRace = new Race();
-                    foreach (Race race in animal.Race) {
-                        maRace = race;        
+                    foreach (Race race in animal.Race)
+                    {
+                        maRace = race;
                     }
                     Especes monEspece = _db.Especes.Find(maRace.Especes_idEspeces);
                     String description = monClient.Nom + " " + animal.Nom + " "
                        + maRace.Nom + " " + " "
-                    + animal.Poids + " " + animal.Caractéristiques+
+                    + animal.Poids + " " + animal.Caractéristiques +
                     " " + animal.Sexe
                         + " " + animal.DateNaissance;
 
@@ -88,13 +89,9 @@ namespace Projet
                     var animaux = _db.Animaux;
                     foreach (Animaux animal in animaux)
                     {
-<<<<<<< Updated upstream
                         Clients monClient = _db.Clients.Find(animal.Clients_idClients);
                         Race maRace = new Race();
                         foreach (Race race in animal.Race)
-=======
-                        if ((animal.Nom.StartsWith(searchName)) || (animal.DateNaissance.Equals(searchName)) || (animal.Race.Equals(searchName)) || animal.DateNaissance.Equals(searchName))
->>>>>>> Stashed changes
                         {
                             maRace = race;
                         }
@@ -102,8 +99,10 @@ namespace Projet
 
                         if ((animal.Nom.StartsWith(searchName)) && (monClient.Nom.StartsWith(searchNameProprietaire)))
                         {
-                            if (maRace.Nom != null) {
-                                if ((maRace.Nom.StartsWith(searchRace))) {
+                            if (maRace.Nom != null)
+                            {
+                                if ((maRace.Nom.StartsWith(searchRace)))
+                                {
                                     String description = monClient.Nom + " " + animal.Nom + " "
                       + maRace.Nom + " " + " "
                    + animal.Poids + " " + animal.Caractéristiques +
@@ -116,7 +115,7 @@ namespace Projet
                                     }
                                 }
                             }
-                           
+
                         }
                     }
                 }
@@ -135,11 +134,6 @@ namespace Projet
                 InitializeAnimauxInterface("");
             }
         }
-<<<<<<< Updated upstream
-
-=======
-        
->>>>>>> Stashed changes
 
         private void edit_Click(object sender, EventArgs e)
         {

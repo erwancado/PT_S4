@@ -123,7 +123,7 @@ namespace Projet
             inscriptionGood(an);
             List<Race> mesRaces = new List<Race>();
             mesRaces.Add(raceSelected);
-            _db.Animaux.Find(104).Race = mesRaces;
+            _db.Animaux.Find(animal.idAnimaux).Race = mesRaces;
             _db.SaveChanges();
         }
 
