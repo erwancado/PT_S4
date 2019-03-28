@@ -18,20 +18,38 @@ namespace Projet
         List<String> animaux;
         DB_ENTITIES _db;
         String searchName;
+        String searchEspece;
+        String searchRace;
         String searchNameProprietaire;
         String selectedLine;
+
 
         public AnimauxInterface()
         {
             _db = new DB_ENTITIES();
             InitializeComponent();
-            dateTimePicker1.MaxDate = DateTime.Now;
             searchName = "";
+            searchEspece = "";
+            searchRace = "";
             searchNameProprietaire = "";
             selectedLine = "";
             this.allAnimauxList.View = View.List;
             animaux = new List<string>();
             InitializeAnimauxInterface("");
+            init();
+        }
+
+        private void init()
+        {
+            
+            var especes = _db.Especes;
+
+            foreach (Especes espece in especes)
+            {
+
+                comboBox1.Items.Add(espece.Nom);
+          
+            }
         }
 
         public void InitializeAnimauxInterface(String request)
@@ -44,18 +62,17 @@ namespace Projet
                 var animaux = _db.Animaux;
                 foreach (Animaux animal in animaux)
                 {
-                    String race = "";
-                    foreach (Race raceSelected in animal.Race)
-                    {
-                        race += raceSelected.Nom + "/";
+                    Clients monClient = _db.Clients.Find(animal.Clients_idClients);
+                    Race maRace = new Race();
+                    foreach (Race race in animal.Race) {
+                        maRace = race;        
                     }
-                   // DateTime dateNais = (DateTime)animal.DateNaissance; 
-                    String description = //animal. nomPropriétaire +
-                                         " "
-                                        + animal.Nom + " " +
-                                        animal.DateNaissance.ToString() + " " + race + " " +animal.Poids + " " + animal.Caractéristiques +" "+ animal.Sexe;
-                                       // animal.espece + " " +
-                                     //  animal.Race + " ";
+                    Especes monEspece = _db.Especes.Find(maRace.Especes_idEspeces);
+                    String description = monClient.Nom + " " + animal.Nom + " "
+                       + maRace.Nom + " " + " "
+                    + animal.Poids + " " + animal.Caractéristiques+
+                    " " + animal.Sexe
+                        + " " + animal.DateNaissance;
 
                     if (!this.animaux.Contains(description))
                     {
@@ -71,23 +88,31 @@ namespace Projet
                     var animaux = _db.Animaux;
                     foreach (Animaux animal in animaux)
                     {
-                        if ((animal.Nom.start(searchName)) || (animal.DateNaissance.Equals(searchName)) || (animal.Race.Equals(searchName)) || animal.DateNaissance.Equals(searchName))
+                        Clients monClient = _db.Clients.Find(animal.Clients_idClients);
+                        Race maRace = new Race();
+                        foreach (Race race in animal.Race)
                         {
-                            String race = "";
-                            foreach (Race raceSelected in animal.Race)
-                            {
-                                race += raceSelected.Nom + "/";
+                            maRace = race;
+                        }
+                        Especes monEspece = _db.Especes.Find(maRace.Especes_idEspeces);
+
+                        if ((animal.Nom.StartsWith(searchName)) && (monClient.Nom.StartsWith(searchNameProprietaire)))
+                        {
+                            if (maRace.Nom != null) {
+                                if ((maRace.Nom.StartsWith(searchRace))) {
+                                    String description = monClient.Nom + " " + animal.Nom + " "
+                      + maRace.Nom + " " + " "
+                   + animal.Poids + " " + animal.Caractéristiques +
+                   " " + animal.Sexe
+                       + " " + animal.DateNaissance;
+                                    if (!this.animaux.Contains(description))
+                                    {
+                                        this.allAnimauxList.Items.Add(animal.idAnimaux + ". " + description);
+                                        this.animaux.Add(description);
+                                    }
+                                }
                             }
-                            String description = animal.Nom + " "
-                                          + (DateTime)animal.DateNaissance + " " + animal.Poids + " " +race + " " +animal.Caractéristiques +" "+ animal.Sexe;
-                                           // animal.Race+" "+
-                                          //  animal.Caractéristiques;
-                            // + " " + animal.Espece;
-                            if (!this.animaux.Contains(description))
-                            {
-                                this.allAnimauxList.Items.Add(animal.idAnimaux + ". " + description);
-                                this.animaux.Add(description);
-                            }
+                           
                         }
                     }
                 }
@@ -102,20 +127,11 @@ namespace Projet
             {
                 selectedLine = allAnimauxList.SelectedItems[0].Text;
                 int id = int.Parse(selectedLine.Split('.')[0]);
-                /* Animaux selectedAnimal = getAnimaux(id);
-                 _db.Animaux.Remove(selectedAnimal);
-                 _db.SaveChanges();*/
                 Utils.removeAnimal(id, _db);
                 InitializeAnimauxInterface("");
             }
         }
 
-        private void add_Click(object sender, EventArgs e)
-        {
-            InscriptionAnimalInterface newAnimal = new InscriptionAnimalInterface(null, _db, this);
-            newAnimal.Show();
-
-        }
 
         private void edit_Click(object sender, EventArgs e)
         {
@@ -126,6 +142,7 @@ namespace Projet
                 Animaux selectedAnimal = getAnimaux(id);
                 InscriptionAnimalInterface modifyAnimal = new InscriptionAnimalInterface(selectedAnimal, _db, this);
                 modifyAnimal.Show();
+
             }
         }
 
@@ -152,17 +169,52 @@ namespace Projet
  
         }
 
+
+
+
         private void filtrer_Click(object sender, EventArgs e)
         {
+            if (comboBox2.SelectedItem != null) {
+                searchRace = comboBox2.SelectedItem.ToString();
+            }
+            
             if (!textBox4.Text.Equals(""))
             {
+     
                 searchName = textBox4.Text;
+            }
+            if (!textBox1.Text.Equals("")) {
+
+                searchNameProprietaire = textBox1.Text;
             }
 
             InitializeAnimauxInterface("typed");
         }
 
-        
+
+
+
+
+
+
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            string esp = comboBox1.SelectedItem.ToString();
+            MessageBox.Show(esp);
+            Especes especeSelected = null;
+            var races = _db.Race;
+            foreach (Race race in races)
+            {
+                especeSelected = _db.Especes.Find(race.Especes_idEspeces);
+                if (especeSelected.Nom.Equals(esp))
+                {
+                    comboBox2.Items.Add(race.Nom);
+                }
+            }
+        }
     }
 }
 
