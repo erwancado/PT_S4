@@ -46,9 +46,7 @@ namespace Projet
 
             foreach (Especes espece in especes)
             {
-
-                comboBox1.Items.Add(espece.Nom);
-          
+                comboBox1.Items.Add(espece.Nom);       
             }
         }
 
@@ -70,7 +68,7 @@ namespace Projet
                     }
                     Especes monEspece = _db.Especes.Find(maRace.Especes_idEspeces);
                     String description = monClient.Nom + " " + animal.Nom + " "
-                       + maRace.Nom + " " + " "
+                       + maRace.Nom + " " 
                     + animal.Poids + " " + animal.Caractéristiques +
                     " " + animal.Sexe
                         + " " + animal.DateNaissance;
