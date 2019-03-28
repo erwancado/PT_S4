@@ -120,26 +120,45 @@ namespace Projet
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String id = this.allRDVList.SelectedItems[0].ToString();
-            MessageBox.Show("Vous modifier un RDV" + id);
+            var rdvs = _db.RendezVous;
+            foreach (RendezVous rdv in rdvs)
+            {
+                if (rdv.Date == Convert.ToDateTime(id)){
+                    RendezVousForm rdvtoshow = new RendezVousForm(rdv);
+                    rdvtoshow.Show();
+                }
+            }
         }
 
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String id = this.allRDVList.SelectedItems[0].ToString();
-            MessageBox.Show("Vous supprimer un RDV" + id);
+            var rdvs = _db.RendezVous;
+            foreach(RendezVous rdv in rdvs) {
+                if (rdv.Date == Convert.ToDateTime(id)){
+                    Utils.removeRdv(rdv.idRendezVous, _db);
+                }                                
+            }
         }
 
         private void modifierToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             int id = int.Parse(this.allAnimalsClient.SelectedItems[0].Text);
-            MessageBox.Show("Vous modifier un animal" + id);
             Animaux myAnimal = _db.Animaux.Find(id);
+            InscriptionAnimalInterface toShow = new  InscriptionAnimalInterface(myAnimal, null, client);
         }
 
         private void supprimerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             int id = int.Parse(this.allAnimalsClient.SelectedItems[0].Text);
-            MessageBox.Show("Vous supprimer un animal" + id);
+            Utils.removeAnimal(id,_db);
+        }
+
+        private void refresh_Click(object sender, EventArgs e)
+        {
+            completeAnimalList("");
+            completeRDVList();
+            InitializeIntels();
         }
     }
 }
