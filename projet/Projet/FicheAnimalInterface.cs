@@ -63,7 +63,45 @@ namespace Projet
 
         private void retourPageAnimal_Click(object sender, EventArgs e)
         {
+            AnimauxInterface toShow = new AnimauxInterface();
+            toShow.Show();
             this.Hide();
+        }
+
+        private void ajouterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Soin
+            MessageBox.Show("add soins");
+        }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Soin
+            MessageBox.Show("modifier soins");
+        }
+
+        private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Soins
+            MessageBox.Show("Supprimer soins");
+        }
+
+        private void ajouterToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //Maladie
+            MessageBox.Show("add maladie");
+        }
+
+        private void modifierToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //Maladie
+            MessageBox.Show("modifier maladie");
+        }
+
+        private void supprimerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //Maladie
+            MessageBox.Show("Supprimer maladie");
         }
     }
 }

@@ -61,6 +61,7 @@ namespace Projet
                             item.SubItems.Add(client.Email);
                             item.SubItems.Add(client.ProchaineVisite.ToString());
                             allClientList.Items.Add(item);
+                            
                         }
                     }
                 }
