@@ -32,13 +32,14 @@ namespace Projet
         {
             idClientSelected = idClient;
             idAnimalSelected = idAnimal;
-            if (idAnimal != 0 && idClient != 0) {
-                secondPagePanel.Visible = true;
-            }
             _db = new DB_ENTITIES();
             InitializeComponent();
             InitializeClientList("");
             InitializeProduct();
+            if (idAnimal != 0 && idClient != 0)
+            {
+                secondPagePanel.Visible = true;
+            }
             listClient.FullRowSelect = true;
             ClientsAnimal.FullRowSelect = true;
             

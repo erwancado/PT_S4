@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.ajouterRappel = new System.Windows.Forms.Button();
             this.modifierAnimal = new System.Windows.Forms.Button();
-            this.supprimerAnimal = new System.Windows.Forms.Button();
             this.genererOrdonnance = new System.Windows.Forms.Button();
             this.genererFacture = new System.Windows.Forms.Button();
             this.nomProprietaire = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.listOfDiseases = new System.Windows.Forms.ListView();
             this.empty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nomMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuMaladie = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ajouterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,14 +57,13 @@
             this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dateMaladies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuMaladie.SuspendLayout();
             this.contextMenuSoins.SuspendLayout();
             this.SuspendLayout();
             // 
             // ajouterRappel
             // 
-            this.ajouterRappel.Location = new System.Drawing.Point(480, 578);
+            this.ajouterRappel.Location = new System.Drawing.Point(476, 558);
             this.ajouterRappel.Name = "ajouterRappel";
             this.ajouterRappel.Size = new System.Drawing.Size(92, 23);
             this.ajouterRappel.TabIndex = 0;
@@ -74,35 +73,27 @@
             // 
             // modifierAnimal
             // 
-            this.modifierAnimal.Location = new System.Drawing.Point(12, 578);
+            this.modifierAnimal.Location = new System.Drawing.Point(71, 558);
             this.modifierAnimal.Name = "modifierAnimal";
-            this.modifierAnimal.Size = new System.Drawing.Size(101, 23);
+            this.modifierAnimal.Size = new System.Drawing.Size(128, 23);
             this.modifierAnimal.TabIndex = 1;
             this.modifierAnimal.Text = "modifierAnimal";
             this.modifierAnimal.UseVisualStyleBackColor = true;
             this.modifierAnimal.Click += new System.EventHandler(this.modifierAnimal_Click);
             // 
-            // supprimerAnimal
-            // 
-            this.supprimerAnimal.Location = new System.Drawing.Point(147, 578);
-            this.supprimerAnimal.Name = "supprimerAnimal";
-            this.supprimerAnimal.Size = new System.Drawing.Size(106, 23);
-            this.supprimerAnimal.TabIndex = 2;
-            this.supprimerAnimal.Text = "supprimerAnimal";
-            this.supprimerAnimal.UseVisualStyleBackColor = true;
-            // 
             // genererOrdonnance
             // 
-            this.genererOrdonnance.Location = new System.Drawing.Point(623, 578);
+            this.genererOrdonnance.Location = new System.Drawing.Point(624, 558);
             this.genererOrdonnance.Name = "genererOrdonnance";
             this.genererOrdonnance.Size = new System.Drawing.Size(115, 23);
             this.genererOrdonnance.TabIndex = 5;
             this.genererOrdonnance.Text = "genererOrdonnance";
             this.genererOrdonnance.UseVisualStyleBackColor = true;
+            this.genererOrdonnance.Click += new System.EventHandler(this.genererOrdonnance_Click);
             // 
             // genererFacture
             // 
-            this.genererFacture.Location = new System.Drawing.Point(768, 578);
+            this.genererFacture.Location = new System.Drawing.Point(771, 558);
             this.genererFacture.Name = "genererFacture";
             this.genererFacture.Size = new System.Drawing.Size(93, 23);
             this.genererFacture.TabIndex = 6;
@@ -215,6 +206,10 @@
             this.nomMaladies.Text = "Nom";
             this.nomMaladies.Width = 62;
             // 
+            // dateMaladies
+            // 
+            this.dateMaladies.Text = "Date";
+            // 
             // contextMenuMaladie
             // 
             this.contextMenuMaladie.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -298,15 +293,11 @@
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
-            // dateMaladies
-            // 
-            this.dateMaladies.Text = "Date";
-            // 
             // FicheAnimalInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 613);
+            this.ClientSize = new System.Drawing.Size(1015, 609);
             this.Controls.Add(this.listOfSoins);
             this.Controls.Add(this.listOfDiseases);
             this.Controls.Add(this.nom);
@@ -320,7 +311,6 @@
             this.Controls.Add(this.nomProprietaire);
             this.Controls.Add(this.genererFacture);
             this.Controls.Add(this.genererOrdonnance);
-            this.Controls.Add(this.supprimerAnimal);
             this.Controls.Add(this.modifierAnimal);
             this.Controls.Add(this.ajouterRappel);
             this.Name = "FicheAnimalInterface";
@@ -336,7 +326,6 @@
 
         private System.Windows.Forms.Button ajouterRappel;
         private System.Windows.Forms.Button modifierAnimal;
-        private System.Windows.Forms.Button supprimerAnimal;
         private System.Windows.Forms.Button genererOrdonnance;
         private System.Windows.Forms.Button genererFacture;
         private System.Windows.Forms.Label nomProprietaire;

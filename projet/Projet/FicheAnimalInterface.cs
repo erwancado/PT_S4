@@ -25,6 +25,7 @@ namespace Projet
             listOfDiseases.FullRowSelect = true;
             listOfSoins.FullRowSelect = true;
             completeMaladieList();
+            completeSoinList();
         }
 
         private void InitializeIntels()
@@ -97,7 +98,7 @@ namespace Projet
 
         private void ajouterToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //Maladie
+            
             MessageBox.Show("add maladie");
         }
 
@@ -157,5 +158,15 @@ namespace Projet
             listOfSoins.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
+        private void supprimerAnimal_Click(object sender, EventArgs e)
+        {
+            Utils.removeAnimal(animal.idAnimaux, _db);
+        }
+
+        private void genererOrdonnance_Click(object sender, EventArgs e)
+        {
+            Prescription prescription = new Prescription(animal.Clients_idClients, animal.idAnimaux);
+            prescription.Show();
+        }
     }
 }
