@@ -20,21 +20,31 @@ namespace Projet
         private String especee;
         private DateTime dateNais;
         private int poidss;
+
+        private Especes especeSelected = null;
+
         private String infos;
         bool isModification;
         DB_ENTITIES _db;
         AnimauxInterface animalList;
         Animaux animal;
+        Clients client;
 
-        public InscriptionAnimalInterface(Animaux animalSelected, DB_ENTITIES _db, AnimauxInterface animalInterface)
+        Race raceSelected;
+
+       
+        
+
+        public InscriptionAnimalInterface(Animaux animalSelected, AnimauxInterface animalInterface, Clients client)
         {
 
             InitializeComponent();
             isModification = false;
+            this.client = client;
             dateTimePicker1.MaxDate = DateTime.Now;
             this.animalList = animalInterface;
             animal = animalSelected;
-            this._db = _db;
+            this._db = new DB_ENTITIES();
             isMan = true;
             dateNais = DateTime.Now;
             if (animal != null)
@@ -87,7 +97,7 @@ namespace Projet
             an.Poids = (int)numericUpDown1.Value;
             an.Caractéristiques = richTextBox1.Text;
             an.DateNaissance = dateTimePicker1.Value;
-            an.Clients_idClients = 2; //TODO
+            an.Clients_idClients = client.idClients;
             if (femelle.Checked)
             {
                 an.Sexe = "F";
@@ -96,10 +106,6 @@ namespace Projet
             {
                 an.Sexe = "M";
             }
-          /*  Especes esp = new Especes();
-            esp.Nom = comboBox1.Text;
-            Race race = new Race();
-            race.Nom = comboBox2.Text;*/
             if (animal == null)
             {
                 _db.Animaux.Add(an);
@@ -111,18 +117,14 @@ namespace Projet
                 animal.Sexe = an.Sexe;
                 animal.Poids = an.Poids;
                 animal.Caractéristiques = an.Caractéristiques;
-                animal.Clients_idClients = 2; // TODO
             }
             _db.SaveChanges();
+            
             inscriptionGood(an);
-        }
-
-        private void retourFicheClient_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            // Clients cli = new Clients();
-            // ClientSheet cl = new ClientSheet(cli);
-            // cl.Show();
+            List<Race> mesRaces = new List<Race>();
+            mesRaces.Add(raceSelected);
+            _db.Animaux.Find(104).Race = mesRaces;
+            _db.SaveChanges();
         }
 
 
@@ -145,15 +147,20 @@ namespace Projet
                     && animal.DateNaissance.Equals(myAnimal.DateNaissance) && animal.Caractéristiques == myAnimal.Caractéristiques) //Checker l'espece et la race aussi
                 {
                     MessageBox.Show("Animal inscrit");
+                    this.animal = animal;
                     this.Hide();
                     FicheAnimalInterface animalInsert = new FicheAnimalInterface(myAnimal);
                     animalInsert.Show();
-                    animalList.InitializeAnimauxInterface("");
+                    if (animalList != null)
+                    {
+                        animalList.InitializeAnimauxInterface("");
+                    }
                 }
                 resetAllInput();
             }
         }
 
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dateNais = dateTimePicker1.Value;
@@ -162,8 +169,6 @@ namespace Projet
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string esp = comboBox1.SelectedItem.ToString();
-            MessageBox.Show(esp);
-            Especes especeSelected=null;
             var races = _db.Race;
             foreach(Race race in races)
             {
@@ -175,6 +180,17 @@ namespace Projet
             }
         }
 
-       
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string r = comboBox2.SelectedItem.ToString();
+            var races = _db.Race;
+            foreach (Race race in races)
+            {
+                if (race.Nom.Equals(r))
+                {
+                    raceSelected = race;
+                }
+            }
+        }
     }
 }

@@ -88,9 +88,13 @@ namespace Projet
                     var animaux = _db.Animaux;
                     foreach (Animaux animal in animaux)
                     {
+<<<<<<< Updated upstream
                         Clients monClient = _db.Clients.Find(animal.Clients_idClients);
                         Race maRace = new Race();
                         foreach (Race race in animal.Race)
+=======
+                        if ((animal.Nom.StartsWith(searchName)) || (animal.DateNaissance.Equals(searchName)) || (animal.Race.Equals(searchName)) || animal.DateNaissance.Equals(searchName))
+>>>>>>> Stashed changes
                         {
                             maRace = race;
                         }
@@ -131,7 +135,11 @@ namespace Projet
                 InitializeAnimauxInterface("");
             }
         }
+<<<<<<< Updated upstream
 
+=======
+        
+>>>>>>> Stashed changes
 
         private void edit_Click(object sender, EventArgs e)
         {
@@ -140,7 +148,7 @@ namespace Projet
                 selectedLine = allAnimauxList.SelectedItems[0].Text;
                 int id = int.Parse(selectedLine.Split('.')[0]);
                 Animaux selectedAnimal = getAnimaux(id);
-                InscriptionAnimalInterface modifyAnimal = new InscriptionAnimalInterface(selectedAnimal, _db, this);
+                InscriptionAnimalInterface modifyAnimal = new InscriptionAnimalInterface(selectedAnimal, this, null);
                 modifyAnimal.Show();
 
             }

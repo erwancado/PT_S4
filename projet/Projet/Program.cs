@@ -16,7 +16,8 @@ namespace Projet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Facture(new List<Soins>(), null , null));
+            DB_ENTITIES _db = new DB_ENTITIES();
+            Application.Run(new InscriptionAnimalInterface(null, null,_db.Clients.Find(1)));
         }
     }
 }

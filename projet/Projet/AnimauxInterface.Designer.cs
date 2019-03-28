@@ -38,8 +38,13 @@
             this.espece = new System.Windows.Forms.Label();
             this.race = new System.Windows.Forms.Label();
             this.allAnimauxList = new System.Windows.Forms.ListView();
+<<<<<<< Updated upstream
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+=======
+            this.sexe = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+>>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // textBox1
@@ -131,7 +136,11 @@
             this.allAnimauxList.UseCompatibleStateImageBehavior = false;
             this.allAnimauxList.DoubleClick += new System.EventHandler(this.allAnimauxList_DoubleClick);
             // 
+<<<<<<< Updated upstream
             // comboBox1
+=======
+            // sexe
+>>>>>>> Stashed changes
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(91, 153);
@@ -153,8 +162,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+<<<<<<< Updated upstream
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
+=======
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.sexe);
+>>>>>>> Stashed changes
             this.Controls.Add(this.allAnimauxList);
             this.Controls.Add(this.race);
             this.Controls.Add(this.espece);
@@ -186,5 +200,6 @@
         private System.Windows.Forms.ListView allAnimauxList;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
+
     }
 }

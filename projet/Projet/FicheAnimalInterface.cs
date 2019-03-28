@@ -51,7 +51,7 @@ namespace Projet
 
         private void modifierAnimal_Click(object sender, EventArgs e)
         {
-            InscriptionAnimalInterface modifyAnimal = new InscriptionAnimalInterface(animal, _db, null);
+            InscriptionAnimalInterface modifyAnimal = new InscriptionAnimalInterface(animal, null, null);
             modifyAnimal.Show();
             this.Hide();
         }
@@ -102,6 +102,11 @@ namespace Projet
         {
             //Maladie
             MessageBox.Show("Supprimer maladie");
+        }
+
+        private void ajouterRappel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

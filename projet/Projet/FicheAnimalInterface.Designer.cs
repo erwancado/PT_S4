@@ -70,6 +70,7 @@
             this.ajouterRappel.TabIndex = 0;
             this.ajouterRappel.Text = "ajouterRappel";
             this.ajouterRappel.UseVisualStyleBackColor = true;
+            this.ajouterRappel.Click += new System.EventHandler(this.ajouterRappel_Click);
             // 
             // modifierAnimal
             // 
@@ -177,20 +178,20 @@
             // listeMaladies
             // 
             this.listeMaladies.AutoSize = true;
-            this.listeMaladies.Location = new System.Drawing.Point(40, 325);
+            this.listeMaladies.Location = new System.Drawing.Point(19, 329);
             this.listeMaladies.Name = "listeMaladies";
-            this.listeMaladies.Size = new System.Drawing.Size(67, 13);
+            this.listeMaladies.Size = new System.Drawing.Size(99, 13);
             this.listeMaladies.TabIndex = 25;
-            this.listeMaladies.Text = "listeMaladies";
+            this.listeMaladies.Text = "Liste des maladies :";
             // 
             // description
             // 
             this.description.AutoSize = true;
-            this.description.Location = new System.Drawing.Point(546, 75);
+            this.description.Location = new System.Drawing.Point(394, 93);
             this.description.Name = "description";
-            this.description.Size = new System.Drawing.Size(58, 13);
+            this.description.Size = new System.Drawing.Size(82, 13);
             this.description.TabIndex = 28;
-            this.description.Text = "description";
+            this.description.Text = "Liste des soins :";
             // 
             // nom
             // 
@@ -209,7 +210,7 @@
             this.listOfDiseases.ContextMenuStrip = this.contextMenuMaladie;
             this.listOfDiseases.Location = new System.Drawing.Point(22, 354);
             this.listOfDiseases.Name = "listOfDiseases";
-            this.listOfDiseases.Size = new System.Drawing.Size(285, 173);
+            this.listOfDiseases.Size = new System.Drawing.Size(356, 173);
             this.listOfDiseases.TabIndex = 40;
             this.listOfDiseases.UseCompatibleStateImageBehavior = false;
             this.listOfDiseases.View = System.Windows.Forms.View.Details;
@@ -283,7 +284,7 @@
             this.modifierToolStripMenuItem1,
             this.supprimerToolStripMenuItem1});
             this.contextMenuMaladie.Name = "contextMenuMaladie";
-            this.contextMenuMaladie.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuMaladie.Size = new System.Drawing.Size(130, 70);
             // 
             // ajouterToolStripMenuItem1
             // 

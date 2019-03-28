@@ -44,7 +44,6 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dateDeNaissance = new System.Windows.Forms.Label();
             this.poids = new System.Windows.Forms.Label();
-            this.retourFicheClient = new System.Windows.Forms.Button();
             this.ajoutEspece = new System.Windows.Forms.Button();
             this.ajoutRace = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -126,6 +125,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 8;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // male
             // 
@@ -192,16 +192,6 @@
             this.poids.TabIndex = 19;
             this.poids.Text = "poids";
             // 
-            // retourFicheClient
-            // 
-            this.retourFicheClient.Location = new System.Drawing.Point(111, 25);
-            this.retourFicheClient.Name = "retourFicheClient";
-            this.retourFicheClient.Size = new System.Drawing.Size(107, 23);
-            this.retourFicheClient.TabIndex = 20;
-            this.retourFicheClient.Text = "retourFicheClient";
-            this.retourFicheClient.UseVisualStyleBackColor = true;
-            this.retourFicheClient.Click += new System.EventHandler(this.retourFicheClient_Click);
-            // 
             // ajoutEspece
             // 
             this.ajoutEspece.Enabled = false;
@@ -229,7 +219,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.ajoutRace);
             this.Controls.Add(this.ajoutEspece);
-            this.Controls.Add(this.retourFicheClient);
             this.Controls.Add(this.poids);
             this.Controls.Add(this.dateDeNaissance);
             this.Controls.Add(this.numericUpDown1);
@@ -272,7 +261,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label dateDeNaissance;
         private System.Windows.Forms.Label poids;
-        private System.Windows.Forms.Button retourFicheClient;
         private System.Windows.Forms.Button ajoutEspece;
         private System.Windows.Forms.Button ajoutRace;
     }
