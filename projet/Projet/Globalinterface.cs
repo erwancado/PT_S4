@@ -98,6 +98,7 @@ namespace Projet
 
         private void homeButton_Click(object sender, EventArgs e)
         {
+            this.Refresh();
 
         }
 
@@ -115,11 +116,14 @@ namespace Projet
 
         private void animalsButton_Click(object sender, EventArgs e)
         {
+            AnimauxInterface animauxInterface = new AnimauxInterface();
+            animauxInterface.Show();
 
         }
 
         private void prescriptionButton_Click(object sender, EventArgs e)
         {
+            
 
         }
 

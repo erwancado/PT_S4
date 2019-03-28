@@ -82,7 +82,7 @@ namespace Projet
                     _db.RendezVous.Add(rdvToAdd);
                 _db.SaveChanges();
                 string message = "Le rendez-vous a été ajouté avec succès. Voulez-vous ajouté un nouveau rendez-vous ?";
-                string caption = "Error Detected in Input";
+                string caption = "Rendez-vous ajouté";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
                 result = MessageBox.Show(message, caption, buttons);

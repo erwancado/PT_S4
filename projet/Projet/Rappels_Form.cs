@@ -12,10 +12,46 @@ namespace Projet
 {
     public partial class Rappels_Form : Form
     {
-        public Rappels_Form()
+        DB_ENTITIES _db;
+        Animaux animal;
+        public Rappels_Form(Animaux animal)
         {
+            _db = new DB_ENTITIES();
             InitializeComponent();
-            dateTimePicker1.MaxDate = DateTime.Now;
+            datePicker.MinDate = DateTime.Now;
+            this.animal = animal;
+
+        }
+
+        private void validateRappel_Click(object sender, EventArgs e)
+        {
+            if (description.Text.Equals(""))
+                MessageBox.Show("Veuillez entrer une description.");
+            else
+            {
+                Rappel rappel = new Rappel();
+                rappel.Description = description.Text;
+                rappel.Date = datePicker.Value;
+                rappel.Animaux = animal;
+                _db.Rappel.Add(rappel);
+                _db.SaveChanges();
+                string message = "Le rappel a été ajouté avec succès. Voulez-vous ajouté un nouveau rappel ?";
+                string caption = "Rappel ajouté";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons);
+
+                if (result == System.Windows.Forms.DialogResult.No)
+                {
+                    this.Close();
+                }
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    description.Clear();
+                    datePicker.Value = DateTime.Now;
+                }
+            }
+            
         }
     }
 }

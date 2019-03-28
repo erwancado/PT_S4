@@ -115,7 +115,8 @@ namespace Projet
 
         private void ajouterRappel_Click(object sender, EventArgs e)
         {
-
+            Rappels_Form rappels_Form = new Rappels_Form(animal);
+            rappels_Form.Show();
         }
 
 
