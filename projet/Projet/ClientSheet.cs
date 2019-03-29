@@ -156,8 +156,28 @@ namespace Projet
 
         private void refresh_Click(object sender, EventArgs e)
         {
+
             completeAnimalList("");
             completeRDVList();
+            nameLabel.Text = "Nom :" ;
+            prenomLabel.Text = "Prénom :";
+            String naissance = 
+            NaissanceLabel.Text = "Date de naissance :";
+            emailLabel.Text = "Email :";
+            telLabel.Text = "Telephone :";
+            adressLabel.Text = "Adresse :" ;
+            if (client.Sexe == null)
+            {
+                client.Sexe = "M";
+            }
+            if (client.Sexe.Equals("M"))
+            {
+                sexeLabel.Text = "Sexe :";
+            }
+            else
+            {
+                sexeLabel.Text = "Sexe :";
+            }
             InitializeIntels();
         }
     }

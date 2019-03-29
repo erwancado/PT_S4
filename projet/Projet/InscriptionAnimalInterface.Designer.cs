@@ -44,8 +44,6 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dateDeNaissance = new System.Windows.Forms.Label();
             this.poids = new System.Windows.Forms.Label();
-            this.ajoutEspece = new System.Windows.Forms.Button();
-            this.ajoutRace = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,11 +57,11 @@
             // nomAnimal
             // 
             this.nomAnimal.AutoSize = true;
-            this.nomAnimal.Location = new System.Drawing.Point(49, 83);
+            this.nomAnimal.Location = new System.Drawing.Point(76, 80);
             this.nomAnimal.Name = "nomAnimal";
-            this.nomAnimal.Size = new System.Drawing.Size(58, 13);
+            this.nomAnimal.Size = new System.Drawing.Size(29, 13);
             this.nomAnimal.TabIndex = 1;
-            this.nomAnimal.Text = "nomAnimal";
+            this.nomAnimal.Text = "Nom";
             // 
             // richTextBox1
             // 
@@ -78,36 +76,36 @@
             this.espece.AutoSize = true;
             this.espece.Location = new System.Drawing.Point(65, 122);
             this.espece.Name = "espece";
-            this.espece.Size = new System.Drawing.Size(42, 13);
+            this.espece.Size = new System.Drawing.Size(43, 13);
             this.espece.TabIndex = 3;
-            this.espece.Text = "espece";
+            this.espece.Text = "Espece";
             // 
             // race
             // 
             this.race.AutoSize = true;
             this.race.Location = new System.Drawing.Point(72, 160);
             this.race.Name = "race";
-            this.race.Size = new System.Drawing.Size(28, 13);
+            this.race.Size = new System.Drawing.Size(33, 13);
             this.race.TabIndex = 4;
-            this.race.Text = "race";
+            this.race.Text = "Race";
             // 
             // sexe
             // 
             this.sexe.AutoSize = true;
             this.sexe.Location = new System.Drawing.Point(65, 203);
             this.sexe.Name = "sexe";
-            this.sexe.Size = new System.Drawing.Size(29, 13);
+            this.sexe.Size = new System.Drawing.Size(31, 13);
             this.sexe.TabIndex = 5;
-            this.sexe.Text = "sexe";
+            this.sexe.Text = "Sexe";
             // 
             // infosComplementaires
             // 
             this.infosComplementaires.AutoSize = true;
-            this.infosComplementaires.Location = new System.Drawing.Point(631, 80);
+            this.infosComplementaires.Location = new System.Drawing.Point(612, 80);
             this.infosComplementaires.Name = "infosComplementaires";
-            this.infosComplementaires.Size = new System.Drawing.Size(109, 13);
+            this.infosComplementaires.Size = new System.Drawing.Size(146, 13);
             this.infosComplementaires.TabIndex = 6;
-            this.infosComplementaires.Text = "infosComplementaires";
+            this.infosComplementaires.Text = "Informations complémentaires";
             // 
             // comboBox1
             // 
@@ -155,7 +153,7 @@
             this.inscription.Name = "inscription";
             this.inscription.Size = new System.Drawing.Size(75, 23);
             this.inscription.TabIndex = 15;
-            this.inscription.Text = "inscription";
+            this.inscription.Text = "Inscription";
             this.inscription.UseVisualStyleBackColor = true;
             this.inscription.Click += new System.EventHandler(this.inscription_Click);
             // 
@@ -179,46 +177,24 @@
             this.dateDeNaissance.AutoSize = true;
             this.dateDeNaissance.Location = new System.Drawing.Point(353, 58);
             this.dateDeNaissance.Name = "dateDeNaissance";
-            this.dateDeNaissance.Size = new System.Drawing.Size(92, 13);
+            this.dateDeNaissance.Size = new System.Drawing.Size(96, 13);
             this.dateDeNaissance.TabIndex = 18;
-            this.dateDeNaissance.Text = "dateDeNaissance";
+            this.dateDeNaissance.Text = "Date de naissance";
             // 
             // poids
             // 
             this.poids.AutoSize = true;
             this.poids.Location = new System.Drawing.Point(388, 168);
             this.poids.Name = "poids";
-            this.poids.Size = new System.Drawing.Size(32, 13);
+            this.poids.Size = new System.Drawing.Size(33, 13);
             this.poids.TabIndex = 19;
-            this.poids.Text = "poids";
-            // 
-            // ajoutEspece
-            // 
-            this.ajoutEspece.Enabled = false;
-            this.ajoutEspece.Location = new System.Drawing.Point(255, 122);
-            this.ajoutEspece.Name = "ajoutEspece";
-            this.ajoutEspece.Size = new System.Drawing.Size(74, 23);
-            this.ajoutEspece.TabIndex = 22;
-            this.ajoutEspece.Text = "ajoutEspece";
-            this.ajoutEspece.UseVisualStyleBackColor = true;
-            // 
-            // ajoutRace
-            // 
-            this.ajoutRace.Enabled = false;
-            this.ajoutRace.Location = new System.Drawing.Point(255, 163);
-            this.ajoutRace.Name = "ajoutRace";
-            this.ajoutRace.Size = new System.Drawing.Size(74, 23);
-            this.ajoutRace.TabIndex = 23;
-            this.ajoutRace.Text = "ajoutRace";
-            this.ajoutRace.UseVisualStyleBackColor = true;
+            this.poids.Text = "Poids";
             // 
             // InscriptionAnimalInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ajoutRace);
-            this.Controls.Add(this.ajoutEspece);
             this.Controls.Add(this.poids);
             this.Controls.Add(this.dateDeNaissance);
             this.Controls.Add(this.numericUpDown1);
@@ -261,7 +237,5 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label dateDeNaissance;
         private System.Windows.Forms.Label poids;
-        private System.Windows.Forms.Button ajoutEspece;
-        private System.Windows.Forms.Button ajoutRace;
     }
 }
