@@ -2,7 +2,7 @@
 
 Projet tutoré du S4
 
-# Guide d'installation :
+# Guide d'installation : (Vous en trouverez une copie en pdf avec des captures d'écrans, Guide d'installation.pdf)
 
 ## Guide de visionnage du code. 
 
