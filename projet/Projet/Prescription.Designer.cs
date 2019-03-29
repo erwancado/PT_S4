@@ -30,6 +30,7 @@
         {
             this.panelFirstPage = new System.Windows.Forms.Panel();
             this.secondPagePanel = new System.Windows.Forms.Panel();
+            this.productListBox = new System.Windows.Forms.ComboBox();
             this.addOrRemoveLineLabel = new System.Windows.Forms.Label();
             this.produitLabel = new System.Windows.Forms.Label();
             this.posologyInput = new System.Windows.Forms.RichTextBox();
@@ -48,15 +49,14 @@
             this.searchClientButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.ClientsAnimal = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listClient = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.productListBox = new System.Windows.Forms.ComboBox();
             this.panelFirstPage.SuspendLayout();
             this.secondPagePanel.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +77,7 @@
             this.panelFirstPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFirstPage.Location = new System.Drawing.Point(0, 0);
             this.panelFirstPage.Name = "panelFirstPage";
-            this.panelFirstPage.Size = new System.Drawing.Size(800, 450);
+            this.panelFirstPage.Size = new System.Drawing.Size(1804, 911);
             this.panelFirstPage.TabIndex = 0;
             // 
             // secondPagePanel
@@ -95,9 +95,18 @@
             this.secondPagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.secondPagePanel.Location = new System.Drawing.Point(0, 0);
             this.secondPagePanel.Name = "secondPagePanel";
-            this.secondPagePanel.Size = new System.Drawing.Size(800, 450);
+            this.secondPagePanel.Size = new System.Drawing.Size(1804, 911);
             this.secondPagePanel.TabIndex = 11;
             this.secondPagePanel.Visible = false;
+            // 
+            // productListBox
+            // 
+            this.productListBox.FormattingEnabled = true;
+            this.productListBox.Location = new System.Drawing.Point(26, 132);
+            this.productListBox.Name = "productListBox";
+            this.productListBox.Size = new System.Drawing.Size(245, 21);
+            this.productListBox.TabIndex = 10;
+            this.productListBox.SelectedIndexChanged += new System.EventHandler(this.productListBox_SelectedIndexChanged);
             // 
             // addOrRemoveLineLabel
             // 
@@ -266,6 +275,19 @@
             this.ClientsAnimal.View = System.Windows.Forms.View.Details;
             this.ClientsAnimal.SelectedIndexChanged += new System.EventHandler(this.ClientsAnimal_SelectedIndexChanged);
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "ID";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Nom";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Date de naissance";
+            // 
             // listClient
             // 
             this.listClient.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -300,35 +322,19 @@
             this.columnHeader4.Text = "Date de naissance";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "ID";
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Nom";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Date de naissance";
-            // 
-            // productListBox
-            // 
-            this.productListBox.FormattingEnabled = true;
-            this.productListBox.Location = new System.Drawing.Point(26, 132);
-            this.productListBox.Name = "productListBox";
-            this.productListBox.Size = new System.Drawing.Size(245, 21);
-            this.productListBox.TabIndex = 10;
-            this.productListBox.SelectedIndexChanged += new System.EventHandler(this.productListBox_SelectedIndexChanged);
-            // 
             // Prescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1804, 911);
+            this.ControlBox = false;
             this.Controls.Add(this.panelFirstPage);
+            this.Location = new System.Drawing.Point(500, 500);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Prescription";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Prescription";
             this.panelFirstPage.ResumeLayout(false);
             this.panelFirstPage.PerformLayout();

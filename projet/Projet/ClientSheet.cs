@@ -106,7 +106,8 @@ namespace Projet
 
         private void addRDVButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Vous voulez ajouter un rendez-vous");
+            RendezVousForm rendezVousForm = new RendezVousForm(client);
+            rendezVousForm.Show();
         }
 
         private void allAnimalsClient_MouseDoubleClick(object sender, MouseEventArgs e)

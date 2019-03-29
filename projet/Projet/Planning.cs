@@ -166,13 +166,14 @@ namespace Projet
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addRdvButton = new System.Windows.Forms.Button();
+            this.refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.planningGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // datePicker
             // 
-            this.datePicker.Location = new System.Drawing.Point(667, 112);
+            this.datePicker.Location = new System.Drawing.Point(1105, 147);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(200, 20);
             this.datePicker.TabIndex = 0;
@@ -181,12 +182,13 @@ namespace Projet
             // planningGridView
             // 
             this.planningGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.planningGridView.Location = new System.Drawing.Point(49, 131);
+            this.planningGridView.Location = new System.Drawing.Point(247, 168);
             this.planningGridView.Margin = new System.Windows.Forms.Padding(10);
             this.planningGridView.Name = "planningGridView";
-            this.planningGridView.Size = new System.Drawing.Size(818, 429);
+            this.planningGridView.Size = new System.Drawing.Size(1058, 592);
             this.planningGridView.TabIndex = 1;
             this.planningGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.planningGridView_CellDoubleClick);
+            this.planningGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.planningGridView_CellValueChanged);
             // 
             // contextMenuStrip1
             // 
@@ -210,7 +212,7 @@ namespace Projet
             // 
             // addRdvButton
             // 
-            this.addRdvButton.Location = new System.Drawing.Point(354, 22);
+            this.addRdvButton.Location = new System.Drawing.Point(672, 59);
             this.addRdvButton.Name = "addRdvButton";
             this.addRdvButton.Size = new System.Drawing.Size(179, 61);
             this.addRdvButton.TabIndex = 2;
@@ -218,13 +220,29 @@ namespace Projet
             this.addRdvButton.UseVisualStyleBackColor = true;
             this.addRdvButton.Click += new System.EventHandler(this.addRdvButton_Click);
             // 
+            // refresh
+            // 
+            this.refresh.Location = new System.Drawing.Point(672, 820);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(179, 61);
+            this.refresh.TabIndex = 3;
+            this.refresh.Text = "Rafraichir";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
+            // 
             // Planning
             // 
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1804, 911);
+            this.Controls.Add(this.refresh);
             this.Controls.Add(this.addRdvButton);
             this.Controls.Add(this.planningGridView);
             this.Controls.Add(this.datePicker);
+            this.Location = new System.Drawing.Point(500, 500);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Planning";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             ((System.ComponentModel.ISupportInitialize)(this.planningGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -240,7 +258,7 @@ namespace Projet
 
         private void addRdvButton_Click(object sender, EventArgs e)
         {
-            RendezVousForm rendezVousForm = new RendezVousForm(null);
+            RendezVousForm rendezVousForm = new RendezVousForm();
             rendezVousForm.Show();
         }
 
@@ -261,6 +279,18 @@ namespace Projet
                 RendezVousSelector selector = new RendezVousSelector(hours[daySelected, hourSelected]);
                 selector.Show();
             }
+        }
+
+        private void planningGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            planningGridView.Rows.Clear();
+            PopulateDataGrid(datePicker.Value);
+        }
+
+        private void refresh_Click(object sender, EventArgs e)
+        {
+            planningGridView.Rows.Clear();
+            PopulateDataGrid(datePicker.Value);
         }
     }
 }
