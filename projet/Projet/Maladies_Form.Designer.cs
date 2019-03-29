@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nameDesease = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -38,14 +37,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.description = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // nameDesease
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 95);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 20);
-            this.textBox1.TabIndex = 0;
+            this.nameDesease.Location = new System.Drawing.Point(95, 95);
+            this.nameDesease.Name = "nameDesease";
+            this.nameDesease.Size = new System.Drawing.Size(148, 20);
+            this.nameDesease.TabIndex = 0;
             // 
             // label1
             // 
@@ -55,14 +55,6 @@
             this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nom maladie : ";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(95, 151);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(241, 120);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
             // 
             // label2
             // 
@@ -96,6 +88,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(180, 20);
             this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label4
             // 
@@ -114,6 +107,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Ajouter à la liste des maladies";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -123,12 +117,21 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Ajouter la maladie à l\'animal";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // description
+            // 
+            this.description.Location = new System.Drawing.Point(104, 174);
+            this.description.Name = "description";
+            this.description.Size = new System.Drawing.Size(189, 20);
+            this.description.TabIndex = 10;
             // 
             // Maladies_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.description);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
@@ -136,9 +139,8 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nameDesease);
             this.Name = "Maladies_Form";
             this.Text = "Maladies_Form";
             this.ResumeLayout(false);
@@ -148,9 +150,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameDesease;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -158,5 +159,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox description;
     }
 }

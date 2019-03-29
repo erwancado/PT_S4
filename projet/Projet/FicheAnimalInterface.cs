@@ -97,7 +97,8 @@ namespace Projet
 
         private void ajouterToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+            Maladies_Form maladies_Form = new Maladies_Form(animal);
+            maladies_Form.Show();
             MessageBox.Show("add maladie");
         }
 
