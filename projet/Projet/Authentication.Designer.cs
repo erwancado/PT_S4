@@ -114,7 +114,7 @@
             this.Controls.Add(this.pass);
             this.Controls.Add(this.login);
             this.Name = "Authentication";
-            this.Text = "Authentication";
+            this.Text = "Authentification";
             this.ResumeLayout(false);
             this.PerformLayout();
 
