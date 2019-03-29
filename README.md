@@ -25,7 +25,7 @@ Projet tutoré du S4
 
 3. Choisissez le chemin de publication de l'executable. Si par exemple vous choisissez publish/, l'executable sera donc pt_s4/projet/Projet/publish. Cliquez sur Suivant.
 
-4. Choisissez maintenant l'option "A partir d'un chemin UNC ou d'un partage de fichier" et saisissez le chemin vers "pt_s4/projet".
+4. Choisissez maintenant l'option "A partir d'un chemin UNC ou d'un partage de fichier" et saisissez le chemin vers le projet téléchargé.
 
 5. Choisissez l'option "Non, cette application est uniquement disponible en ligne".
 
