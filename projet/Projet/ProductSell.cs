@@ -84,9 +84,9 @@ namespace Projet
                 this.textBox1.Enabled = true;
             } else
             {
-		this.textBox1.Text = "";
+		        this.textBox1.Text = "";
                 this.textBox1.Enabled = false;
-		this.prix = 0;
+		        this.prix = 0;
             }
         }
 

@@ -124,19 +124,19 @@ namespace Projet
         private void completeMaladieList()
         {
             this.listOfDiseases.Items.Clear();
-                ListViewItem item = new ListViewItem();
                 var maladies = _db.Animaux_maladies;
                 foreach (Animaux_maladies maladie in maladies)
                 {
                     if (maladie.Animaux_idAnimaux== animal.idAnimaux) {
                         var mesMaladies = _db.Maladies;
-                    foreach (Maladies mal in mesMaladies) {
-                        if (mal.idMaladies == maladie.Maladies_idMaladies) {
-                            item.SubItems.Add(mal.Nom);
-                            item.SubItems.Add(maladie.Date.ToShortDateString());
+                        foreach (Maladies mal in mesMaladies) {
+                            if (mal.idMaladies == maladie.Maladies_idMaladies) {
+                                ListViewItem item = new ListViewItem();
+                                item.SubItems.Add(mal.Nom);
+                                item.SubItems.Add(maladie.Date.ToShortDateString());
+                                listOfDiseases.Items.Add(item);
+                            }
                         }
-                    }
-                        listOfDiseases.Items.Add(item);
                     }
                 }
             listOfDiseases.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
