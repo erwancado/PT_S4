@@ -42,7 +42,7 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(498, 338);
+            this.listView1.Location = new System.Drawing.Point(329, 284);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(775, 259);
             this.listView1.TabIndex = 0;
@@ -53,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(498, 319);
+            this.label1.Location = new System.Drawing.Point(329, 265);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 1;
@@ -61,14 +61,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(501, 186);
+            this.textBox1.Location = new System.Drawing.Point(332, 132);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(182, 20);
             this.textBox1.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(699, 185);
+            this.button1.Location = new System.Drawing.Point(530, 131);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 23);
             this.button1.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             // nouv
             // 
-            this.nouv.Location = new System.Drawing.Point(801, 185);
+            this.nouv.Location = new System.Drawing.Point(632, 131);
             this.nouv.Name = "nouv";
             this.nouv.Size = new System.Drawing.Size(75, 23);
             this.nouv.TabIndex = 4;
@@ -97,14 +97,14 @@
             // vendreToolStripMenuItem
             // 
             this.vendreToolStripMenuItem.Name = "vendreToolStripMenuItem";
-            this.vendreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendreToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.vendreToolStripMenuItem.Text = "Vendre..";
             this.vendreToolStripMenuItem.Click += new System.EventHandler(this.vendreToolStripMenuItem_Click);
             // 
             // modifierToolStripMenuItem
             // 
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.modifierToolStripMenuItem.Text = "Modifier..";
             this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
@@ -118,6 +118,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
+            this.Location = new System.Drawing.Point(500, 500);
             this.Name = "Stock";
             this.Text = "Stock";
             this.ResizeEnd += new System.EventHandler(this.Stock_ResizeEnd);

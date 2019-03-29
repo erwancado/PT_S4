@@ -27,5 +27,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem suprimerToolStripMenuItem;
+        private System.Windows.Forms.Button refresh;
     }
 }

@@ -48,14 +48,14 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(88, 47);
+            this.nameTextBox.Location = new System.Drawing.Point(416, 186);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 0;
             // 
             // prenomTextBox
             // 
-            this.prenomTextBox.Location = new System.Drawing.Point(88, 82);
+            this.prenomTextBox.Location = new System.Drawing.Point(416, 221);
             this.prenomTextBox.Name = "prenomTextBox";
             this.prenomTextBox.Size = new System.Drawing.Size(100, 20);
             this.prenomTextBox.TabIndex = 1;
@@ -63,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 50);
+            this.label1.Location = new System.Drawing.Point(340, 189);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 2;
@@ -72,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 82);
+            this.label2.Location = new System.Drawing.Point(340, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             // adressTextBox
             // 
-            this.adressTextBox.Location = new System.Drawing.Point(88, 195);
+            this.adressTextBox.Location = new System.Drawing.Point(416, 334);
             this.adressTextBox.Multiline = true;
             this.adressTextBox.Name = "adressTextBox";
             this.adressTextBox.Size = new System.Drawing.Size(201, 106);
@@ -89,7 +89,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 195);
+            this.label3.Location = new System.Drawing.Point(340, 334);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 5;
@@ -98,7 +98,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 143);
+            this.label4.Location = new System.Drawing.Point(338, 282);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 6;
@@ -106,7 +106,7 @@
             // 
             // naissanceDatePicker
             // 
-            this.naissanceDatePicker.Location = new System.Drawing.Point(89, 143);
+            this.naissanceDatePicker.Location = new System.Drawing.Point(417, 282);
             this.naissanceDatePicker.Name = "naissanceDatePicker";
             this.naissanceDatePicker.Size = new System.Drawing.Size(200, 20);
             this.naissanceDatePicker.TabIndex = 7;
@@ -115,7 +115,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 116);
+            this.label5.Location = new System.Drawing.Point(340, 255);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 8;
@@ -125,7 +125,7 @@
             // 
             this.manRadioButton.AutoSize = true;
             this.manRadioButton.Checked = true;
-            this.manRadioButton.Location = new System.Drawing.Point(103, 116);
+            this.manRadioButton.Location = new System.Drawing.Point(431, 255);
             this.manRadioButton.Name = "manRadioButton";
             this.manRadioButton.Size = new System.Drawing.Size(61, 17);
             this.manRadioButton.TabIndex = 9;
@@ -136,7 +136,7 @@
             // womanRadioButton
             // 
             this.womanRadioButton.AutoSize = true;
-            this.womanRadioButton.Location = new System.Drawing.Point(214, 116);
+            this.womanRadioButton.Location = new System.Drawing.Point(542, 255);
             this.womanRadioButton.Name = "womanRadioButton";
             this.womanRadioButton.Size = new System.Drawing.Size(59, 17);
             this.womanRadioButton.TabIndex = 10;
@@ -146,7 +146,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 331);
+            this.label6.Location = new System.Drawing.Point(340, 470);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(24, 13);
             this.label6.TabIndex = 11;
@@ -154,7 +154,7 @@
             // 
             // telTextBox
             // 
-            this.telTextBox.Location = new System.Drawing.Point(88, 331);
+            this.telTextBox.Location = new System.Drawing.Point(416, 470);
             this.telTextBox.Name = "telTextBox";
             this.telTextBox.Size = new System.Drawing.Size(100, 20);
             this.telTextBox.TabIndex = 12;
@@ -162,7 +162,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 395);
+            this.label7.Location = new System.Drawing.Point(340, 534);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 13;
@@ -170,16 +170,17 @@
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(88, 392);
+            this.emailTextBox.Location = new System.Drawing.Point(416, 531);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(201, 20);
             this.emailTextBox.TabIndex = 14;
             // 
             // validateButton
             // 
-            this.validateButton.Location = new System.Drawing.Point(588, 213);
+            this.validateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.validateButton.Location = new System.Drawing.Point(916, 306);
             this.validateButton.Name = "validateButton";
-            this.validateButton.Size = new System.Drawing.Size(75, 23);
+            this.validateButton.Size = new System.Drawing.Size(219, 74);
             this.validateButton.TabIndex = 16;
             this.validateButton.Text = "Inscription";
             this.validateButton.UseVisualStyleBackColor = true;
@@ -189,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1804, 911);
             this.Controls.Add(this.validateButton);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.label7);
@@ -206,7 +207,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.prenomTextBox);
             this.Controls.Add(this.nameTextBox);
+            this.Location = new System.Drawing.Point(500, 500);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ClientForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "ClientForm";
             this.ResumeLayout(false);
             this.PerformLayout();
