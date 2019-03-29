@@ -32,6 +32,8 @@ namespace Projet
 
         Race raceSelected;
 
+        int idAnimal;
+
        
         
 
@@ -47,8 +49,10 @@ namespace Projet
             this._db = new DB_ENTITIES();
             isMan = true;
             dateNais = DateTime.Now;
+            idAnimal = 0;
             if (animal != null)
             {
+                idAnimal = animal.idAnimaux;
                 initializeInput();
                 isModification = true;
             }
@@ -122,12 +126,19 @@ namespace Projet
                 animal.Caractéristiques = an.Caractéristiques;
             }
             _db.SaveChanges();
-            
-            inscriptionGood(an);
+            var animaux = _db.Animaux;
+            int max = 0;
+            foreach (Animaux ani in animaux) {
+                max = ani.idAnimaux;
+            }
             List<Race> mesRaces = new List<Race>();
             mesRaces.Add(raceSelected);
-            _db.Animaux.Find(animal.idAnimaux).Race = mesRaces;
+            Animaux animal2 = _db.Animaux.Find(max);
+         
+            animal2.Race = mesRaces;
             _db.SaveChanges();
+            inscriptionGood(an);
+            
         }
 
 
