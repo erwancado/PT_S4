@@ -57,6 +57,7 @@
             this.ajouterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refresh = new System.Windows.Forms.Button();
             this.contextMenuMaladie.SuspendLayout();
             this.contextMenuSoins.SuspendLayout();
             this.SuspendLayout();
@@ -295,11 +296,22 @@
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
+            // refresh
+            // 
+            this.refresh.Location = new System.Drawing.Point(664, 403);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(75, 23);
+            this.refresh.TabIndex = 42;
+            this.refresh.Text = "Refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
+            // 
             // FicheAnimalInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 613);
+            this.Controls.Add(this.refresh);
             this.Controls.Add(this.listReminders);
             this.Controls.Add(this.listOfDiseases);
             this.Controls.Add(this.nom);
@@ -354,5 +366,6 @@
         private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem1;
         private System.Windows.Forms.ColumnHeader dateMaladies;
+        private System.Windows.Forms.Button refresh;
     }
 }

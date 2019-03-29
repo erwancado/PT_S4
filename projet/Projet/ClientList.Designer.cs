@@ -70,7 +70,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(188, 34);
+            this.searchButton.Location = new System.Drawing.Point(503, 133);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 1;
@@ -80,14 +80,14 @@
             // 
             // nameInput
             // 
-            this.nameInput.Location = new System.Drawing.Point(38, 37);
+            this.nameInput.Location = new System.Drawing.Point(353, 136);
             this.nameInput.Name = "nameInput";
             this.nameInput.Size = new System.Drawing.Size(100, 20);
             this.nameInput.TabIndex = 2;
             // 
             // newClientButton
             // 
-            this.newClientButton.Location = new System.Drawing.Point(291, 34);
+            this.newClientButton.Location = new System.Drawing.Point(606, 133);
             this.newClientButton.Name = "newClientButton";
             this.newClientButton.Size = new System.Drawing.Size(75, 23);
             this.newClientButton.TabIndex = 3;
@@ -106,9 +106,9 @@
             this.columnHeaderEmail,
             this.columnHeaderRDV});
             this.allClientList.ContextMenuStrip = this.clientContextMenu;
-            this.allClientList.Location = new System.Drawing.Point(38, 143);
+            this.allClientList.Location = new System.Drawing.Point(353, 242);
             this.allClientList.Name = "allClientList";
-            this.allClientList.Size = new System.Drawing.Size(703, 260);
+            this.allClientList.Size = new System.Drawing.Size(703, 596);
             this.allClientList.TabIndex = 4;
             this.allClientList.UseCompatibleStateImageBehavior = false;
             this.allClientList.View = System.Windows.Forms.View.Details;
@@ -154,12 +154,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1804, 911);
             this.Controls.Add(this.allClientList);
             this.Controls.Add(this.newClientButton);
             this.Controls.Add(this.nameInput);
             this.Controls.Add(this.searchButton);
+            this.Location = new System.Drawing.Point(500, 500);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ClientList";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "ClientList";
             this.clientContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);

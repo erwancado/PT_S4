@@ -15,7 +15,14 @@ namespace Projet
         DB_ENTITIES _db;
         int rdvDelay = 30;
         int rdvId = -1;
-    
+
+        public RendezVousForm()
+        {
+            _db = new DB_ENTITIES();
+            InitializeComponent();
+            populateClientList();
+            displayRdv(datePicker.Value);
+        }
         public RendezVousForm(RendezVous rendezVous)
         {
             _db = new DB_ENTITIES();     
@@ -23,12 +30,20 @@ namespace Projet
             populateClientList();
             if (rendezVous != null)
             {
-                rdvId = rendezVous.idRendezVous;
-                clientList.SelectedIndex = rendezVous.Clients_idClients;
-                datePicker.Value = rendezVous.Date;
-                timePicker.Value = rendezVous.Date;
-                description.Text = rendezVous.Description;
-                validateButton.Text = "Modifier";
+                setRdvValues(rendezVous);
+            }
+            displayRdv(datePicker.Value);
+        }
+        public RendezVousForm(Clients client)
+        {
+            _db = new DB_ENTITIES();
+            InitializeComponent();
+            populateClientList();
+            for (int i = 0; i < clientList.Items.Count; i++)
+            {
+                var c = clientList.Items[i];
+                if (int.Parse(((String)c).Substring(0, ((String)c).IndexOf('.'))) == client.idClients)
+                    clientList.SelectedItem = client;
             }
             displayRdv(datePicker.Value);
         }
@@ -48,6 +63,22 @@ namespace Projet
                 if(rdv.Date.ToShortDateString().Equals(date.ToShortDateString()))
                     rdvView.Items.Add(rdv.Date.ToShortTimeString() + "  " + rdv.Clients.Prenom + " " + rdv.Clients.Nom);
             }
+        }
+
+        private void setRdvValues(RendezVous rendezVous)
+        {
+            rdvId = rendezVous.idRendezVous;
+            for (int i=0;i<clientList.Items.Count;i++)
+            {
+                var client = clientList.Items[i];
+                if (int.Parse(((String)client).Substring(0, ((String)client).IndexOf('.'))) == rendezVous.Clients_idClients)
+                    clientList.SelectedItem = client;
+            }
+
+            datePicker.Value = rendezVous.Date;
+            timePicker.Value = rendezVous.Date;
+            description.Text = rendezVous.Description;
+            validateButton.Text = "Modifier";
         }
 
         private bool rdvValid()
@@ -72,14 +103,13 @@ namespace Projet
             {
                 RendezVous rdvToAdd = new RendezVous(); ;
                 if (rdvId != -1)
-                    rdvToAdd = _db.RendezVous.Find(rdvId);
+                    Utils.removeRdv(_db.RendezVous.Find(rdvId).idRendezVous,_db);
                 DateTime rdvDate = new DateTime(datePicker.Value.Year, datePicker.Value.Month, datePicker.Value.Day, timePicker.Value.Hour, timePicker.Value.Minute, timePicker.Value.Second);
                 int idClient = int.Parse(((String)clientList.SelectedItem.ToString()).Substring(0, ((String)clientList.SelectedItem.ToString()).IndexOf('.', 0)));
                 rdvToAdd.Clients_idClients = idClient;
                 rdvToAdd.Date = rdvDate;
                 rdvToAdd.Description = description.Text;
-                if(rdvId==-1)
-                    _db.RendezVous.Add(rdvToAdd);
+                _db.RendezVous.Add(rdvToAdd);
                 _db.SaveChanges();
                 string message = "Le rendez-vous a été ajouté avec succès. Voulez-vous ajouté un nouveau rendez-vous ?";
                 string caption = "Rendez-vous ajouté";

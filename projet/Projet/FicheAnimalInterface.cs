@@ -169,5 +169,11 @@ namespace Projet
             Prescription prescription = new Prescription(animal.Clients_idClients, animal.idAnimaux);
             prescription.Show();
         }
+
+        private void refresh_Click(object sender, EventArgs e)
+        {
+            completeMaladieList();
+            completeRemindersList();
+        }
     }
 }
