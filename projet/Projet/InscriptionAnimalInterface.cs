@@ -75,8 +75,6 @@ namespace Projet
         private void initializeInput()
         {
             textBox1.Text = animal.Nom;
-           // comboBox1.Text = animal.Espece;
-           // comboBox2.SelectedText = animal.Race;
             dateNais = (DateTime)animal.DateNaissance;
             dateTimePicker1.Value = dateNais;
             richTextBox1.Text = animal.Caractéristiques;
@@ -89,7 +87,7 @@ namespace Projet
                 femelle.Checked = true;
             }
             animal.Poids = (int)numericUpDown1.Value;
-            // validateButton.Text = "Modifier";
+           
         }
 
 

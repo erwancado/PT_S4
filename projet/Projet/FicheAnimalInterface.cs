@@ -43,9 +43,7 @@ namespace Projet
             Especes monEspece = _db.Especes.Find(maRace.Especes_idEspeces);
             nomRace.Text += " " + maRace.Nom;
             nomEspece.Text += " " + monEspece.Nom;
-            //   emailLabel.Text += " " + client.Email;
-            // telLabel.Text += " " + client.Téléphone;
-            //adressLabel.Text += " " + client.Adresse;
+           
             if (animal.Sexe == null)
             {
                 animal.Sexe = "M";
@@ -58,8 +56,7 @@ namespace Projet
             {
                 sexe.Text += " Féminin";
             }
-           // completeAnimalList("");
-           //completeRDVList();
+        
         }
 
         private void modifierAnimal_Click(object sender, EventArgs e)
